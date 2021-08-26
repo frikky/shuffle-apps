@@ -85,11 +85,13 @@ class MSComplianceCenter(AppBase):
 
         # GET:https://graph.microsoft.com/v1.0/me/messages?$filter=from/emailAddress/address+eq+'xx@xxxx.onmicrosoft.com'+and+isRead+eq+False
 
-    async def get_alerts(self, tenant_id, client_id, client_secret):
+    async def get_alerts(self, tenant_id, client_id, client_secret, top):
         graph_url = "https://graph.microsoft.com"
         session = await self.authenticate(tenant_id, client_id, client_secret, graph_url)
-
-        graph_url = "https://graph.microsoft.com/v1.0/security/alerts"
+        if top:
+            graph_url = f"https://graph.microsoft.com/v1.0/security/alerts?$top={top}"
+        else:
+            graph_url = f"https://graph.microsoft.com/v1.0/security/alerts?$top=10"
         ret = session.get(graph_url)
         print(ret.status_code)
         print(ret.text)
@@ -295,7 +297,7 @@ class MSComplianceCenter(AppBase):
 
         return {"success": False, "reason": "Bad status code %d - expecting 200." % ret.status_code,"error_response":ret.text}    
 
-    async def list_secure_score(self, tenant_id, client_id, client_secret,top):
+    async def list_secure_score(self, tenant_id, client_id, client_secret, top):
         graph_url = "https://graph.microsoft.com"
         session = await self.authenticate(tenant_id, client_id, client_secret, graph_url)
         if top:

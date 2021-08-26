@@ -188,6 +188,36 @@ actions:
     returns:
       schema:
         type: string  
+  - name: create_network_interface
+    description: Creates a network interface in the specified subnet.
+    parameters:
+      - name: description
+        description: A description for the network interface.
+        required: false
+        multiline: false
+        example: 'A description for the network interface.'
+        schema:
+          type: string
+      - name: subnetid
+        description: The ID of the subnet to associate with the network interface.
+        required: true
+        multiline: false
+        example: 'subnet-1491c1e8d873c06de'
+        schema:
+          type: string
+      - name: dryrun
+        description: Test or not
+        required: true
+        multiline: false
+        example: 'True|False'
+        options:
+          - True
+          - False
+        schema:
+          type: string
+    returns:
+      schema:
+        type: string
   - name: create_image
     description: Creates an Amazon EBS-backed AMI from an Amazon EBS-backed instance that is either running or stopped.
     parameters:

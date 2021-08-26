@@ -173,6 +173,20 @@ class AWSEC2(AppBase):
         except botocore.exceptions.ClientError as e:
             print("Error: %s" % e)
             return "%s" % e
+    
+    #Create Network Interface
+    async def create_network_interface(self, access_key, secret_key, region, subnetid, description, dryrun ):
+        self.ec2 = await self.auth_ec2(access_key, secret_key, region)
+        client = self.ec2.meta.client
+        dryrun = True if dryrun in ["True", "true"] else False
+        try:
+            return client.create_network_interface(
+                Description = description,
+                DryRun = dryrun,
+                SubnetId = subnetid
+            )
+        except Exception as e:
+            return e
 
     #Create Image
     async def create_image(self, access_key, secret_key, region, description, instance_id, name, dryrun, noreboot):

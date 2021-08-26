@@ -35,7 +35,15 @@ authentication:
 actions:
   - name: get_alerts 
     description: Returns all alerts 
-
+    parameters:
+      - name: top
+        description: Total number of alerts you want to recieve
+        multiline: false
+        example: "10"
+        required: false
+        schema:
+          type: string 
+          
   - name: get_alerts_by_severity 
     description: Returns alerts by severity
     parameters:
