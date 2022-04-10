@@ -1,10 +1,10 @@
-import socket
 import asyncio
-import time
-import random
 import json
-import requests
+import random
+import socket
+import time
 
+import requests
 from walkoff_app_sdk.app_base import AppBase
 
 class BreachSense(AppBase):
@@ -22,10 +22,10 @@ class BreachSense(AppBase):
 
     def Basic_search(self, api_key, search_term, date):
         if date:
-            url = f"https://breachsense.io/api?lic={api_key}&s={search_term}&date={date}&json"   
+            url = f"https://breachsense.io/api?lic={api_key}&s={search_term}&date={date}&json"
         else:
             url = f"https://breachsense.io/api?lic={api_key}&s={search_term}&json"
-        try: 
+        try:
             response = requests.get(url)
             return response.text
         except Exception as e:
@@ -33,10 +33,10 @@ class BreachSense(AppBase):
 
     def Display_Description(self, api_key, search_term, date):
         if date:
-            url = f"https://breachsense.io/api?lic={api_key}&s={search_term}&date={date}&attr&json"   
+            url = f"https://breachsense.io/api?lic={api_key}&s={search_term}&date={date}&attr&json"
         else:
             url = f"https://breachsense.io/api?lic={api_key}&s={search_term}&attr&json"
-        try: 
+        try:
             response = requests.get(url)
             return response.text
         except Exception as e:
@@ -44,10 +44,10 @@ class BreachSense(AppBase):
 
     def Strict_search(self, api_key, search_term, date):
         if date:
-            url = f"https://breachsense.io/api?lic={api_key}&s={search_term}&date={date}&strict&json"   
+            url = f"https://breachsense.io/api?lic={api_key}&s={search_term}&date={date}&strict&json"
         else:
             url = f"https://breachsense.io/api?lic={api_key}&s={search_term}&strict&json"
-        try:  
+        try:
             response = requests.get(url)
             return response.text
         except Exception as e:
@@ -55,7 +55,7 @@ class BreachSense(AppBase):
 
     def Check_credits(self, api_key):
         url = f"https://breachsense.io/api?lic={api_key}&r&json"
-        try:  
+        try:
             response = requests.get(url)
             return response.text
         except Exception as e:
@@ -63,7 +63,7 @@ class BreachSense(AppBase):
 
     def Domain_Monitor(self, api_key, action, domain):
         url = f"https://breachsense.io/api?lic={api_key}&action={action}&dom={domain}&json"
-        try:  
+        try:
             response = requests.get(url)
             return response.text
         except Exception as e:
@@ -71,10 +71,10 @@ class BreachSense(AppBase):
 
     def Custom_search(self, api_key, search_term, date, extra_Params):
         if date:
-            url = f"https://breachsense.io/api?lic={api_key}&s={search_term}&date={date}&{extra_Params}&json"   
+            url = f"https://breachsense.io/api?lic={api_key}&s={search_term}&date={date}&{extra_Params}&json"
         else:
             url = f"https://breachsense.io/api?lic={api_key}&s={search_term}&{extra_Params}&json"
-        try:  
+        try:
             response = requests.get(url)
             return response.text
         except Exception as e:

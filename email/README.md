@@ -1,5 +1,5 @@
 ## Using curl to test whether you SMPT mails are getting delivered.
-``` 
+```
 curl --ssl smtp://1.1.1.1:587 --mail-from example@example.com --mail-rcpt example1@example.com --upload-file email.txt --user 'example:Password123' -k -v
 ```
 

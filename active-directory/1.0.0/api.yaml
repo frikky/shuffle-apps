@@ -7,12 +7,12 @@ contact_info:
   email: d4rkw0lv3s@outlook.pt
 tags:
   - activedirectory
-  - ldap 
+  - ldap
   - ldaps
   - Azure AD
 categories:
   - IAM
-  - assets 
+  - assets
 authentication:
   required: true
   parameters:

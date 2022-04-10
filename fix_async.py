@@ -7,7 +7,7 @@ for folder in folders:
         subfolders = os.listdir(f"{basedir}/{folder}")
     except:
         continue
-    
+
     for subfolder in subfolders:
         filename = f"{basedir}/{folder}/{subfolder}/src/app.py"
         data = ""

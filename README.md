@@ -3,19 +3,19 @@ This is a repository for apps to be used in [Shuffle](https://github.com/frikky/
 
 **PS:** These apps should be valid with WALKOFF, but the SDK is different, meaning you have to change the FIRST line in each Dockerfile (FROM frikky/shuffle:app_sdk).
 
-## App Creation 
-App creation can be done with the Shuffle App Creator (exports as OpenAPI) or Python, which makes it possible to connect _literally_ any tool. Always prioritize using the App Creator when applicable. 
+## App Creation
+App creation can be done with the Shuffle App Creator (exports as OpenAPI) or Python, which makes it possible to connect _literally_ any tool. Always prioritize using the App Creator when applicable.
 
 ![Shuffle-workflow-categories](https://github.com/frikky/shuffle-workflows/blob/master/images/categories_circle_dark.png)
 
-### References 
+### References
 * [App Development Process](https://github.com/frikky/shuffle-docs/blob/master/handbook/engineering/app_development.md)
 * [Python app documentation](https://shuffler.io/docs/app_creation)
 * [Apps in progress](https://github.com/frikky/Shuffle-apps/projects/1)
 
-### Categories 
+### Categories
 We have defined eight (8) "major" categories of tools that are necessary to any cybersecurity threat. Most security-related tools can fit into one of these eight.
-1. [Communication](https://github.com/frikky/Shuffle-apps/issues/26) 		- Any way to chat; WhatsApp, SMS, Email etc. 
+1. [Communication](https://github.com/frikky/Shuffle-apps/issues/26) 		- Any way to chat; WhatsApp, SMS, Email etc.
 2. [Case Management](https://github.com/frikky/Shuffle-apps/issues/22)	- The central hub for operation teams.
 3. [SIEM](https://github.com/frikky/Shuffle-apps/issues/21)							- Search engine for logs in an enterprise. Used to find evil.
 4. [Assets](https://github.com/frikky/Shuffle-apps/issues/25) 					- Discover endpoint information. Vulnerabilities, owners, departments etc.

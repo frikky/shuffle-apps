@@ -1,15 +1,14 @@
-import os
-import socket
 import asyncio
-import time
-import random
 import json
+import os
+import random
+import socket
 import subprocess
-import requests
 import tempfile
+import time
+
 import gnupg
-
-
+import requests
 from walkoff_app_sdk.app_base import AppBase
 
 

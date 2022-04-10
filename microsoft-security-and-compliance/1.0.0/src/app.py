@@ -1,12 +1,11 @@
-import socket
 import asyncio
-import time
-import random
 import json
-import uuid
+import random
+import socket
 import time
-import requests
+import uuid
 
+import requests
 from walkoff_app_sdk.app_base import AppBase
 
 # Antispam
@@ -15,14 +14,14 @@ from walkoff_app_sdk.app_base import AppBase
 # https://docs.microsoft.com/en-us/microsoft-365/security/office-365-security/configure-the-connection-filter-policy?view=o365-worldwide
 
 #create_url = "https://compliance.microsoft.com/api/ComplianceSearch"
-#Request URL: 
+#Request URL:
 # https://docs.microsoft.com/en-us/information-protection/develop/overview
 # https://docs.microsoft.com/en-us/graph/api/resources/ediscovery-ediscoveryapioverview?view=graph-rest-beta
 # Microsoft Graph Security securityAction entity
 # https://docs.microsoft.com/en-us/graph/api/resources/threatassessment-api-overview?view=graph-rest-1.0
 
 # Permissions (Delegated): SecurityEvents, ThreatAssement, ThreatIndicators, Compliance
-# !! Have a "report email" internally using office365 !! 
+# !! Have a "report email" internally using office365 !!
 # Microsoft Threat Protection
 # https://security.microsoft.com/mtp/
 # https://protection.office.com/api/AcceptedDomain
@@ -115,7 +114,7 @@ class MSComplianceCenter(AppBase):
             data = ret.json()
             return {"success": True, "alerts": data["value"]}
 
-        return {"success": False, "reason": "Bad status code %d - expecting 200." % ret.status_code}   
+        return {"success": False, "reason": "Bad status code %d - expecting 200." % ret.status_code}
 
     def get_alerts_by_vendors(self, tenant_id, client_id, client_secret, vendor, top):
         vendor_code = {
@@ -131,7 +130,7 @@ class MSComplianceCenter(AppBase):
         if top:
             graph_url = f"https://graph.microsoft.com/v1.0/security/alerts?$filter=vendorInformation/provider eq '{vendor_code[vendor]}'&$top={top}"
         else:
-            graph_url = f"https://graph.microsoft.com/v1.0/security/alerts?$filter=vendorInformation/provider eq '{vendor_code[vendor]}'&$top=5" 
+            graph_url = f"https://graph.microsoft.com/v1.0/security/alerts?$filter=vendorInformation/provider eq '{vendor_code[vendor]}'&$top=5"
         ret = session.get(graph_url)
         print(ret.status_code)
         print(ret.text)
@@ -139,8 +138,8 @@ class MSComplianceCenter(AppBase):
             data = ret.json()
             return {"success": True, "alerts": data["value"]}
 
-        return {"success": False, "reason": "Bad status code %d - expecting 200." % ret.status_code}     
-    
+        return {"success": False, "reason": "Bad status code %d - expecting 200." % ret.status_code}
+
     def get_alert_by_id(self, tenant_id, client_id, client_secret,alert_id):
         graph_url = "https://graph.microsoft.com"
         session = self.authenticate(tenant_id, client_id, client_secret, graph_url)
@@ -157,7 +156,7 @@ class MSComplianceCenter(AppBase):
 
     def update_alert(self, tenant_id, client_id, client_secret, alert_id, assigned_to, comments, tags, feedback, status, vendor, provider, sub_provider,provider_version):
         """This function needs to be tested."""
-        
+
         graph_url = "https://graph.microsoft.com"
         session = self.authenticate(tenant_id, client_id, client_secret, graph_url)
 
@@ -166,7 +165,7 @@ class MSComplianceCenter(AppBase):
         tags_list = []
         if tags:
             for tag in tags.split(","):
-                 tags_list.append(tag)         
+                 tags_list.append(tag)
 
         request_body = {
             "assignedTo": assigned_to,
@@ -210,7 +209,7 @@ class MSComplianceCenter(AppBase):
         graph_url = "https://graph.microsoft.com"
         session = self.authenticate(tenant_id, client_id, client_secret, graph_url)
 
-        graph_url = f"https://graph.microsoft.com/v1.0/informationProtection/threatAssessmentRequests/{request_id}"        
+        graph_url = f"https://graph.microsoft.com/v1.0/informationProtection/threatAssessmentRequests/{request_id}"
         ret = session.get(graph_url)
         print(ret.status_code)
         print(ret.text)
@@ -218,13 +217,13 @@ class MSComplianceCenter(AppBase):
             data = ret.json()
             return data
 
-        return {"success": False, "reason": "Bad status code %d - expecting 200." % ret.status_code,"error_response":ret.text}    
+        return {"success": False, "reason": "Bad status code %d - expecting 200." % ret.status_code,"error_response":ret.text}
 
     def create_mail_threat_assessment(self, tenant_id, client_id, client_secret, reciepient_email, expected_assessment, category, message_uri, status):
         graph_url = "https://graph.microsoft.com"
         session = self.authenticate(tenant_id, client_id, client_secret, graph_url)
         graph_url = f"https://graph.microsoft.com/v1.0/informationProtection/threatAssessmentRequests"
-        
+
         headers = {
             "Content-type": "application/json"
         }
@@ -245,7 +244,7 @@ class MSComplianceCenter(AppBase):
             data = ret.json()
             return data
 
-        return {"success": False, "reason": "Bad status code %d - expecting 200." % ret.status_code,"error_response":ret.text} 
+        return {"success": False, "reason": "Bad status code %d - expecting 200." % ret.status_code,"error_response":ret.text}
 
 
     def create_url_threat_assessment(self, tenant_id, client_id, client_secret, url, expected_assessment, category, status):
@@ -295,7 +294,7 @@ class MSComplianceCenter(AppBase):
             data = ret.json()
             return data
 
-        return {"success": False, "reason": "Bad status code %d - expecting 200." % ret.status_code,"error_response":ret.text}    
+        return {"success": False, "reason": "Bad status code %d - expecting 200." % ret.status_code,"error_response":ret.text}
 
     def list_secure_score(self, tenant_id, client_id, client_secret, top):
         graph_url = "https://graph.microsoft.com"
@@ -313,7 +312,7 @@ class MSComplianceCenter(AppBase):
             return data
 
         return {"success": False, "reason": "Bad status code %d - expecting 200." % ret.status_code,"error_response":ret.text}
-    
+
     def list_cases(self, tenant_id, client_id, client_secret):
         graph_url = "https://graph.microsoft.com"
         session = self.authenticate(tenant_id, client_id, client_secret, graph_url)
@@ -327,7 +326,7 @@ class MSComplianceCenter(AppBase):
             return data
 
         return {"success": False, "reason": "Bad status code %d - expecting 200." % ret.status_code,"error_response":ret.text}
-    
+
     def get_case(self, tenant_id, client_id, client_secret,case_id):
         graph_url = "https://graph.microsoft.com"
         session = self.authenticate(tenant_id, client_id, client_secret, graph_url)
@@ -361,8 +360,8 @@ class MSComplianceCenter(AppBase):
             data = ret.json()
             return data
 
-        return {"success": False, "reason": "Bad status code %d - expecting 200." % ret.status_code,"error_response":ret.text}    
-    
+        return {"success": False, "reason": "Bad status code %d - expecting 200." % ret.status_code,"error_response":ret.text}
+
     def update_case(self, tenant_id, client_id, client_secret,case_id, display_name, description, external_id):
         graph_url = "https://graph.microsoft.com"
         session = self.authenticate(tenant_id, client_id, client_secret, graph_url)
@@ -385,7 +384,7 @@ class MSComplianceCenter(AppBase):
             return data
 
         return {"success": False, "reason": "Bad status code %d - expecting 200." % ret.status_code,"error_response":ret.text}
-    
+
     def close_case(self, tenant_id, client_id, client_secret, case_id):
         graph_url = "https://graph.microsoft.com"
         session = self.authenticate(tenant_id, client_id, client_secret, graph_url)
@@ -464,7 +463,7 @@ class MSComplianceCenter(AppBase):
             data = ret.json()
             return data
 
-        return {"success": False, "reason": "Bad status code %d - expecting 200." % ret.status_code,"error_response":ret.text}    
+        return {"success": False, "reason": "Bad status code %d - expecting 200." % ret.status_code,"error_response":ret.text}
 
     def update_custodian(self, tenant_id, client_id, client_secret,case_id, custodian_id, apply_hold_to_sources):
         graph_url = "https://graph.microsoft.com"
@@ -518,7 +517,7 @@ class MSComplianceCenter(AppBase):
             data = ret.json()
             return data
 
-        return {"success": False, "reason": "Bad status code %d - expecting 200." % ret.status_code,"error_response":ret.text}        
+        return {"success": False, "reason": "Bad status code %d - expecting 200." % ret.status_code,"error_response":ret.text}
 
     def list_legalholds(self, tenant_id, client_id, client_secret,case_id):
         graph_url = "https://graph.microsoft.com"
@@ -533,7 +532,7 @@ class MSComplianceCenter(AppBase):
             return data
 
         return {"success": False, "reason": "Bad status code %d - expecting 200." % ret.status_code,"error_response":ret.text}
-    
+
     def get_legalhold(self, tenant_id, client_id, client_secret, case_id, legalhold_id):
         graph_url = "https://graph.microsoft.com"
         session = self.authenticate(tenant_id, client_id, client_secret, graph_url)
@@ -552,7 +551,7 @@ class MSComplianceCenter(AppBase):
         graph_url = "https://graph.microsoft.com"
         session = self.authenticate(tenant_id, client_id, client_secret, graph_url)
         graph_url = f"https://graph.microsoft.com/beta/compliance/ediscovery/cases/{case_id}/legalHolds"
-        
+
         error_list = [str(i) for i in errors.split(',')]
         headers = {
             "Content-Type": "application/json"
@@ -575,8 +574,8 @@ class MSComplianceCenter(AppBase):
             data = ret.json()
             return data
 
-        return {"success": False, "reason": "Bad status code %d - expecting 200." % ret.status_code,"error_response":ret.text}    
-    
+        return {"success": False, "reason": "Bad status code %d - expecting 200." % ret.status_code,"error_response":ret.text}
+
     def list_source_collections(self, tenant_id, client_id, client_secret,case_id):
         graph_url = "https://graph.microsoft.com"
         session = self.authenticate(tenant_id, client_id, client_secret, graph_url)
@@ -603,8 +602,8 @@ class MSComplianceCenter(AppBase):
             data = ret.json()
             return data
 
-        return {"success": False, "reason": "Bad status code %d - expecting 200." % ret.status_code,"error_response":ret.text}    
-    
+        return {"success": False, "reason": "Bad status code %d - expecting 200." % ret.status_code,"error_response":ret.text}
+
     #https://protection.office.com/api/ComplianceSearch/StartSearch?id=Another+search&retry=False
 
 if __name__ == "__main__":

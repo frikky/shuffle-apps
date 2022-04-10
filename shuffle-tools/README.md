@@ -2,7 +2,7 @@
 Shuffle tools is a utility app that simplifies your understanding of what happens in a node and also allows you to test on the fly.
 
 ## Actions
-The Shuffle-tools app comes with a multitude of different actions, here we will check a few out and give a brief description. 
+The Shuffle-tools app comes with a multitude of different actions, here we will check a few out and give a brief description.
 
 1. Repeat back to me - This action does exactly what it says, repeats back to you what you want it to. Why is this important? You need to test as you go whilst creating your workflow, what results does the first node give and are the results okay to use in the subsequent nodes?
 

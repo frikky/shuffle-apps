@@ -1,13 +1,12 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
 import asyncio
-import time
+import json
 import random
+import time
+
 import requests
 import urllib3
-import json 
-
 from walkoff_app_sdk.app_base import AppBase
 
 class Splunk(AppBase):
@@ -30,7 +29,7 @@ class Splunk(AppBase):
         super().__init__(redis, logger, console_logger)
 
     def echo(self, input_data):
-        return input_data 
+        return input_data
 
     def run_search(self, auth, url, query):
         url = '%s/services/search/jobs?output_mode=json' % (url)
@@ -77,7 +76,7 @@ class Splunk(AppBase):
                     return ret.json()["messages"]
                 except KeyError as e:
                     return "KeyError: %s" % e
-                
+
             time.sleep(1)
 
         return ret
@@ -119,6 +118,6 @@ class Splunk(AppBase):
 
         #print("No results (or wrong?): %d" % (len(ret.json()["entry"])))
         #return "No results"
-        
+
 if __name__ == "__main__":
     Splunk.run()

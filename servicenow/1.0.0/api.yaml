@@ -1,11 +1,11 @@
 walkoff_version: 1.0.0
 app_version: 1.0.0
-name: servicenow 
-description: servicenow app 
+name: servicenow
+description: servicenow app
 tags:
-  - tickets 
+  - tickets
 categories:
-  - tickets 
+  - tickets
 contact_info:
   name: "@frikkylikeme"
   url: https://github.com/frikky
@@ -13,21 +13,21 @@ contact_info:
 authentication:
   required: true
   parameters:
-    - name: url 
+    - name: url
       description: The url your instance is at
       multiline: false
       example: "test.service-now.com"
       required: true
       schema:
         type: string
-    - name: username 
+    - name: username
       description: The user to authenticate with
       multiline: false
       example: "username12345"
       required: true
       schema:
         type: string
-    - name: password 
+    - name: password
       description: The password for the user to authenticate with
       multiline: false
       example: "pw1234"
@@ -35,24 +35,24 @@ authentication:
       schema:
         type: string
 actions:
-  - name: get_ticket 
-    description: Get ticket ids 
+  - name: get_ticket
+    description: Get ticket ids
     parameters:
-      - name: table_name 
+      - name: table_name
         description: The type to get. Empty as default
         multiline: false
         example: "incident"
         required: true
         schema:
           type: string
-      - name: sys_id 
+      - name: sys_id
         description: The ID to get from the table
         multiline: false
         example: "INC123456"
-        required: true 
+        required: true
         schema:
           type: string
-      - name: number 
+      - name: number
         description: The number to get instead of record_id
         multiline: false
         example: "20"
@@ -62,82 +62,82 @@ actions:
     returns:
       schema:
         type: string
-  - name: create_ticket 
+  - name: create_ticket
     description: Create a ticket
     parameters:
-      - name: table_name 
+      - name: table_name
         description: The table to create the ticket in
         multiline: false
         example: "incident"
         required: true
         schema:
           type: string
-      - name: body 
+      - name: body
         description: The body of the ticket
-        multiline: true 
+        multiline: true
         example: "{'short_description':'Unable to connect to office wifi','assignment_group':'287ebd7da9fe198100f92cc8d1d2154e','urgency':'2','impact':'2'}"
-        required: true 
+        required: true
         schema:
           type: string
-      - name: file_id 
+      - name: file_id
         description: Optional file to attach
         multiline: false
         example: "ca0c88a6-626e-4235-896f-ca18c96fd48e"
-        required: false 
+        required: false
         schema:
           type: string
     returns:
       schema:
         type: string
-  - name: update_ticket 
+  - name: update_ticket
     description: Update a ticket
     parameters:
-      - name: table_name 
+      - name: table_name
         description: The table to create the ticket in
         multiline: false
         example: "incident"
         required: true
         schema:
           type: string
-      - name: sys_id 
+      - name: sys_id
         description: The ticket to edit
         multiline: false
         example: "incident"
         required: true
         schema:
           type: string
-      - name: body 
-        description: JSON data of the data to replace 
-        multiline: true 
+      - name: body
+        description: JSON data of the data to replace
+        multiline: true
         example: "{'short_description':'Unable to connect to office wifi','assignment_group':'287ebd7da9fe198100f92cc8d1d2154e','urgency':'2','impact':'2'}"
-        required: true 
+        required: true
         schema:
           type: string
-      - name: file_id 
+      - name: file_id
         description: Optional file to attach
         multiline: false
         example: "ca0c88a6-626e-4235-896f-ca18c96fd48e"
-        required: false 
+        required: false
         schema:
           type: string
     returns:
       schema:
         type: string
-  - name: list_table 
-    description: Get ticket ids 
+  - name: list_table
+    description: Get ticket ids
     parameters:
-      - name: table_name 
+      - name: table_name
         description: The type to get. Empty as default
         multiline: false
         example: "incident"
         required: true
         schema:
           type: string
-      - name: limit 
+      - name: limit
         description: The limit of items to get
         multiline: false
         example: "1"
-        required: false 
+        required: false
         schema:
           type: string
     returns:

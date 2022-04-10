@@ -1,8 +1,8 @@
-import requests
 import asyncio
 import json
-import urllib3
 
+import requests
+import urllib3
 from walkoff_app_sdk.app_base import AppBase
 
 class Crowdstrike_Falcon(AppBase):

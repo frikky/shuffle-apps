@@ -37,7 +37,7 @@ actions:
         description: The IP, domain, url etc to search for.
         example: '1.2.3.4'
         required: true
-        multiline: false 
+        multiline: false
         schema:
           type: string
     returns:
@@ -50,7 +50,7 @@ actions:
         description: The IP, domain, url etc to search for.
         example: '1.2.3.4'
         required: true
-        multiline: false 
+        multiline: false
         schema:
           type: string
     returns:
@@ -63,7 +63,7 @@ actions:
         description: The IP, domain, url or other IOC to search for
         example: '1.2.3.4'
         required: true
-        multiline: false 
+        multiline: false
         schema:
           type: string
     returns:
@@ -76,7 +76,7 @@ actions:
         description: The full query to search for
         example: '{"value": "example.com"}'
         required: true
-        multiline: true 
+        multiline: true
         schema:
           type: string
     returns:
@@ -89,7 +89,7 @@ actions:
         description: The full query to search for
         example: '["1.2.3.4", "10.0.0.1"]'
         required: true
-        multiline: true 
+        multiline: true
         schema:
           type: string
     returns:

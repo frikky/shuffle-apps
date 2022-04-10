@@ -1,17 +1,17 @@
-import socket
 import asyncio
-import time
-import random
 import json
+import random
+import socket
+import time
+
 import boto3
 import botocore
 from botocore.config import Config
-
 from walkoff_app_sdk.app_base import AppBase
 
 class AWSEC2(AppBase):
     __version__ = "1.0.0"
-    app_name = "AWS ec2"  
+    app_name = "AWS ec2"
 
     def __init__(self, redis, logger, console_logger=None):
         """
@@ -33,7 +33,7 @@ class AWSEC2(AppBase):
         )
 
         return boto3.client(
-            'securityhub', 
+            'securityhub',
             config=my_config,
             aws_access_key_id=access_key,
             aws_secret_access_key=secret_key,

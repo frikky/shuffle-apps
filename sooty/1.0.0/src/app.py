@@ -1,14 +1,14 @@
-import socket
 import asyncio
-import time
-import random
-import json
-import re
-import urllib
-import requests
 import hashlib
-from ipwhois import IPWhois
+import json
+import random
+import re
+import socket
+import time
+import urllib
 
+import requests
+from ipwhois import IPWhois
 from walkoff_app_sdk.app_base import AppBase
 
 class Sooty(AppBase):
@@ -25,7 +25,7 @@ class Sooty(AppBase):
             return {"Success":"True",'Result':x}
         except Exception as e:
             raise Exception(e)
-    
+
     def UrlDecoder(self, url):
         url = url.strip()
         decodedUrl = urllib.parse.unquote(url)

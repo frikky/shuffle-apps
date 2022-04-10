@@ -1,14 +1,14 @@
 walkoff_version: 1.0.0
 app_version: 1.0.0
-name: secureworks 
-description: secureworks app 
+name: secureworks
+description: secureworks app
 tags:
-  - Threat intel 
-  - Ticketing 
+  - Threat intel
+  - Ticketing
   - MSSP
 categories:
-  - Threat intel 
-  - Ticketing 
+  - Threat intel
+  - Ticketing
   - MSSP
 contact_info:
   name: "@frikkylikeme"
@@ -24,7 +24,7 @@ authentication:
       required: true
       schema:
         type: string
-    - name: password 
+    - name: password
       description: The password for the user to authenticate with
       multiline: false
       example: "username12345"
@@ -33,8 +33,8 @@ authentication:
         type: string
 
 actions:
-  - name: get_ticket_ids 
-    description: Get ticket ids 
+  - name: get_ticket_ids
+    description: Get ticket ids
     parameters:
       - name: username
         description: The user to authenticate with
@@ -43,28 +43,28 @@ actions:
         required: true
         schema:
           type: string
-      - name: password 
+      - name: password
         description: The password for the user to authenticate with
         multiline: false
         example: "username12345"
         required: true
         schema:
           type: string
-      - name: tickettype 
+      - name: tickettype
         description: The type to get. Empty as default
         multiline: false
         example: "INCIDENT"
         required: false
         schema:
           type: string
-      - name: grouptype 
+      - name: grouptype
         description: The grouptype of ticket to get. Empty as default
         multiline: false
         example: "SECURITY"
         required: false
         schema:
           type: string
-      - name: limit 
+      - name: limit
         description: The amount of ticket IDs to get
         multiline: false
         example: "10"
@@ -84,14 +84,14 @@ actions:
         required: true
         schema:
           type: string
-      - name: password 
+      - name: password
         description: The password for the user to authenticate with
         multiline: false
         example: "username12345"
         required: true
         schema:
           type: string
-      - name: ticketId 
+      - name: ticketId
         description: The ticket ID to get
         multiline: false
         example: "IN1234567"
@@ -108,7 +108,7 @@ actions:
     returns:
       schema:
         type: string
-  - name: close_ticket 
+  - name: close_ticket
     description: Close a ticket
     parameters:
       - name: username
@@ -118,14 +118,14 @@ actions:
         required: true
         schema:
           type: string
-      - name: password 
+      - name: password
         description: The password for the user to authenticate with
         multiline: false
         example: "username12345"
         required: true
         schema:
           type: string
-      - name: ticketId 
+      - name: ticketId
         description: The ticket ID to get
         multiline: false
         example: "IN1234567"
@@ -136,20 +136,20 @@ actions:
         description: The code to use
         multiline: false
         example: "False Positive"
-        required: true 
+        required: true
         schema:
           type: string
-      - name: worklogContent 
+      - name: worklogContent
         description: The information to add as last note
         multiline: false
         example: "False because of blah blah"
-        required: true 
+        required: true
         schema:
           type: string
     returns:
       schema:
         type: string
-  - name: add_worklog 
+  - name: add_worklog
     description: Add info to a ticket
     parameters:
       - name: username
@@ -159,31 +159,31 @@ actions:
         required: true
         schema:
           type: string
-      - name: password 
+      - name: password
         description: The password for the user to authenticate with
         multiline: false
         example: "username12345"
         required: true
         schema:
           type: string
-      - name: ticketId 
+      - name: ticketId
         description: The ticket ID to get
         multiline: false
         example: "IN1234567"
         required: true
         schema:
           type: string
-      - name: body 
+      - name: body
         description: The information to add as note
         multiline: false
         example: "This is an example note"
-        required: true 
+        required: true
         schema:
           type: string
     returns:
       schema:
         type: string
-  - name: assign_ticket 
+  - name: assign_ticket
     description: Assign a ticket to Secureworks
     parameters:
       - name: username
@@ -193,31 +193,31 @@ actions:
         required: true
         schema:
           type: string
-      - name: password 
+      - name: password
         description: The password for the user to authenticate with
         multiline: false
         example: "username12345"
         required: true
         schema:
           type: string
-      - name: ticketId 
+      - name: ticketId
         description: The ticket ID to get
         multiline: false
         example: "IN1234567"
         required: true
         schema:
           type: string
-      - name: body 
+      - name: body
         description: The information to add as note
         multiline: false
         example: "This is an example note"
-        required: true 
+        required: true
         schema:
           type: string
     returns:
       schema:
         type: string
-  - name: acknowledge_ticket 
+  - name: acknowledge_ticket
     description: Assign a ticket to Secureworks
     parameters:
       - name: username
@@ -227,25 +227,25 @@ actions:
         required: true
         schema:
           type: string
-      - name: password 
+      - name: password
         description: The password for the user to authenticate with
         multiline: false
         example: "username12345"
         required: true
         schema:
           type: string
-      - name: ticketId 
+      - name: ticketId
         description: The ticket ID to get
         multiline: false
         example: "IN1234567"
         required: true
         schema:
           type: string
-      - name: version 
+      - name: version
         description: The version to acknowledge. $ticket.version as JSON
         multiline: false
         example: "93a35c3f57e10f1deea1c193b8f4b683fa58522a541ddc6397c888bf9cdfce2500897e1b737a1833a8c0bf9de11c487aa42786"
-        required: true 
+        required: true
         schema:
           type: string
     returns:

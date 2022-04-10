@@ -1,12 +1,12 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-import os
 import asyncio
-import urllib3
-import requests
 import base64
+import os
 import tempfile
 
+import requests
+import urllib3
 from walkoff_app_sdk.app_base import AppBase
 
 
@@ -51,7 +51,7 @@ class Misp(AppBase):
         }
 
         return requests.post(url, headers=headers, json=data, verify=self.verify).text
-    
+
     def simplified_event_search(self, apikey, url, data):
         url = "%s/events/restSearch" % url
         data = {"value": data}
@@ -82,7 +82,7 @@ class Misp(AppBase):
         }
 
         return requests.post(url, headers=headers, data=data, verify=self.verify).text
-    
+
     def events_search(self, apikey, url, data):
         url = "%s/events/restSearch" % url
         headers = {

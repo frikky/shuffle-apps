@@ -1,8 +1,8 @@
-requests==2.25.1
-glom==20.11.0
-requests==2.25.1
 eml-parser==1.17.0
-msg-parser==1.2.0
-mail-parser==3.15.0
 extract-msg==0.23.1
+glom==20.11.0
 jsonpickle==2.0.0
+mail-parser==3.15.0
+msg-parser==1.2.0
+requests==2.25.1
+requests==2.25.1

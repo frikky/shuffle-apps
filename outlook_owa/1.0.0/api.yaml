@@ -185,7 +185,7 @@ actions:
         description: The folder to use, e.g. "inbox/personal"
         multiline: false
         example: "inbox/personal"
-        required: false 
+        required: false
         schema:
           type: string
     returns:

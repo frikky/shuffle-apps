@@ -1,33 +1,33 @@
 app_version: 1.0.0
-name: Python3 playground 
+name: Python3 playground
 description: A test app made for you to personally change the code
 contact_info:
   name: "@frikkylikeme"
   url: https://shuffler.io
   email: frikky@shuffler.io
 tags:
-  - Testing 
+  - Testing
 categories:
-  - Testing 
+  - Testing
 actions:
   - name: run_python_script
-    description: Runs a python script defined by YOU 
+    description: Runs a python script defined by YOU
     parameters:
       - name: json_data
-        description: The JSON to handle 
+        description: The JSON to handle
         required: true
         multiline: true
         example: '{"data": "testing"}'
         schema:
           type: string
-      - name: function_to_execute 
+      - name: function_to_execute
         description: The selected python function to run
         required: true
         multiline: true
         example: '1'
-        options: 
-          - function_1 
-          - function_2 
+        options:
+          - function_1
+          - function_2
         schema:
           type: string
     returns:

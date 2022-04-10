@@ -238,31 +238,30 @@ actions:
     returns:
       schema:
         type: string
-  - name: run_query 
+  - name: run_query
     description: Runs a KQL query in your tenant
     parameters:
-      - name: query 
+      - name: query
         description: The query to run
         multiline: true
         example: "SecurityEvent | where EventID == \"4688\" | where CommandLine contains \"-noni -ep bypass $\""
         required: true
         schema:
           type: string
-      - name: query_category 
+      - name: query_category
         description: The comment to add
         multiline: false
         example: "Hunting Queries"
         required: true
         schema:
           type: string
-      - name: query_name 
-        description: The name to use for the query 
+      - name: query_name
+        description: The name to use for the query
         multiline: false
         example: "HuntingRule02"
         required: true
         schema:
           type: string
-    returns:
     returns:
       schema:
         type: string

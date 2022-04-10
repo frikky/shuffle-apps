@@ -5,7 +5,7 @@ FROM base
 
 # Install all alpine build tools needed for our pip installs
 RUN echo 'https://dl-cdn.alpinelinux.org/alpine/edge/community' >> /etc/apk/repositories && \
-  apk add --no-cache --update \ 
+  apk add --no-cache --update \
     libffi \
     abuild \
     build-base \
@@ -23,7 +23,7 @@ RUN echo 'https://dl-cdn.alpinelinux.org/alpine/edge/community' >> /etc/apk/repo
     openssl-dev \
     pcre-dev \
     libtirpc-dev \
-    flatbuffers-dev \ 
+    flatbuffers-dev \
     vectorscan-dev \
     flex-dev
 
@@ -70,9 +70,9 @@ RUN echo "Build libsafec" && \
   # Cleanup compilation
   cd / && \
   rm -rf ${SRC_HOME} && \
-  apk del \ 
-    build-base \ 
-    cmake 
+  apk del \
+    build-base \
+    cmake
 # Install all of our pip packages in a single directory that we can copy to our base image later
 RUN mkdir /install && \
   mkdir /rules
@@ -84,7 +84,7 @@ RUN addgroup snort3 && \
   adduser -h /app -G snort3 -D snort3
 COPY src /app
 RUN chown -R snort3:snort3 /app && \
-  chmod 755 /app/app.py 
+  chmod 755 /app/app.py
 USER snort3
 WORKDIR /app
 

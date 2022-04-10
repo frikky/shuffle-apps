@@ -1,25 +1,24 @@
-import json
-import uuid
-import socket
 import asyncio
-import requests
-import datetime
 import base64
+import datetime
 import imaplib
-import smtplib
-import time
+import json
 import random
-import eml_parser
-import mailparser
-import extract_msg
-import jsonpickle
-
-from glom import glom
-from msg_parser import MsOxMessage
+import smtplib
+import socket
+import time
+import uuid
+from email.mime.application import MIMEApplication
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
-from email.mime.application import MIMEApplication
 
+import eml_parser
+import extract_msg
+import jsonpickle
+import mailparser
+import requests
+from glom import glom
+from msg_parser import MsOxMessage
 from walkoff_app_sdk.app_base import AppBase
 
 def json_serial(obj):
@@ -87,7 +86,7 @@ class Email(AppBase):
         except socket.gaierror as e:
             return f"Bad SMTP host or port: {e}"
 
-        # This is not how it should work.. 
+        # This is not how it should work..
         # Port 465 & 587 = TLS
         if ssl_verify == "false" or ssl_verify == "False":
             pass
@@ -145,7 +144,7 @@ class Email(AppBase):
 
         try:
             s.send_message(msg)
-        except smtplib.SMTPDataError as e: 
+        except smtplib.SMTPDataError as e:
             return {
                 "success": False,
                 "reason": f"Failed to send mail: {e}"
@@ -153,7 +152,7 @@ class Email(AppBase):
 
         self.logger.info("Successfully sent email with subject %s to %s" % (subject, recipient))
         return {
-            "success": True, 
+            "success": True,
             "reason": "Email sent to %s!" % recipient,
             "attachments": attachment_count
         }
@@ -195,7 +194,7 @@ class Email(AppBase):
         #    if str(mark_as_read).lower() == "true":
         #        mark_as_read = True
         #    else:
-        #        mark_as_read = False 
+        #        mark_as_read = False
 
         if type(amount) == str:
             try:
@@ -237,7 +236,7 @@ class Email(AppBase):
 
         email.select(foldername)
         unread = True if unread.lower().strip() == "true" else False
-        
+
         try:
             # IMAP search queries, e.g. "seen" or "read"
             # https://www.rebex.net/secure-mail.net/features/imap-search.aspx
@@ -292,7 +291,7 @@ class Email(AppBase):
             }
 
         try:
-            amount = len(id_list) if len(id_list)<amount else amount 
+            amount = len(id_list) if len(id_list)<amount else amount
             for i in range(len(id_list) - 1, len(id_list) - amount - 1, -1):
                 resp, data = email.fetch(id_list[i], "(RFC822)")
                 error = None
@@ -356,7 +355,7 @@ class Email(AppBase):
                 else:
                     output_dict["attachment"] = []
                     output_dict["attachment_uids"] = []
-                
+
                 emails.append(output_dict)
         except Exception as err:
             return {
@@ -391,9 +390,9 @@ class Email(AppBase):
             ep = eml_parser.EmlParser()
             try:
                 parsed_eml = ep.decode_email_bytes(file_path['data'])
-                return json.dumps(parsed_eml, default=json_serial)   
+                return json.dumps(parsed_eml, default=json_serial)
             except Exception as e:
-                return {"Success":"False","Message":f"Exception occured: {e}"} 
+                return {"Success":"False","Message":f"Exception occured: {e}"}
         elif file_extension.lower() == 'msg':
             print('working with .msg file')
             try:
@@ -417,16 +416,16 @@ class Email(AppBase):
                 result['body_data'] = msg.body
                 return result
             except Exception as e:
-                return {"Success":"False","Message":f"Exception occured: {e}"}    
+                return {"Success":"False","Message":f"Exception occured: {e}"}
         else:
-            return {"Success":"False","Message":f"No file handler for file extension {file_extension}"}    
+            return {"Success":"False","Message":f"No file handler for file extension {file_extension}"}
 
     def parse_email_headers(self, email_headers):
         try:
             email_headers = bytes(email_headers,'utf-8')
             ep = eml_parser.EmlParser()
             parsed_headers = ep.decode_email_bytes(email_headers)
-            return json.dumps(parsed_headers, default=json_serial)   
+            return json.dumps(parsed_headers, default=json_serial)
         except Exception as e:
             raise Exception(e)
 

@@ -1,12 +1,12 @@
-import socket
 import asyncio
-import time
-import random
 import json
-import spacy
-from spacy.lang.en import English
-from cyberspacy import *
+import random
+import socket
+import time
 
+import spacy
+from cyberspacy import *
+from spacy.lang.en import English
 from walkoff_app_sdk.app_base import AppBase
 
 class NLP(AppBase):

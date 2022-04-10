@@ -1,14 +1,14 @@
 app_version: 1.0.0
-name: Email Analyzer 
+name: Email Analyzer
 description: Reads email files. Currently supports EML and MSG files.
 contact_info:
   name: "@davedhaval"
   url: https://infopercept.com
   email: dhavald@infopercept.coom
 tags:
-  - Testing 
+  - Testing
 categories:
-  - Testing 
+  - Testing
 actions:
   - name: parse_email_file
     description: lol lol
@@ -24,13 +24,13 @@ actions:
         description: Extension of file you want to convert
         required: true
         options:
-          - eml 
+          - eml
           - msg
         example: 'eml'
         schema:
           type: string
   - name: parse_email_headers
-    description: 
+    description:
     parameters:
       - name: email_headers
         description: Email headers
@@ -38,7 +38,7 @@ actions:
         multiline: true
         example: 'Email Headers'
         schema:
-          type: string            
+          type: string
     returns:
       schema:
         type: string

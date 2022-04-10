@@ -1,4 +1,4 @@
-## GitGuardian 
+## GitGuardian
 - An app to interact with GitGuardian's secret detection API.
 
 ## Requirements

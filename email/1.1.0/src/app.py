@@ -1,26 +1,24 @@
-import json
-import uuid
-import socket
 import asyncio
-import requests
-import datetime
 import base64
+import datetime
 import imaplib
-import smtplib
-import eml_parser
-import time
+import json
 import random
-import eml_parser
-import mailparser
-import extract_msg
-import jsonpickle
-
-from glom import glom
-from msg_parser import MsOxMessage
+import smtplib
+import socket
+import time
+import uuid
+from email.mime.application import MIMEApplication
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
-from email.mime.application import MIMEApplication
 
+import eml_parser
+import extract_msg
+import jsonpickle
+import mailparser
+import requests
+from glom import glom
+from msg_parser import MsOxMessage
 from walkoff_app_sdk.app_base import AppBase
 
 def json_serial(obj):
@@ -140,7 +138,7 @@ class Email(AppBase):
 
         try:
             s.send_message(msg)
-        except smtplib.SMTPDataError as e: 
+        except smtplib.SMTPDataError as e:
             return {
                 "success": False,
                 "reason": f"Failed to send mail: {e}"
@@ -148,7 +146,7 @@ class Email(AppBase):
 
         print("Successfully sent email with subject %s to %s" % (subject, recipient))
         return {
-            "success": True, 
+            "success": True,
             "reason": "Email sent to %s!" % recipient,
             "attachments": attachment_count
         }
@@ -317,9 +315,9 @@ class Email(AppBase):
             ep = eml_parser.EmlParser()
             try:
                 parsed_eml = ep.decode_email_bytes(file_path['data'])
-                return json.dumps(parsed_eml, default=json_serial)   
+                return json.dumps(parsed_eml, default=json_serial)
             except Exception as e:
-                return {"Success":"False","Message":f"Exception occured: {e}"} 
+                return {"Success":"False","Message":f"Exception occured: {e}"}
         elif file_extension.lower() == 'msg':
             print('working with .msg file')
             try:
@@ -329,16 +327,16 @@ class Email(AppBase):
                 frozen = jsonpickle.encode(msg_properties_dict)
                 return frozen
             except Exception as e:
-                return {"Success":"False","Message":f"Exception occured: {e}"}    
+                return {"Success":"False","Message":f"Exception occured: {e}"}
         else:
-            return {"Success":"False","Message":f"No file handler for file extension {file_extension}"}    
+            return {"Success":"False","Message":f"No file handler for file extension {file_extension}"}
 
     def parse_email_headers(self, email_headers):
         try:
             email_headers = bytes(email_headers,'utf-8')
             ep = eml_parser.EmlParser()
             parsed_headers = ep.decode_email_bytes(email_headers)
-            return json.dumps(parsed_headers, default=json_serial)   
+            return json.dumps(parsed_headers, default=json_serial)
         except Exception as e:
             raise Exception(e)
 

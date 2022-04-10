@@ -1,2 +1,2 @@
-uuid==1.30
 requests==2.25.1
+uuid==1.30

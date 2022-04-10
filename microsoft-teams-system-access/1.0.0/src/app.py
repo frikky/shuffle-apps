@@ -1,12 +1,11 @@
-import socket
 import asyncio
-import time
-import random
 import json
-import uuid
+import random
+import socket
 import time
-import requests
+import uuid
 
+import requests
 from walkoff_app_sdk.app_base import AppBase
 
 # Antispam
@@ -15,14 +14,14 @@ from walkoff_app_sdk.app_base import AppBase
 # https://docs.microsoft.com/en-us/microsoft-365/security/office-365-security/configure-the-connection-filter-policy?view=o365-worldwide
 
 #create_url = "https://compliance.microsoft.com/api/ComplianceSearch"
-#Request URL: 
+#Request URL:
 # https://docs.microsoft.com/en-us/information-protection/develop/overview
 # https://docs.microsoft.com/en-us/graph/api/resources/ediscovery-ediscoveryapioverview?view=graph-rest-beta
 # Microsoft Graph Security securityAction entity
 # https://docs.microsoft.com/en-us/graph/api/resources/threatassessment-api-overview?view=graph-rest-1.0
 
 # Permissions (Delegated): SecurityEvents, ThreatAssement, ThreatIndicators, Compliance
-# !! Have a "report email" internally using office365 !! 
+# !! Have a "report email" internally using office365 !!
 # Microsoft Threat Protection
 # https://security.microsoft.com/mtp/
 # https://protection.office.com/api/AcceptedDomain

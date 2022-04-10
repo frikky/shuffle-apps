@@ -1,5 +1,5 @@
-# This file is used to run powershell-remote commands from within Shuffle from python. 
-# Fields using { } are to be replaced (username, password, command) 
+# This file is used to run powershell-remote commands from within Shuffle from python.
+# Fields using { } are to be replaced (username, password, command)
 #
 $parsedPassword = ConvertTo-SecureString -String {PASSWORD} -AsPlainText -Force
 $creds = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList {USERNAME}, $parsedPassword

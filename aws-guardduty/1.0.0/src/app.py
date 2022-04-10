@@ -1,17 +1,17 @@
-import socket
 import asyncio
-import time
-import random
 import json
+import random
+import socket
+import time
+
 import boto3
 import botocore
 from botocore.config import Config
-
 from walkoff_app_sdk.app_base import AppBase
 
 class AWSGuardduty(AppBase):
     __version__ = "1.0.0"
-    app_name = "AWS Guardduty"  
+    app_name = "AWS Guardduty"
 
     def __init__(self, redis, logger, console_logger=None):
         """
@@ -33,8 +33,8 @@ class AWSGuardduty(AppBase):
         )
 
         return boto3.client(
-            'guardduty', 
-            config=my_config, 
+            'guardduty',
+            config=my_config,
             aws_access_key_id=access_key,
             aws_secret_access_key=secret_key,
         )
@@ -64,7 +64,7 @@ class AWSGuardduty(AppBase):
             )
         except Exception as e:
             return f"Error: {e}"
-    
+
     def update_detector(self, access_key, secret_key, region, detectorId, enable):
         client = self.auth_guardduty(access_key, secret_key, region)
         try:

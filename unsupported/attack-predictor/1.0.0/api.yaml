@@ -1,19 +1,19 @@
 app_version: 1.0.0
-name: Attack Predictor 
+name: Attack Predictor
 description: An app to predict Attack Techniques and Tactics from plain text. Based on rcATT
 contact_info:
   name: "@frikkylikeme"
   url: https://github.com/vlegoy/rcATT
   email: frikky@shuffler.io
 tags:
-  - Testing 
+  - Testing
 categories:
-  - Testing 
+  - Testing
 actions:
-  - name: predict 
-    description: Predicts the 
+  - name: predict
+    description: Predicts the
     parameters:
-      - name: data 
+      - name: data
         description: The data to predict
         required: true
         multiline: true
@@ -24,9 +24,9 @@ actions:
       schema:
         type: string
   - name: predict_file_content
-    description: Predicts the 
+    description: Predicts the
     parameters:
-      - name: file_id 
+      - name: file_id
         description: The file to predict
         required: true
         multiline: false

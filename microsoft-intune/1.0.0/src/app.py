@@ -1,10 +1,10 @@
-import socket
 import asyncio
-import time
-import random
 import json
-import requests
+import random
+import socket
+import time
 
+import requests
 from walkoff_app_sdk.app_base import AppBase
 
 class Intune(AppBase):
@@ -86,14 +86,14 @@ class Intune(AppBase):
         graph_url=f"https://graph.microsoft.com/v1.0/managedDevices/{managedDeviceId}"
         ret = session.delete(graph_url)
         return ret.text
-    
+
     def remotelock(self, tenant_id, client_id, client_secret, managedDeviceId):
         graph_url="https://graph.microsoft.com"
         session = self.authenticate(tenant_id, client_id, client_secret, graph_url)
         graph_url=f"https://graph.microsoft.com/v1.0/managedDevices/{managedDeviceId}/remoteLock"
         ret = session.post(graph_url)
         return ret.text
-    
+
     def shutdown(self, tenant_id, client_id, client_secret, managedDeviceId):
         graph_url="https://graph.microsoft.com"
         session = self.authenticate(tenant_id, client_id, client_secret, graph_url)

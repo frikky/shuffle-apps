@@ -1,7 +1,19 @@
-import json
-import ldap3
 import asyncio
-from ldap3 import Server, Connection, AUTO_BIND_NO_TLS, SUBTREE, BASE, ALL_ATTRIBUTES, ObjectDef, AttrDef, Reader, Entry, Attribute, OperationalAttribute
+import json
+
+import ldap3
+from ldap3 import ALL_ATTRIBUTES
+from ldap3 import AttrDef
+from ldap3 import Attribute
+from ldap3 import AUTO_BIND_NO_TLS
+from ldap3 import BASE
+from ldap3 import Connection
+from ldap3 import Entry
+from ldap3 import ObjectDef
+from ldap3 import OperationalAttribute
+from ldap3 import Reader
+from ldap3 import Server
+from ldap3 import SUBTREE
 from walkoff_app_sdk.app_base import AppBase
 
 

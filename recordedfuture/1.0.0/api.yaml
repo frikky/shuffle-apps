@@ -1,7 +1,7 @@
 walkoff_version: 1.0.0
 app_version: 1.0.0
 name: recordedfuture
-description: Recordedfuture example app 
+description: Recordedfuture example app
 tags:
   - Threat intel
   - TI
@@ -22,23 +22,23 @@ authentication:
       schema:
         type: string
 actions:
-  - name: get_alerts 
+  - name: get_alerts
     description: Gets alerts from recorded future
     parameters:
-      - name: status 
+      - name: status
         description: Apikey for Recorded Future
         multiline: false
         example: "actionable"
-        required: false 
+        required: false
         schema:
           type: string
       - name: limit
         description: Limit of alerts
         multiline: false
         example: "10"
-        required: false 
+        required: false
         schema:
-          type: string 
+          type: string
     returns:
       schema:
         type: string
@@ -56,9 +56,9 @@ actions:
         description: The alert ID to get
         multiline: false
         example: "bvYNuu"
-        required: true 
+        required: true
         schema:
-          type: string 
+          type: string
     returns:
       schema:
         type: string

@@ -1,10 +1,10 @@
-import os
-import socket
 import asyncio
-import time
-import random
 import json
+import os
+import random
+import socket
 import subprocess
+import time
 
 from walkoff_app_sdk.app_base import AppBase
 
@@ -15,7 +15,7 @@ from walkoff_app_sdk.app_base import AppBase
 # 2. Add a way to choose the rule and the target platform for it
 # 3. Add the possibility of translating rules back and forth
 
-# 4. Make it so you can start with Mitre Att&ck techniques 
+# 4. Make it so you can start with Mitre Att&ck techniques
 # and automatically get the right rules set up with your tools :O
 class Sigma(AppBase):
     __version__ = "1.0.0"
@@ -52,10 +52,10 @@ class Sigma(AppBase):
         self.logger.info(f"Dir: {os.listdir(basedir)}")
 
         rule = shuffle_namespace
-        #filename = "file.yaml" 
+        #filename = "file.yaml"
         #with open(filename, "w+") as tmp:
         #    tmp.write(rule)
-    
+
         code = "sigmac --target=%s" % engine
         #if len(backend) > 0:
         if backend:
@@ -63,8 +63,8 @@ class Sigma(AppBase):
                 code += "--list"
             else:
                 code += " -c %s" % backend
-    
-        code += " rules/*" 
+
+        code += " rules/*"
         self.logger.info("Code: ", code)
         print(code)
         print()
@@ -83,13 +83,13 @@ class Sigma(AppBase):
         else:
             print("FAILED to run bash: ", stdout[1])
             item = stdout[1]
-    
+
         try:
             ret = item.decode("utf-8")
             return ret
         except Exception:
             return item
-    
+
         return item
 
 if __name__ == "__main__":

@@ -1,18 +1,18 @@
 app_version: 1.0.0
-name: Exchange Powershell 
+name: Exchange Powershell
 description: An app to interact with emails to be downloaded and release quarantined emails from office365 using Powershell
 contact_info:
   name: "@frikkylikeme"
   url: https://github.com/vlegoy/rcATT
   email: frikky@shuffler.io
 tags:
-  - Communication 
+  - Communication
 categories:
-  - Communication 
+  - Communication
 authentication:
   required: true
   parameters:
-    - name: username 
+    - name: username
       description: The username to connect with
       example: "email@company.com"
       required: true
@@ -26,9 +26,9 @@ authentication:
         type: string
 actions:
   - name: get_quarantine_messages
-    description: Predicts the 
+    description: Predicts the
     parameters:
-      - name: time_from 
+      - name: time_from
         description: Start time
         required: true
         multiline: true
@@ -45,46 +45,46 @@ actions:
     returns:
       schema:
         type: string
-  - name: release_quarantine_message 
+  - name: release_quarantine_message
     description: Releases quarantine message back to the original user
     parameters:
-      - name: message_id 
+      - name: message_id
         description: The message to get
         required: true
-        multiline: false  
+        multiline: false
         example: ''
         schema:
           type: string
     returns:
       schema:
         type: string
-  - name: preview_quarantine_message 
+  - name: preview_quarantine_message
     description: Previews a quarantine message
     parameters:
-      - name: message_id 
+      - name: message_id
         description: The message to get
         required: true
-        multiline: false  
+        multiline: false
         example: '{"data": "testing"}'
         schema:
           type: string
     returns:
       schema:
         type: string
-  - name: export_quarantine_message 
+  - name: export_quarantine_message
     description: Exports a quarantine message
     parameters:
-      - name: message_id 
+      - name: message_id
         description: The message to get
         required: true
-        multiline: false  
+        multiline: false
         example: '{"data": "testing"}'
         schema:
           type: string
-      - name: skip_upload 
+      - name: skip_upload
         description: Decides if you should upload the file or not
         required: true
-        multiline: false  
+        multiline: false
         options:
           - false
           - true
@@ -94,13 +94,13 @@ actions:
     returns:
       schema:
         type: string
-  - name: delete_quarantine_message 
+  - name: delete_quarantine_message
     description: Deletes a quarantine message
     parameters:
-      - name: message_id 
+      - name: message_id
         description: The message to get
         required: true
-        multiline: false  
+        multiline: false
         example: '{"data": "testing"}'
         schema:
           type: string
@@ -108,25 +108,25 @@ actions:
       schema:
         type: string
   - name: get_quarantine_message
-    description: Predicts the 
+    description: Predicts the
     parameters:
-      - name: message_id 
+      - name: message_id
         description: The message to get
         required: true
-        multiline: false  
+        multiline: false
         example: '{"data": "testing"}'
         schema:
           type: string
     returns:
       schema:
         type: string
-  - name: get_quarantine_messageheaders 
-    description: Predicts the 
+  - name: get_quarantine_messageheaders
+    description: Predicts the
     parameters:
-      - name: message_id 
+      - name: message_id
         description: The message to get
         required: true
-        multiline: false 
+        multiline: false
         example: ''
         schema:
           type: string

@@ -6,14 +6,14 @@ contact_info:
   url: https://shuffler.io
   email: frikky@shuffler.io
 tags:
-  - Testing 
+  - Testing
 categories:
-  - Testing 
+  - Testing
 actions:
-  - name: get_searches 
-    description: Runs a python script defined by YOU 
+  - name: get_searches
+    description: Runs a python script defined by YOU
     parameters:
-      - name: engine 
+      - name: engine
         description: The engine to translate to
         required: true
         options:
@@ -63,13 +63,13 @@ actions:
       - name: backend
         description: The backend to use. If blank, space or list, this will return a list of options
         required: true
-        multiline: false 
+        multiline: false
         schema:
           type: string
       - name: shuffle_namespace
         description: The Shuffle
         required: true
-        multiline: false 
+        multiline: false
         schema:
           type: string
     returns:

@@ -1,18 +1,15 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
 import asyncio
-import time
-import random
 import json
+import random
+import time
+
 import requests
-import thehive4py
-
-from thehive4py.api import TheHiveApi
-from thehive4py.query import *
 import thehive4py.models
+from thehive4py.api import TheHiveApi
 from thehive4py.models import *
-
+from thehive4py.query import *
 from walkoff_app_sdk.app_base import AppBase
 
 

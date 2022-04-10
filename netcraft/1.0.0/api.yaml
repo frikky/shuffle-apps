@@ -1,6 +1,6 @@
 walkoff_version: 1.0.0
 app_version: 1.0.0
-name: netcraft 
+name: netcraft
 description: Netcraft app interface
 tags:
   - Phishing
@@ -13,31 +13,31 @@ contact_info:
   url: https://github.com/frikky
   email: "frikky@shuffler.io"
 actions:
-  - name: report_attack 
+  - name: report_attack
     description: Report an attack for takedown
     parameters:
-      - name: user 
-        description: The user to use for the API 
+      - name: user
+        description: The user to use for the API
         multiline: false
         example: "Username"
         required: true
         schema:
           type: string
-      - name: password 
-        description: The password to use for the API 
+      - name: password
+        description: The password to use for the API
         multiline: false
         example: "p@ssw0rd"
         required: true
         schema:
           type: string
-      - name: attack 
-        description: The url or email you want to report 
+      - name: attack
+        description: The url or email you want to report
         multiline: false
         example: "https://google.com"
         required: true
         schema:
           type: string
-      - name: comment 
+      - name: comment
         description: A comment to use for the takedown
         multiline: false
         example: "Thanks for taking down my phishing site :)"
@@ -50,28 +50,28 @@ actions:
   - name: get_takedowns
     description: Get a takedown by multiple values
     parameters:
-      - name: user 
-        description: The user to use for the API 
+      - name: user
+        description: The user to use for the API
         multiline: false
         example: "Username"
         required: true
         schema:
           type: string
-      - name: password 
-        description: The password to use for the API 
+      - name: password
+        description: The password to use for the API
         multiline: false
         example: "p@ssw0rd"
         required: true
         schema:
           type: string
-      - name: id 
-        description: The id of the takedown 
+      - name: id
+        description: The id of the takedown
         multiline: false
         example: "123456"
         required: false
         schema:
           type: string
-      - name: group_id 
+      - name: group_id
         description: The groupid of the takedown
         multiline: false
         example: "654321"
@@ -85,7 +85,7 @@ actions:
         required: false
         schema:
           type: string
-      - name: attack_url 
+      - name: attack_url
         description: The url to search for
         multiline: false
         example: "https://example.com/malicious"
@@ -113,7 +113,7 @@ actions:
         required: false
         schema:
           type: string
-      - name: phishkit_only 
+      - name: phishkit_only
         description: Requires phishkit?
         multiline: false
         example: "false"
@@ -121,35 +121,35 @@ actions:
         schema:
           type: string
 
-    async def get_takedowns(user, password, id="", group_id="", url="", ip="", domain_attack="", statuses="", phishkit_only=""): 
+    async def get_takedowns(user, password, id="", group_id="", url="", ip="", domain_attack="", statuses="", phishkit_only=""):
     returns:
       schema:
         type: string
-  - name: get_takedown 
+  - name: get_takedown
     description: Get a takedown by its id or group_id
     parameters:
-      - name: user 
-        description: The user to use for the API 
+      - name: user
+        description: The user to use for the API
         multiline: false
         example: "Username"
         required: true
         schema:
           type: string
-      - name: password 
-        description: The password to use for the API 
+      - name: password
+        description: The password to use for the API
         multiline: false
         example: "p@ssw0rd"
         required: true
         schema:
           type: string
-      - name: id 
-        description: The id of the takedown 
+      - name: id
+        description: The id of the takedown
         multiline: false
         example: "123456"
         required: false
         schema:
           type: string
-      - name: group_id 
+      - name: group_id
         description: The groupid of the takedown
         multiline: false
         example: "654321"
@@ -159,18 +159,18 @@ actions:
     returns:
       schema:
         type: string
-  - name: escalate_takedown 
+  - name: escalate_takedown
     description: Use to escalate a takedown to manual
     parameters:
-      - name: user 
-        description: The user to use for the API 
+      - name: user
+        description: The user to use for the API
         multiline: false
         example: "Username"
         required: true
         schema:
           type: string
-      - name: password 
-        description: The password to use for the API 
+      - name: password
+        description: The password to use for the API
         multiline: false
         example: "p@ssw0rd"
         required: true
@@ -186,18 +186,18 @@ actions:
     returns:
       schema:
         type: string
-  - name: screenshot 
+  - name: screenshot
     description: Take a screenshot of an URL using Netcraft
     parameters:
-      - name: user 
-        description: The user to use for the API 
+      - name: user
+        description: The user to use for the API
         multiline: false
         example: "Username"
         required: true
         schema:
           type: string
-      - name: password 
-        description: The password to use for the API 
+      - name: password
+        description: The password to use for the API
         multiline: false
         example: "p@ssw0rd"
         required: true
@@ -207,10 +207,10 @@ actions:
         description: The URL to screenshot
         multiline: false
         example: "https://malicious.com"
-        required: true 
+        required: true
         schema:
           type: string
-      - name: proxies 
+      - name: proxies
         description: The proxies to use based on netcraft standards
         multiline: false
         example: "dk,us,jp"

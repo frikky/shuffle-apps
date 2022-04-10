@@ -1,12 +1,12 @@
 app_version: 1.0.0
-name: Yara 
+name: Yara
 description: Analyzes  files based on set rules
 tags:
-  - Intel 
-  - Malware 
+  - Intel
+  - Malware
   - File check
 categories:
-  - Intel 
+  - Intel
 contact_info:
   name: "@frikkylikeme"
   url: https://shuffler.io
@@ -17,55 +17,55 @@ actions:
     parameters:
       - name: file_id
         description: The file(s) to run towards
-        required: true 
-        multiline: false 
+        required: true
+        multiline: false
         example: 2ff4c409-f66a-4bdc-bede-5dd5969a8c55
         schema:
           type: string
       - name: timeout
         description: The timeout per rule. Default 15
-        required: false 
-        multiline: false 
+        required: false
+        multiline: false
         example: 15
         schema:
           type: string
     returns:
       schema:
         type: string
-  - name: download_rules 
+  - name: download_rules
     description: Downloading rule testing
     parameters:
-      - name: namespace 
-        description: The File-namespace in Shuffle where you uploaded the rules 
-        required: true 
-        multiline: false 
+      - name: namespace
+        description: The File-namespace in Shuffle where you uploaded the rules
+        required: true
+        multiline: false
         example: yara
         schema:
           type: string
     returns:
       schema:
         type: string
-  - name: analyze_by_rule 
+  - name: analyze_by_rule
     description: Verifies if the file matches a certain rule
     parameters:
       - name: file_id
         description: The file(s) to run towards
-        required: true 
-        multiline: false 
+        required: true
+        multiline: false
         example: 2ff4c409-f66a-4bdc-bede-5dd5969a8c55
         schema:
           type: string
-      - name: rule 
+      - name: rule
         description: The rule to run
-        required: true 
-        multiline: false 
+        required: true
+        multiline: false
         example: 'rule dummy { condition: true }'
         schema:
           type: string
       - name: timeout
         description: The timeout per rule. Default 15
-        required: false 
-        multiline: false 
+        required: false
+        multiline: false
         example: 15
         schema:
           type: string

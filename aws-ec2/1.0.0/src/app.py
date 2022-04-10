@@ -1,26 +1,26 @@
-import datetime
-import socket
 import asyncio
-import time
-import random
+import datetime
 import json
+import random
+import socket
+import time
+
 import boto3
 import botocore
 from botocore.config import Config
-
 from walkoff_app_sdk.app_base import AppBase
 
 def datetime_handler(x):
-    """ This function is used make datetime object json serilizable, 
+    """ This function is used make datetime object json serilizable,
     removing this function can cause error in some actions """
-    
+
     if isinstance(x, datetime.datetime):
         return x.isoformat()
     raise TypeError("Unknown type")
 
 class AWSEC2(AppBase):
     __version__ = "1.0.0"
-    app_name = "AWS ec2"  
+    app_name = "AWS ec2"
 
     def __init__(self, redis, logger, console_logger=None):
         """
@@ -42,8 +42,8 @@ class AWSEC2(AppBase):
         )
 
         self.ec2 = boto3.resource(
-            'ec2', 
-            config = my_config, 
+            'ec2',
+            config = my_config,
             aws_access_key_id = access_key,
             aws_secret_access_key = secret_key,
         )
@@ -65,7 +65,7 @@ class AWSEC2(AppBase):
         if "/" not in ip:
             ip = "%s/32" % ip
 
-        egress = True 
+        egress = True
         if direction == "inbound":
             egress = False
 
@@ -125,7 +125,7 @@ class AWSEC2(AppBase):
         elif protocol.lower() == "udp":
             protocol = "17"
 
-        egress = True 
+        egress = True
         if direction == "inbound":
             egress = False
         else:
@@ -173,7 +173,7 @@ class AWSEC2(AppBase):
         except botocore.exceptions.ClientError as e:
             print("Error: %s" % e)
             return "%s" % e
-    
+
     #Create Network Interface
     def create_network_interface(self, access_key, secret_key, region, subnetid, description, dryrun ):
         self.ec2 = self.auth_ec2(access_key, secret_key, region)
@@ -201,7 +201,7 @@ class AWSEC2(AppBase):
                 InstanceId = instance_id,
                 Name = name,
                 NoReboot = noreboot
-            )   
+            )
         except Exception as e:
             return e
 
@@ -217,7 +217,7 @@ class AWSEC2(AppBase):
             )
         except Exception as e:
             return e
-    
+
     #Create Snapshot
     def create_snapshot(self, access_key, secret_key, region, description, volume_id, dryrun):
         self.ec2 = self.auth_ec2(access_key, secret_key, region)
@@ -232,7 +232,7 @@ class AWSEC2(AppBase):
             return json.dumps(response, default=datetime_handler)
         except Exception as e:
             return e
-    
+
     #Delete Snapshot
     def delete_snapshot(self, access_key, secret_key, region, snapshot_id, dryrun):
         self.ec2 = self.auth_ec2(access_key, secret_key, region)
@@ -288,18 +288,18 @@ class AWSEC2(AppBase):
                 lt=value.split(',')
             if option == 'KeyNames':
                 return client.describe_key_pairs(
-                    KeyNames=lt,   
+                    KeyNames=lt,
                     DryRun = dryrun
                 )
             elif option == 'KeyPairIds':
                 return client.describe_key_pairs(
                     KeyPairIds=lt,
-                    DryRun = dryrun 
-                ) 
+                    DryRun = dryrun
+                )
             else:
                 return client.describe_key_pairs(
                     DryRun = dryrun
-                )     
+                )
         except Exception as e:
             return e
 
@@ -308,7 +308,7 @@ class AWSEC2(AppBase):
         self.ec2=self.auth_ec2(access_key, secret_key, region)
         client = self.ec2.meta.client
         dryrun = True if dryrun in ["True", "true"] else False
-        try:                
+        try:
             if len(networkAcl_Id)!=0:
                 lt=networkAcl_Id.split(',')
                 return client.describe_network_acls(
@@ -334,18 +334,18 @@ class AWSEC2(AppBase):
                 lt=value.split(',')
             if option == 'GroupIds':
                 return client.describe_security_groups(
-                    GroupIds=lt,   
+                    GroupIds=lt,
                     DryRun = dryrun
                 )
             # elif option == 'GroupNames':
             #     return client.describe_security_groups(
             #         GroupNames=lt,
-            #         DryRun = dryrun 
-            #     ) 
+            #         DryRun = dryrun
+            #     )
             else:
                 return client.describe_security_groups(
                     DryRun = dryrun
-                )     
+                )
         except Exception as e:
             return e
 
@@ -371,12 +371,12 @@ class AWSEC2(AppBase):
             return e
 
     def create_an_instance(self, access_key, secret_key, region, dryrun, image_id, min_count, max_count, instance_type, user_data, key_name, security_group_ids):
-        client = boto3.resource('ec2', 
+        client = boto3.resource('ec2',
                     aws_access_key_id=access_key,
                     aws_secret_access_key=secret_key,
                     region_name=region)
-        dryrun = True if dryrun in ["True", "true"] else False    
-        
+        dryrun = True if dryrun in ["True", "true"] else False
+
         try:
             if security_group_ids:
                 security_group_ids_list = [i for i in security_group_ids.split(" ")]
@@ -389,14 +389,14 @@ class AWSEC2(AppBase):
                                 KeyName=key_name,
                                 SecurityGroupIds= security_group_ids_list,
                                 UserData= user_data
-                                                               
+
                             )
-                #parsing response         
-                total_instances = ["instance_id_"+str(i) for i in range(1,len(instance)+1)] 
-                instance_id_list = [i.id for i in instance]  
+                #parsing response
+                total_instances = ["instance_id_"+str(i) for i in range(1,len(instance)+1)]
+                instance_id_list = [i.id for i in instance]
                 response = dict(zip(total_instances,instance_id_list))
                 response.update({"Success":"True"})
-                return response   
+                return response
             else:
                 instance =  client.create_instances(
                                 DryRun= dryrun,
@@ -407,14 +407,14 @@ class AWSEC2(AppBase):
                                 KeyName=key_name,
                                 UserData= user_data
                             )
-                #parsing response            
-                total_instances = ["instance_id_"+str(i) for i in range(1,len(instance)+1)] 
-                instance_id_list = [i.id for i in instance]  
+                #parsing response
+                total_instances = ["instance_id_"+str(i) for i in range(1,len(instance)+1)]
+                instance_id_list = [i.id for i in instance]
                 response = dict(zip(total_instances,instance_id_list))
                 response.update({"Success":"True"})
                 return response
         except Exception as e:
-            return f"Exception occured: {e}"        
+            return f"Exception occured: {e}"
 
 
 if __name__ == "__main__":

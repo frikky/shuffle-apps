@@ -1,5 +1,5 @@
 app_version: 1.0.0
-name: Checkpoint 
+name: Checkpoint
 description: Checkpoint firewall integration for shuffle
 contact_info:
   name: "@davedhaval"
@@ -13,7 +13,7 @@ authentication:
   required: true
   parameters:
     - name: ip_addr
-      description: The management server IP 
+      description: The management server IP
       example: "192.168.44.121"
       required: true
       schema:
@@ -29,13 +29,13 @@ authentication:
       example: "******"
       required: true
       schema:
-        type: string          
+        type: string
 actions:
   - name: list_packages
     description: Executes the install-policy on a given list of targets.
     parameters:
       - name: ssl_verify
-        description: Set ssl verification 
+        description: Set ssl verification
         example: "False"
         options:
           - false
@@ -59,16 +59,16 @@ actions:
         multiline: false
         example: 'INTERNET'
         schema:
-          type: string 
+          type: string
       - name: ssl_verify
-        description: Set ssl verification 
+        description: Set ssl verification
         example: "False"
         options:
           - false
           - true
         required: true
         schema:
-          type: string       
+          type: string
     returns:
       schema:
         type: string
@@ -83,11 +83,11 @@ actions:
         schema:
           type: array
       - name: ssl_verify
-        description: Set ssl verification 
+        description: Set ssl verification
         example: "False"
         options:
           - false
-          - true      
+          - true
     returns:
       schema:
         type: string
@@ -102,45 +102,45 @@ actions:
         schema:
           type: string
       - name: ssl_verify
-        description: Set ssl verification 
-        example: "False"
-        options:
-          - false
-          - true    
-    returns:
-      schema:
-        type: string      
-  - name: show_hosts
-    description: Retrieve all hosts
-    parameters:
-      - name: ssl_verify
-        description: Set ssl verification 
+        description: Set ssl verification
         example: "False"
         options:
           - false
           - true
     returns:
       schema:
-        type: string  
+        type: string
+  - name: show_hosts
+    description: Retrieve all hosts
+    parameters:
+      - name: ssl_verify
+        description: Set ssl verification
+        example: "False"
+        options:
+          - false
+          - true
+    returns:
+      schema:
+        type: string
   - name: delete_host
     description: Delete host.
     parameters:
       - name: host_name
-        description: Host name. 
+        description: Host name.
         required: true
         multiline: false
         example: 'Host name'
         schema:
-          type: string 
+          type: string
       - name: ssl_verify
-        description: Set ssl verification 
+        description: Set ssl verification
         example: "False"
         options:
           - false
-          - true    
+          - true
     returns:
       schema:
-        type: string                
+        type: string
   - name: show_access_rule
     description: Retrieve existing object using object name or uid.
     parameters:
@@ -157,13 +157,13 @@ actions:
         multiline: false
         example: 'INTERNET'
         schema:
-          type: string  
+          type: string
       - name: ssl_verify
-        description: Set ssl verification 
+        description: Set ssl verification
         example: "False"
         options:
           - false
-          - true      
+          - true
     returns:
       schema:
         type: string
@@ -190,31 +190,31 @@ actions:
         multiline: false
         example: 'INTERNET'
         schema:
-          type: string   
+          type: string
       - name: ssl_verify
-        description: Set ssl verification 
+        description: Set ssl verification
         example: "False"
         options:
           - false
-          - true         
+          - true
     returns:
       schema:
-        type: string  
+        type: string
   - name: show_groups
     description: List all network groups
-    parameters:  
+    parameters:
       - name: ssl_verify
-        description: Set ssl verification 
+        description: Set ssl verification
         example: "False"
         options:
           - false
-          - true      
+          - true
     returns:
       schema:
         type: string
   - name: create_group
     description: Create a new group
-    parameters:  
+    parameters:
       - name: name
         description: Network group name
         required: true
@@ -228,19 +228,19 @@ actions:
         multiline: false
         example: 'INTERNET'
         schema:
-          type: string    
+          type: string
       - name: ssl_verify
-        description: Set ssl verification 
+        description: Set ssl verification
         example: "False"
         options:
           - false
-          - true      
+          - true
     returns:
       schema:
         type: string
   - name: add_hosts_to_group
     description: Adds list of hosts to network group
-    parameters:  
+    parameters:
       - name: name
         description: Network group name
         required: true
@@ -254,19 +254,19 @@ actions:
         multiline: false
         example: '["192.168.xx.xx","192.168.xx.xx"]'
         schema:
-          type: string    
+          type: string
       - name: ssl_verify
-        description: Set ssl verification 
+        description: Set ssl verification
         example: "False"
         options:
           - false
-          - true      
+          - true
     returns:
       schema:
         type: string
   - name: show_access_rulebase
-    description: Shows the entire Access Rules layer. This layer is divided into sections. 
-    parameters:  
+    description: Shows the entire Access Rules layer. This layer is divided into sections.
+    parameters:
       - name: name
         description:  name
         required: true
@@ -275,17 +275,17 @@ actions:
         schema:
           type: string
       - name: ssl_verify
-        description: Set ssl verification 
+        description: Set ssl verification
         example: "False"
         options:
           - false
-          - true      
+          - true
     returns:
       schema:
         type: string
   - name: set_access_rule
     description: Edit exsiting access rule
-    parameters:  
+    parameters:
       - name: name
         description:  name
         required: true
@@ -299,44 +299,44 @@ actions:
         multiline: false
         example: 'BLOCK_IP'
         schema:
-          type: string  
+          type: string
       - name: action
-        description: Set ssl verification 
+        description: Set ssl verification
         example: "False"
         options:
           - Accept
-          - Drop      
+          - Drop
       - name: destination
         description: destination
         required: true
         multiline: false
         example: 'BLOCK_IP'
         schema:
-          type: string    
+          type: string
       - name: ssl_verify
-        description: Set ssl verification 
+        description: Set ssl verification
         example: "False"
         options:
           - false
-          - true      
+          - true
     returns:
       schema:
-        type: string 
+        type: string
   - name: list_all_tasks
     description: Retrieve all tasks and show their progress and details.
-    parameters:  
+    parameters:
       - name: ssl_verify
-        description: Set ssl verification 
+        description: Set ssl verification
         example: "False"
         options:
           - false
-          - true      
+          - true
     returns:
       schema:
-        type: string                                       
+        type: string
   - name: get_task
     description: Show task progress and details.
-    parameters:  
+    parameters:
       - name: task_id
         description: task ID
         required: true
@@ -345,13 +345,13 @@ actions:
         schema:
           type: string
       - name: ssl_verify
-        description: Set ssl verification 
+        description: Set ssl verification
         example: "False"
         options:
           - false
-          - true      
+          - true
     returns:
       schema:
-        type: string          
+        type: string
 
 large_image: data:image/jpeg;base64,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

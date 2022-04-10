@@ -1,5 +1,5 @@
 app_version: 1.0.0
-name: Microsoft Intune 
+name: Microsoft Intune
 description: An app for Microsoft Intune using Graph Api
 contact_info:
   name: "ShalinBhavsar"
@@ -28,10 +28,10 @@ authentication:
       example: "***"
       required: true
       schema:
-        type: string 
+        type: string
 actions:
   - name: list_devices
-    description: List devices 
+    description: List devices
   - name: list_apps
     description: A managed or unmanaged app that is installed on a managed device. Unmanaged apps will only appear for devices marked as corporate owned.
   - name: managed_device_overview
@@ -42,7 +42,7 @@ actions:
     description: Read properties and relationships of the managedDevice object.
     parameters:
       - name: managedDeviceId
-        description: The id 
+        description: The id
         multiline: false
         required: true
         schema:
@@ -51,7 +51,7 @@ actions:
     description: Deletes a managedDevice.
     parameters:
       - name: managedDeviceId
-        description: The id 
+        description: The id
         multiline: false
         required: true
         schema:
@@ -60,7 +60,7 @@ actions:
     description: remote locks a device
     parameters:
       - name: managedDeviceId
-        description: The id 
+        description: The id
         multiline: false
         required: true
         schema:
@@ -69,7 +69,7 @@ actions:
     description: Shut down device
     parameters:
       - name: managedDeviceId
-        description: The device id 
+        description: The device id
         multiline: false
         required: true
         schema:

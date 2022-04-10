@@ -1,31 +1,27 @@
 walkoff_version: 1.0.0
 app_version: 1.0.0
-name: hoxhunt 
+name: hoxhunt
 description: Hoxhunt app interface
-tags:
-  - email
-categories:
-  - email
 contact_info:
   name: "@frikkylikeme"
   url: https://github.com/frikky
   email: "frikky@shuffler.io"
 tags:
-  - Email 
-  - Phishing 
+  - Email
+  - Phishing
 categories:
-  - Phishing 
+  - Phishing
 authentication:
   required: true
   parameters:
-    - name: apikey 
-      description: The apikey to use for the API 
+    - name: apikey
+      description: The apikey to use for the API
       multiline: false
       example: "meteor-LsShkYxhQisn1ucfMI7c1CbkMC3wX7rnIZ02I8FwVXZ"
       required: true
       schema:
         type: string
-    - name: organization_id 
+    - name: organization_id
       description: Your organization's ID
       multiline: false
       example: "sk9JHBGPDPiQ6NQZ4"
@@ -33,17 +29,17 @@ authentication:
       schema:
         type: string
 actions:
-  - name: list_incidents 
+  - name: list_incidents
     description: Get hoxhunt incidents of a given status
     parameters:
-      - name: apikey 
-        description: The apikey to use for the API 
+      - name: apikey
+        description: The apikey to use for the API
         multiline: false
         example: "meteor-LsShkYxhQisn1ucfMI7c1CbkMC3wX7rnIZ02I8FwVXZ"
         required: true
         schema:
           type: string
-      - name: organization_id 
+      - name: organization_id
         description: Your organization's ID
         multiline: false
         example: "sk9JHBGPDPiQ6NQZ4"
@@ -54,38 +50,38 @@ actions:
         description: The state to look for. Defaults to OPEN
         multiline: false
         example: "OPEN"
-        required: false 
+        required: false
         schema:
           type: string
-      - name: limit 
+      - name: limit
         description: The maximum amount to get
         multiline: false
         example: "100"
-        required: false 
+        required: false
         schema:
           type: string
     returns:
       schema:
         type: string
-  - name: get_incident 
-    description: Get a hoxhunt incidents with details 
+  - name: get_incident
+    description: Get a hoxhunt incidents with details
     parameters:
-      - name: apikey 
-        description: The apikey to use for the API 
+      - name: apikey
+        description: The apikey to use for the API
         multiline: false
         example: "meteor-LsShkYxhQisn1ucfMI7c1CbkMC3wX7rnIZ02I8FwVXZ"
         required: true
         schema:
           type: string
-      - name: organization_id 
+      - name: organization_id
         description: Your organization's ID
         multiline: false
         example: "sk9JHBGPDPiQ6NQZ4"
         required: true
         schema:
           type: string
-      - name: incident_id 
-        description: The id to look for. 
+      - name: incident_id
+        description: The id to look for.
         multiline: false
         example: "e.g. RESOLVED or OPEN"
         required: true
@@ -94,31 +90,31 @@ actions:
     returns:
       schema:
         type: string
-  - name: change_incident_status 
-    description: Get a hoxhunt incidents with details 
+  - name: change_incident_status
+    description: Get a hoxhunt incidents with details
     parameters:
-      - name: apikey 
-        description: The apikey to use for the API 
+      - name: apikey
+        description: The apikey to use for the API
         multiline: false
         example: "meteor-LsShkYxhQisn1ucfMI7c1CbkMC3wX7rnIZ02I8FwVXZ"
         required: true
         schema:
           type: string
-      - name: organization_id 
+      - name: organization_id
         description: Your organization's ID
         multiline: false
         example: "sk9JHBGPDPiQ6NQZ4"
         required: true
         schema:
           type: string
-      - name: incident_id 
+      - name: incident_id
         description: The id to look for
         multiline: false
         example: "1234"
         required: true
         schema:
           type: string
-      - name: state 
+      - name: state
         description: The state to look for. Defaults to OPEN
         multiline: false
         example: "RESOLVED"
@@ -128,17 +124,17 @@ actions:
     returns:
       schema:
         type: string
-  - name: list_threats 
+  - name: list_threats
     description: Get hoxhunt threats of a given status
     parameters:
-      - name: apikey 
-        description: The apikey to use for the API 
+      - name: apikey
+        description: The apikey to use for the API
         multiline: false
         example: "meteor-LsShkYxhQisn1ucfMI7c1CbkMC3wX7rnIZ02I8FwVXZ"
         required: true
         schema:
           type: string
-      - name: organization_id 
+      - name: organization_id
         description: Your organization's ID
         multiline: false
         example: "sk9JHBGPDPiQ6NQZ4"
@@ -149,14 +145,14 @@ actions:
         description: The state to look for. Defaults to OPEN
         multiline: false
         example: "OPEN"
-        required: false 
+        required: false
         schema:
           type: string
-      - name: limit 
+      - name: limit
         description: The maximum amount to get
         multiline: false
         example: "100"
-        required: false 
+        required: false
         schema:
           type: string
     returns:

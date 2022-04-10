@@ -1,14 +1,14 @@
-import time
+import asyncio
 import json
 import socket
-import asyncio
-import requests
+import time
 
+import requests
 from walkoff_app_sdk.app_base import AppBase
 
 class Recordedfuture(AppBase):
     __version__ = "1.0.0"
-    app_name = "recordedfuture"  
+    app_name = "recordedfuture"
 
     def __init__(self, redis, logger, console_logger=None):
         """
@@ -31,7 +31,7 @@ class Recordedfuture(AppBase):
         return requests.get(url, headers=parsed_headers).text
 
     def get_alert(self, apikey, id):
-        url = "https://api.recordedfuture.com/v2/alert/%s" % id 
+        url = "https://api.recordedfuture.com/v2/alert/%s" % id
         parsed_headers = {
             'X-RFToken': apikey,
         }
@@ -41,15 +41,15 @@ class Recordedfuture(AppBase):
 
 # Run the actual thing after we've checked params
 def run(request):
-    action = request.get_json() 
+    action = request.get_json()
     print(action)
     print(type(action))
     authorization_key = action.get("authorization")
     current_execution_id = action.get("execution_id")
-	
+
     if action and "name" in action and "app_name" in action:
         Recordedfuture.run(action)
-        return f'Attempting to execute function {action["name"]} in app {action["app_name"]}' 
+        return f'Attempting to execute function {action["name"]} in app {action["app_name"]}'
     else:
         return f'Invalid action'
 

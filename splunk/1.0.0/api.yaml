@@ -1,58 +1,58 @@
 walkoff_version: 1.0.0
 app_version: 1.0.0
-name: splunk 
-description: Splunk integration with WALKOFF 
+name: splunk
+description: Splunk integration with WALKOFF
 tags:
-  - SIEM 
-  - search 
+  - SIEM
+  - search
 categories:
-  - SIEM 
+  - SIEM
 contact_info:
-  name: "@frikkylikeme" 
+  name: "@frikkylikeme"
   url: https://github.com/frikky
 authentication:
   required: true
   parameters:
-    - name: url 
-      description: The Splunk URL 
+    - name: url
+      description: The Splunk URL
       required: true
       example: "http://splunk:8081"
       schema:
-        type: string 
-    - name: username 
+        type: string
+    - name: username
       description: The Splunk username
-      example: username@splunk.com 
+      example: username@splunk.com
       required: true
       schema:
-        type: string 
-    - name: password 
+        type: string
+    - name: password
       description: The Splunk password
       required: true
       example: "******"
       schema:
-        type: string 
+        type: string
 
 actions:
-  - name: SplunkQuery 
+  - name: SplunkQuery
     description: Returns the amount of search results
     parameters:
-      - name: query 
-        description: The Splunk query to run 
+      - name: query
+        description: The Splunk query to run
         required: true
         schema:
-          type: string 
-      - name: result_limit 
-        description: Splunk amount limit 
+          type: string
+      - name: result_limit
+        description: Splunk amount limit
         required: false
         schema:
-          type: string 
-      - name: earliest_time 
-        description: The timeframe to use (e.g. -48h) 
+          type: string
+      - name: earliest_time
+        description: The timeframe to use (e.g. -48h)
         required: false
         schema:
-          type: string 
-      - name: latest_time 
-        description: The timeframe to use (e.g. -48h) 
+          type: string
+      - name: latest_time
+        description: The timeframe to use (e.g. -48h)
         required: false
         schema:
           type: string

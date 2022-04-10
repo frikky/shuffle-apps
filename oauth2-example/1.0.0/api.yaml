@@ -1,50 +1,50 @@
 walkoff_version: 1.0.0
 app_version: 1.0.0
-name: oauth2-example 
+name: oauth2-example
 description: Oauth2 sample
 tags:
-  - Example 
+  - Example
 categories:
-  - Example 
+  - Example
 contact_info:
   name: "@frikkylikeme"
   url: https://github.com/frikky
 authentication:
   required: true
   type: oauth2
-  redirect_uri: "https://login.microsoftonline.com/common/oauth2/authorize" 
+  redirect_uri: "https://login.microsoftonline.com/common/oauth2/authorize"
   token_uri: "https://login.microsoftonline.com/common/oauth2/v2.0/token"
   client_id: "dae24316-4bec-4832-b660-4cba6dc2477b"
   client_secret: "._Qu3EvYY-OW_D57uy79qwEo.32qD6.l0z"
   scope:
     - UserAuthenticationMethod.ReadWrite.All
 actions:
-  - name: reset_password 
+  - name: reset_password
     description: Change password of a user in Azure
     parameters:
-      - name: userId 
-        description: 
+      - name: userId
+        description:
         example: "user@company.com"
         required: true
         schema:
           type: string
-      - name: passwordId 
-        description: 
-        example: "28c10230-6103-485e-b985-444c60001490" 
+      - name: passwordId
+        description:
+        example: "28c10230-6103-485e-b985-444c60001490"
         required: true
         schema:
           type: string
-      - name: newPassword 
-        description: 
+      - name: newPassword
+        description:
         example: "*****"
-        required: false 
+        required: false
         schema:
           type: string
     returns:
       example: '{"data": "this is a test", "this_is_a_number": 1, "this_is_a_list": [{"item": [{"hello": "there", "how_is_this": {"sub_in_sub": [{"another": "list"}]}}]}, {"item": "2"}], "subobject": {"data": "subobject"}}'
       schema:
         type: string
-  - name: get_password_methods 
+  - name: get_password_methods
     description: Get available password methods for your user
     returns:
       example: '{"data": "this is a test", "this_is_a_number": 1, "this_is_a_list": [{"item": [{"hello": "there", "how_is_this": {"sub_in_sub": [{"another": "list"}]}}]}, {"item": "2"}], "subobject": {"data": "subobject"}}'

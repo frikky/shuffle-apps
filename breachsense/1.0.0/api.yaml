@@ -7,9 +7,9 @@ contact_info:
   email: dhavald@infopercept.com
 tags:
   - Darkweb
-  - Data breach Monitor 
+  - Data breach Monitor
 categories:
-  - Testing   
+  - Testing
 authentication:
   required: true
   parameters:
@@ -28,7 +28,7 @@ actions:
       required: true
       example: "abx@xyz.com"
       schema:
-        type: string 
+        type: string
     - name: date
       description: only display results newer that this value. Value set in YYYYMMDD format
       example: "20210820"
@@ -43,7 +43,7 @@ actions:
       required: true
       example: "abx@xyz.com"
       schema:
-        type: string 
+        type: string
     - name: date
       description: only display results newer that this value. Value set in YYYYMMDD format
       example: "20210820"
@@ -58,7 +58,7 @@ actions:
       required: true
       example: "abx@xyz.com"
       schema:
-        type: string 
+        type: string
     - name: date
       description: only display results newer that this value. Value set in YYYYMMDD format
       example: "20210820"
@@ -73,7 +73,7 @@ actions:
       required: true
       example: "add, del or list"
       schema:
-        type: string 
+        type: string
     - name: domain
       description: add/delete the domain you wish to monitor
       example: "example.com"
@@ -88,7 +88,7 @@ actions:
       required: true
       example: "abx@xyz.com"
       schema:
-        type: string 
+        type: string
     - name: date
       description: only display results newer that this value. Value set in YYYYMMDD format
       example: "20210820"
@@ -101,7 +101,7 @@ actions:
       required: true
       schema:
         type: string
-  - name: Check_credits 
+  - name: Check_credits
     description: return the number of remaining monthly queries allowed
     parameters:
     required: false

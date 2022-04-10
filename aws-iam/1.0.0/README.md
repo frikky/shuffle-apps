@@ -22,7 +22,7 @@ __Note__: access_key, secret_key and region are used for authentication.
 ## Requirements
 
 1. AWS account
-2. Access key, Secret key and region of the user. 
+2. Access key, Secret key and region of the user.
 
 - __How to find access key & secret key ?__
 1. Open https://console.aws.amazon.com/
@@ -31,7 +31,7 @@ __Note__: access_key, secret_key and region are used for authentication.
 4. To see the new access key, choose Show. Your credentials resemble the following:
    - Access key ID: AKIAIOSFODNN7EXAMPLE
    - Secret access key: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
- 
+
  ## Note
  Some actions have marker and max_items parameters (Both are used for paginating results).
  - marker : Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the marker element in the response that you received to indicate where the next call should start.

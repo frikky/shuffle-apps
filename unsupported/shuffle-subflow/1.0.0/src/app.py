@@ -1,10 +1,9 @@
 import asyncio
-import time
+import json
 import random
-import json
-import requests
-import json
+import time
 
+import requests
 from walkoff_app_sdk.app_base import AppBase
 
 class Subflow(AppBase):
@@ -55,7 +54,7 @@ class Subflow(AppBase):
             print("No source execution")
 
         if len(startnode) > 0:
-            params["start"] = startnode 
+            params["start"] = startnode
         else:
             print("No startnode")
 

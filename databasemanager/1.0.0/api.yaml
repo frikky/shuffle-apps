@@ -10,10 +10,10 @@ tags:
   - SQL
   - PostgreSQL
 categories:
-  - Testing 
+  - Testing
 actions:
   - name: query_mysql_database
-    description: Query MySQL database 
+    description: Query MySQL database
     parameters:
       - name: username
         description: Username
@@ -38,7 +38,7 @@ actions:
         required: true
         example: '3306'
         schema:
-          type: string    
+          type: string
       - name: database_name
         description: Database name
         required: true
@@ -51,7 +51,7 @@ actions:
         multiline: true
         example: 'SELECT * FROM user'
         schema:
-          type: string        
+          type: string
     returns:
       schema:
         type: string

@@ -1,37 +1,37 @@
 walkoff_version: 1.0.0
 app_version: 1.0.0
-name: cortex 
+name: cortex
 environment: onprem
 description: Cortex implementation with WALKOFF
 tags:
   - Threat intel
-  - Search 
+  - Search
 categories:
   - Threat intel
-  - Search 
+  - Search
 contact_info:
-  name: "@frikkylikeme" 
+  name: "@frikkylikeme"
   url: https://github.com/frikky
 authentication:
   required: true
   parameters:
-    - name: apikey 
+    - name: apikey
       description: The apikey to use
       example: "*****"
       required: true
       schema:
         type: string
-    - name: url 
-      description: The URL to target 
+    - name: url
+      description: The URL to target
       example: "http://localhost:9001"
       required: true
       schema:
         type: string
 actions:
-  - name: get_available_analyzers 
+  - name: get_available_analyzers
     description: Gets a list of all analyzers
     parameters:
-      - name: datatype 
+      - name: datatype
         description: The datatype to search for (e.g. domain, ip)
         example: "domain"
         required: true
@@ -43,92 +43,41 @@ actions:
   - name: run_available_analyzers
     description: Runs all valid cortex analyzers for the datatype
     parameters:
-      - name: apikey 
+      - name: apikey
         description: The apikey to use
         example: "*****"
         required: true
         schema:
           type: string
-      - name: url 
-        description: The URL to target 
+      - name: url
+        description: The URL to target
         example: "http://localhost:9001"
         required: true
         schema:
           type: string
-      - name: data 
+      - name: data
         description: The data to analyze
         required: true
         schema:
           type: string
       - name: datatype
-        description: The datatype to run  
+        description: The datatype to run
         required: true
         schema:
           type: string
-      - name: message 
-        description: The message to add, default blank 
-        required: false 
+      - name: message
+        description: The message to add, default blank
+        required: false
         schema:
           type: string
-      - name: tlp 
+      - name: tlp
         description: The tlp to use (0-3), default 1
-        required: false 
+        required: false
         schema:
           type: tlp
-      - name: force 
+      - name: force
         description: Whether to force rerun the analysis
-        required: false 
-        options:
-          - true
-          - false
-        schema:
-          type: tlp
-    returns:
-      schema:
-        type: string 
-  - name: run_analyzer 
-    description: Run a cortex analyzer 
-    parameters:
-      - name: apikey 
-        description: The apikey to use
-        example: "*****"
-        required: true
-        schema:
-          type: string
-      - name: url 
-        description: The URL to target 
-        example: "http://localhost:9001"
-        required: true
-        schema:
-          type: string
-      - name: analyzer_name 
-        description: The analyzer to run  
-        required: true
-        schema:
-          type: string
-      - name: data 
-        description: The data to analyze
-        required: true
-        schema:
-          type: string
-      - name: datatype
-        description: The datatype to run  
-        required: true
-        schema:
-          type: string
-      - name: message 
-        description: The message to add, default blank 
-        required: false 
-        schema:
-          type: string
-      - name: tlp 
-        description: The tlp to use (0-3), default 1
-        required: false 
-        schema:
-          type: tlp
-      - name: force 
-        description: Whether to force rerun the analysis
-        required: false 
+        required: false
         options:
           - true
           - false
@@ -137,22 +86,73 @@ actions:
     returns:
       schema:
         type: string
-  - name: get_analyzer_result 
-    description: Get the result from an analyzer
+  - name: run_analyzer
+    description: Run a cortex analyzer
     parameters:
-      - name: apikey 
+      - name: apikey
         description: The apikey to use
         example: "*****"
         required: true
         schema:
           type: string
-      - name: url 
-        description: The URL to target 
+      - name: url
+        description: The URL to target
         example: "http://localhost:9001"
         required: true
         schema:
           type: string
-      - name: result_id 
+      - name: analyzer_name
+        description: The analyzer to run
+        required: true
+        schema:
+          type: string
+      - name: data
+        description: The data to analyze
+        required: true
+        schema:
+          type: string
+      - name: datatype
+        description: The datatype to run
+        required: true
+        schema:
+          type: string
+      - name: message
+        description: The message to add, default blank
+        required: false
+        schema:
+          type: string
+      - name: tlp
+        description: The tlp to use (0-3), default 1
+        required: false
+        schema:
+          type: tlp
+      - name: force
+        description: Whether to force rerun the analysis
+        required: false
+        options:
+          - true
+          - false
+        schema:
+          type: tlp
+    returns:
+      schema:
+        type: string
+  - name: get_analyzer_result
+    description: Get the result from an analyzer
+    parameters:
+      - name: apikey
+        description: The apikey to use
+        example: "*****"
+        required: true
+        schema:
+          type: string
+      - name: url
+        description: The URL to target
+        example: "http://localhost:9001"
+        required: true
+        schema:
+          type: string
+      - name: result_id
         description: The id of the report to get
         required: true
         schema:

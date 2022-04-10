@@ -1,11 +1,10 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
 import asyncio
-import urllib3
-import cortex4py 
-from cortex4py.api import Api
 
+import cortex4py
+import urllib3
+from cortex4py.api import Api
 from walkoff_app_sdk.app_base import AppBase
 
 class Cortex(AppBase):
@@ -117,7 +116,7 @@ class Cortex(AppBase):
         except cortex4py.exceptions.NotFoundError as e:
             return str(e)
 
-        return report 
+        return report
 
 if __name__ == "__main__":
     Cortex.run()

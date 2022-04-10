@@ -1,17 +1,17 @@
-import socket
 import asyncio
-import time
-import random
 import json
-import requests
-import yara
 import os
+import random
+import socket
+import time
 
+import requests
+import yara  # noreorder
 from walkoff_app_sdk.app_base import AppBase
 
 class Yara(AppBase):
     __version__ = "1.0.0"
-    app_name = "yara"  
+    app_name = "yara"
 
     def __init__(self, redis, logger, console_logger=None):
         """
@@ -91,14 +91,14 @@ class Yara(AppBase):
         try:
             return json.dumps(return_data)
         except (json.JSONDecodeError, TypeError):
-            return return_data 
+            return return_data
 
     def find_files(self, get_dir):
         all_files = []
         data = os.listdir(get_dir)
         for filename in data:
             parsedpath = "%s/%s" % (get_dir, filename)
-            if not filename.startswith(".") and os.path.isdir(parsedpath):  
+            if not filename.startswith(".") and os.path.isdir(parsedpath):
                 #print("FOLDER: %s" % parsedpath)
                 folderpaths = self.find_files(parsedpath)
                 all_files.extend(folderpaths)
@@ -107,7 +107,7 @@ class Yara(AppBase):
             else:
                 if filename.endswith(".yar"):
                     all_files.append(parsedpath)
-        
+
         return all_files
 
 
@@ -118,7 +118,7 @@ class Yara(AppBase):
             timeout = 15
         else:
             timeout = int(timeout)
-        
+
         print(f"Getting file {file_id} to be analyzed")
         file_ret = self.get_file(file_id)
         #print("FINISHED GETTING FILE: %s" % file_ret)
@@ -185,7 +185,7 @@ class Yara(AppBase):
         try:
             return json.dumps(return_data)
         except (json.JSONDecodeError, TypeError):
-            return return_data 
+            return return_data
 
 if __name__ == "__main__":
     Yara.run()

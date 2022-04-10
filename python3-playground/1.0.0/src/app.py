@@ -1,8 +1,8 @@
-import socket
 import asyncio
-import time
-import random
 import json
+import random
+import socket
+import time
 
 from walkoff_app_sdk.app_base import AppBase
 
@@ -19,13 +19,13 @@ class PythonPlayground(AppBase):
         """
         super().__init__(redis, logger, console_logger)
 
-    def run_me_1(self, json_data): 
+    def run_me_1(self, json_data):
         return "Ran function 1"
 
-    def run_me_2(self, json_data): 
+    def run_me_2(self, json_data):
         return "Ran function 2"
 
-    def run_me_3(self, json_data): 
+    def run_me_3(self, json_data):
         return "Ran function 3"
 
     # Write your data inside this function

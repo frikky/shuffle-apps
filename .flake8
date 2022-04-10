@@ -1,0 +1,8 @@
+[flake8]
+max-line-length = 99
+ignore = E203, E501, W503
+max-complexity = 10
+
+# E203: whitespace before ':' (conflict with black)
+# E501: line too long (conflict with black)
+# W503: line break before binary operator (conflict with black)

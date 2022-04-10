@@ -1,7 +1,7 @@
 ##########################################################
 #                 SAVE RESULTS FUNCTIONS                 #
 ##########################################################
-# rcATT is a tool to prediction tactics and techniques 
+# rcATT is a tool to prediction tactics and techniques
 # from the ATT&CK framework, using multilabel text
 # classification and post processing.
 # Version:    1.00
@@ -9,15 +9,14 @@
 # Date:       2019_10_22
 # Functions to save the results either in a JSON file
 # under the STIX format or in the training set.
-
-import stix2 as stx
+import csv
 import datetime
 import glob
-import os
-import csv
 import json
+import os
 
 import classification_tools as clt
+import stix2 as stx
 
 def save_results_in_file(report, title, date, ttps):
 	"""

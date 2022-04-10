@@ -1,10 +1,10 @@
-import time
+import asyncio
 import json
 import socket
-import asyncio
-import requests
-import archiveis
+import time
 
+import archiveis
+import requests
 from walkoff_app_sdk.app_base import AppBase
 
 class ArchiveToday(AppBase):
@@ -32,7 +32,7 @@ class ArchiveToday(AppBase):
         # This logs to the docker logs
         self.logger.info(message)
         return archive_url
- 
+
 #        return target
 
 if __name__ == "__main__":

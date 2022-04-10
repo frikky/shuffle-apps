@@ -21,9 +21,9 @@ authentication:
       schema:
         type: bool
 tags:
-  - Encryption 
+  - Encryption
 categories:
-  - Encryption 
+  - Encryption
 actions:
   - name: decrypt_file
     description: Decrypt file with gpg

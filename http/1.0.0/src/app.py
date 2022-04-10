@@ -1,18 +1,17 @@
-import time
-import json
+import asyncio
 import json
 import random
 import socket
-import uncurl
-import asyncio
-import requests
 import subprocess
+import time
 
+import requests
+import uncurl
 from walkoff_app_sdk.app_base import AppBase
 
 class HTTP(AppBase):
     __version__ = "1.0.0"
-    app_name = "http"  
+    app_name = "http"
 
     def __init__(self, redis, logger, console_logger=None):
         print("INIT")
@@ -36,15 +35,15 @@ class HTTP(AppBase):
         else:
             print("FAILED to run bash!")
             item = stdout[1]
-    
+
         try:
             ret = item.decode("utf-8")
-            return ret 
+            return ret
         except:
             return item
 
         return item
-        #try: 
+        #try:
         #    if not statement.startswith("curl "):
         #        statement = "curl %s" % statement
 
@@ -60,7 +59,7 @@ class HTTP(AppBase):
     def splitheaders(self, headers):
         parsed_headers = {}
         if headers:
-            split_headers = headers.split("\n") 
+            split_headers = headers.split("\n")
             self.logger.info(split_headers)
             for header in split_headers:
                 if ": " in header:
@@ -94,7 +93,7 @@ class HTTP(AppBase):
         elif verify.lower().strip() == "false":
             return False
         else:
-            return True 
+            return True
 
     def checkbody(self, body):
         # Indicates json
@@ -157,15 +156,15 @@ class HTTP(AppBase):
 # Run the actual thing after we've checked params
 def run(request):
     print("Starting cloud!")
-    action = request.get_json() 
+    action = request.get_json()
     print(action)
     print(type(action))
     authorization_key = action.get("authorization")
     current_execution_id = action.get("execution_id")
-	
+
     if action and "name" in action and "app_name" in action:
         HTTP.run(action)
-        return f'Attempting to execute function {action["name"]} in app {action["app_name"]}' 
+        return f'Attempting to execute function {action["name"]} in app {action["app_name"]}'
     else:
         return f'Invalid action'
 

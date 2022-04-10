@@ -1,9 +1,9 @@
-import time
+import asyncio
 import json
 import socket
-import asyncio
-from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
+import time
 
+from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 from walkoff_app_sdk.app_base import AppBase
 
 class Vader(AppBase):
@@ -40,5 +40,3 @@ class Vader(AppBase):
 
 if __name__ == "__main__":
     Vader.run()
-
-

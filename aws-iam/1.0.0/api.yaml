@@ -1,52 +1,52 @@
 app_version: 1.0.0
-name: AWS IAM 
+name: AWS IAM
 description: An app to interact with Amazon IAM
 contact_info:
   name: "@dhaval055"
   url: https://shuffler.io
   email: dhavald@inforpercept.com
 tags:
-  - Access 
+  - Access
   - Users
 categories:
-  - Access 
+  - Access
   - Users
 authentication:
   required: true
   parameters:
-    - name: access_key 
+    - name: access_key
       description: The access key to use
       example: "*****"
       required: true
       schema:
         type: string
     - name: secret_key
-      description: The secret key to use 
+      description: The secret key to use
       example: "*****"
       required: true
       schema:
         type: string
-    - name: region 
+    - name: region
       description: The region to use
       example: "ap-south-1"
       required: true
       schema:
         type: string
 actions:
-  - name: change_password 
+  - name: change_password
     description: Change password of the specified user
     parameters:
-      - name: username 
+      - name: username
         description: Username to change password
         required: true
-        multiline: false 
+        multiline: false
         example: 'johnwiliams'
         schema:
           type: string
-      - name: password 
+      - name: password
         description: New password for user
         required: true
-        multiline: false 
+        multiline: false
         example: '*****'
         schema:
           type: string
@@ -56,10 +56,10 @@ actions:
   - name: attach_user_policy
     description: Attach policy to the user.
     parameters:
-      - name: username 
+      - name: username
         description: Username you want to attach policy to.
         required: true
-        multiline: false 
+        multiline: false
         example: 'johnwiliams'
         schema:
           type: string
@@ -72,28 +72,28 @@ actions:
           type: string
     returns:
       schema:
-        type: string  
+        type: string
   - name: list_access_keys
     description: List all access keys
     parameters:
-      - name: username 
+      - name: username
         description: List all access keys of this username
         required: true
-        multiline: false 
+        multiline: false
         example: 'johnwiliams'
         schema:
           type: string
       - name: marker
         description: Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated.
         required: false
-        multiline: false 
+        multiline: false
         example: '10'
         schema:
-          type: string    
+          type: string
       - name: max_items
         description: Use this only when paginating results to indicate the maximum number of items you want in the response.
         required: false
-        multiline: false 
+        multiline: false
         example: '123'
         schema:
           type: string
@@ -103,136 +103,136 @@ actions:
   - name: list_ssh_public_keys
     description: List SSH public keys
     parameters:
-      - name: username 
+      - name: username
         description: List SSH public keys of this username
         required: true
-        multiline: false 
+        multiline: false
         example: 'johnwiliams'
         schema:
           type: string
       - name: marker
         description: Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated.
         required: false
-        multiline: false 
+        multiline: false
         example: '10'
         schema:
-          type: string    
+          type: string
       - name: max_items
         description: Use this only when paginating results to indicate the maximum number of items you want in the response.
         required: false
-        multiline: false 
+        multiline: false
         example: '123'
         schema:
           type: string
     returns:
       schema:
-        type: string 
+        type: string
   - name: get_instance_profile
-    description: Retrieves information about the specified instance profile, including the instance profile's path, GUID, ARN, and role. 
-    parameters:   
+    description: Retrieves information about the specified instance profile, including the instance profile's path, GUID, ARN, and role.
+    parameters:
       - name: instance_profile_name
         description: The name of the instance profile to get information about.
         required: true
-        multiline: false 
+        multiline: false
         example: 'ExampleInstanceProfile'
         schema:
           type: string
     returns:
       schema:
-        type: string 
+        type: string
   - name: get_user
     description: Retrieves information about the specified IAM user, including the user's creation date, path, unique ID, and ARN.
-    parameters:   
+    parameters:
       - name: user_name
         description: The name of the user to get information about.
         required: true
-        multiline: false 
+        multiline: false
         example: 'Bob'
         schema:
           type: string
     returns:
       schema:
-        type: string 
+        type: string
   - name: list_attached_user_policies
     description: Lists all managed policies that are attached to the specified IAM user.
     parameters:
-      - name: user_name 
+      - name: user_name
         description: The name (friendly name, not ARN) of the user to list attached policies for.
         required: true
-        multiline: false 
+        multiline: false
         example: 'johnwiliams'
         schema:
           type: string
       - name: marker
         description: Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated.
         required: false
-        multiline: false 
+        multiline: false
         example: '10'
         schema:
-          type: string    
+          type: string
       - name: max_items
         description: Use this only when paginating results to indicate the maximum number of items you want in the response.
         required: false
-        multiline: false 
+        multiline: false
         example: '123'
         schema:
           type: string
     returns:
       schema:
-        type: string 
+        type: string
   - name: list_users
     description: Lists the IAM users
     parameters:
-      - name: path_prefix 
+      - name: path_prefix
         description: The path prefix for filtering the results.
         required: true
-        multiline: false 
+        multiline: false
         example: '"/" for all users'
         schema:
           type: string
       - name: marker
         description: Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated.
         required: false
-        multiline: false 
+        multiline: false
         example: '10'
         schema:
-          type: string    
+          type: string
       - name: max_items
         description: Use this only when paginating results to indicate the maximum number of items you want in the response.
         required: false
-        multiline: false 
+        multiline: false
         example: '123'
         schema:
           type: string
     returns:
       schema:
-        type: string  
+        type: string
   - name: list_user_tags
     description: Lists the tags that are attached to the specified IAM user.
     parameters:
-      - name: user_name 
+      - name: user_name
         description: The path prefix for filtering the results.
         required: true
-        multiline: false 
+        multiline: false
         example: 'JohnDoe'
         schema:
           type: string
       - name: marker
         description: Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated.
         required: false
-        multiline: false 
+        multiline: false
         example: '10'
         schema:
-          type: string    
+          type: string
       - name: max_items
         description: Use this only when paginating results to indicate the maximum number of items you want in the response.
         required: false
-        multiline: false 
+        multiline: false
         example: '123'
         schema:
           type: string
     returns:
       schema:
-        type: string                                  
-        
+        type: string
+
 large_image: data:image/png;base64,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

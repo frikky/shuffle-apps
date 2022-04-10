@@ -1,13 +1,13 @@
-import socket
 import asyncio
-import time
-import random
 import json
+import random
+import socket
+import time
+
+from walkoff_app_sdk.app_base import AppBase
 
 from mysql.connector import connection
 from mysql.connector import errorcode
-
-from walkoff_app_sdk.app_base import AppBase
 
 class DbManager(AppBase):
     __version__ = "1.0.0"
@@ -27,19 +27,19 @@ class DbManager(AppBase):
                                         host= host,
                                         port=port,
                                         database= database_name)
-        print(f"Connection successful, User -->{username} ")                                
-        return cnx                               
+        print(f"Connection successful, User -->{username} ")
+        return cnx
 
     def query_mysql_database(self, username, password, host, port, database_name, query):
-        
-        self.db_connection = self.connection(username, password, host, port, database_name) 
+
+        self.db_connection = self.connection(username, password, host, port, database_name)
         cursor = self.db_connection.cursor(dictionary=True)
         cursor.execute(str(query))
         print("Query executed successfully")
         res = cursor.fetchall()
         cursor.close()
         self.db_connection.close()
-        return (json.dumps(res))     
+        return (json.dumps(res))
 
 if __name__ == "__main__":
     DbManager.run()

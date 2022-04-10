@@ -86,7 +86,7 @@ actions:
         required: false
         schema:
           type: string
-      - name: artifacts 
+      - name: artifacts
         description: The artifacts to add
         example: "ioc,incident,this is a tag,what"
         required: false
@@ -258,7 +258,7 @@ actions:
   - name: add_case_artifact
     description: Add an observable to TheHive
     parameters:
-      - name: case_id 
+      - name: case_id
         description: The case to add it to
         example: ""
         required: true
@@ -463,7 +463,7 @@ actions:
   - name: delete_alert_artifact
     description: Deletes and artifact from a TheHive alert
     parameters:
-      - name: artifact_id 
+      - name: artifact_id
         description: The artifact ID to delete
         example: "adf5e3d0fd85633be17004735a0a119e"
         required: true

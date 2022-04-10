@@ -285,7 +285,6 @@ actions:
         schema:
           type: string
     returns:
-    returns:
       schema:
         type: string
   - name: map_value

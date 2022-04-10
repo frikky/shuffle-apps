@@ -1,6 +1,7 @@
-import yaml
 import os
 import subprocess
+
+import yaml
 
 basedir = "."
 dirs = os.listdir(basedir)
@@ -66,7 +67,7 @@ for basename in dirs:
             pythondata = tmp.read()
             for action_name in action_names:
                 if not action_name in pythondata:
-                    print(f"===> Couldn't find action \"{action_name}\" from {apifile} in script {pythonfile}") 
+                    print(f"===> Couldn't find action \"{action_name}\" from {apifile} in script {pythonfile}")
 
             code = f"python3 {pythonfile}"
             process = subprocess.Popen(
@@ -94,4 +95,4 @@ for basename in dirs:
     #break
 
 
-#for item in 
+#for item in

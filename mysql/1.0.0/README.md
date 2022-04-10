@@ -8,7 +8,7 @@ For the authentication you will need:
 - password;
 - database.
 
-> **Note:** 
+> **Note:**
 >
 > If you want to use authentication to create databases only, leave the database field empty.
 >

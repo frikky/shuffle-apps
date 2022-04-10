@@ -1,10 +1,10 @@
-import socket
 import asyncio
-import time
-import random
-import json
-import subprocess
 import base64
+import json
+import random
+import socket
+import subprocess
+import time
 
 from walkoff_app_sdk.app_base import AppBase
 
@@ -12,11 +12,11 @@ from walkoff_app_sdk.app_base import AppBase
 # 2. Add a way to choose the rule and the target platform for it
 # 3. Add the possibility of translating rules back and forth
 
-# 4. Make it so you can start with Mitre Att&ck techniques 
+# 4. Make it so you can start with Mitre Att&ck techniques
 # and automatically get the right rules set up with your tools :O
 class exchange_powershell(AppBase):
     __version__ = "1.0.0"
-    app_name = "exchange-powershell"  
+    app_name = "exchange-powershell"
 
     def __init__(self, redis, logger, console_logger=None):
         """
@@ -38,10 +38,10 @@ class exchange_powershell(AppBase):
 
             if not record and not line.startswith("{") and not line.startswith("["):
                 skipped += 1
-        
+
             if record:
                 newlines.append(line)
-        
+
 
         print(f"SKIPPED {skipped} lines")
         if len(newlines) == 0:
@@ -66,7 +66,7 @@ class exchange_powershell(AppBase):
         with open(self.filename, "w+") as tmp:
             tmp.write(data)
 
-        command = f"pwsh -file {self.filename}" 
+        command = f"pwsh -file {self.filename}"
         print(f"PRE POPEN: {command}")
         process = subprocess.Popen(
             command,
@@ -99,21 +99,21 @@ class exchange_powershell(AppBase):
         except Exception as e:
             return item
 
-        return item 
+        return item
 
     # Write your data inside this function
     def release_quarantine_message(self, username, password, message_id):
         parsed_command = f"Release-QuarantineMessage -Identity {message_id} | ConvertTo-Json"
 
         ret = self.replace_and_run(username, password, parsed_command)
-        return ret 
+        return ret
 
     # Write your data inside this function
     def preview_quarantine_message(self, username, password, message_id):
         parsed_command = f"Preview-QuarantineMessage -Identity {message_id} | ConvertTo-Json"
 
         ret = self.replace_and_run(username, password, parsed_command)
-        return ret 
+        return ret
 
     # Write your data inside this function
     def export_quarantine_message(self, username, password, message_id, skip_upload="false"):
@@ -132,10 +132,10 @@ class exchange_powershell(AppBase):
             return file_eml
 
         message_bytes = base64.b64decode(file_eml)
-        
+
         fileinfo = self.set_files({
-            "filename": f"{message_id}.eml", 
-            "data": message_bytes 
+            "filename": f"{message_id}.eml",
+            "data": message_bytes
         })
 
         if len(fileinfo) == 1:
@@ -151,28 +151,28 @@ class exchange_powershell(AppBase):
         parsed_command = f"Delete-QuarantineMessage -Identity {message_id} | ConvertTo-Json"
 
         ret = self.replace_and_run(username, password, parsed_command)
-        return ret 
+        return ret
 
     # Write your data inside this function
     def get_quarantine_message(self, username, password, message_id):
         parsed_command = f"Get-QuarantineMessage {message_id} | ConvertTo-Json"
 
         ret = self.replace_and_run(username, password, parsed_command)
-        return ret 
+        return ret
 
     # Write your data inside this function
     def get_quarantine_messages(self, username, password, time_from, time_to):
         parsed_command = f"Get-QuarantineMessage -StartReceivedDate {time_from} -EndReceivedDate {time_to} | ConvertTo-Json"
 
         ret = self.replace_and_run(username, password, parsed_command)
-        return ret 
+        return ret
 
     # Write your data inside this function
     def get_quarantine_messageheaders(self, username, password, message_id):
         parsed_command = f"Get-QuarantineMessageHeader {message_id} | ConvertTo-Json"
 
         ret = self.replace_and_run(username, password, parsed_command)
-        return ret 
+        return ret
 
 if __name__ == "__main__":
     exchange_powershell.run()

@@ -1,15 +1,15 @@
 app_version: 1.0.0
-name: Google Chat 
+name: Google Chat
 description: An app for Google Chat messaging service
 contact_info:
   name: "nusantara-self"
   url: https://github.com/nusantara-self
 tags:
-  - Alert 
+  - Alert
 categories:
-  - Communication 
+  - Communication
 authentication:
-  required: true 
+  required: true
   parameters:
     - name: webhook_url
       description: webhook URL that also defines the room chat
@@ -22,9 +22,9 @@ actions:
     description: Sends a message to Google Chat room.
     parameters:
       - name: webhook_url
-        description: Enter the webhook created in your Chat room 
+        description: Enter the webhook created in your Chat room
         required: true
-        multiline: false 
+        multiline: false
         example: 'https://chat.googleapis.com/v1/spaces/AAAAAAAA/messages?key=AIzaSyDdI&token=ZDsd2531'
         schema:
           type: string
@@ -71,16 +71,16 @@ actions:
           - Shuffle
           - Splunk
           - TheHive
-          - PrismaCloud 
+          - PrismaCloud
           - AWSWAF
           - CVE
-      - name : threadKey                                                                                     
-        description: Write in the specified thread related to this key or create it. Optional.               
-        required: false                                                                                      
-        multiline: false                                                                                     
-        example: "SplunkAlertThread"                                                                         
-        schema:                                                                                              
-          type: string  
+      - name : threadKey
+        description: Write in the specified thread related to this key or create it. Optional.
+        required: false
+        multiline: false
+        example: "SplunkAlertThread"
+        schema:
+          type: string
     returns:
       schema:
         type: string

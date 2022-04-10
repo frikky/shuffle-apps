@@ -1,10 +1,10 @@
-import socket
 import asyncio
-import time
-import random
 import json
-import feedparser
+import random
+import socket
+import time
 
+import feedparser
 from walkoff_app_sdk.app_base import AppBase
 
 class PythonPlayground(AppBase):
@@ -34,7 +34,7 @@ class PythonPlayground(AppBase):
 
         print(NewsFeed)
         entry = NewsFeed.entries[1]
-        
+
         print(entry.keys())
         return entry.keys()
 
@@ -43,7 +43,7 @@ class PythonPlayground(AppBase):
     #    # It comes in as a string, so needs to be set to JSON
     #    NewsFeed = feedparser.parse(url)
     #    NewsFeed.entries[1]
-    #    
+    #
     #    print entry.keys()
     #    return entry.keys()
 

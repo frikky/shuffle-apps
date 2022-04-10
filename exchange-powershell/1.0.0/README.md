@@ -4,7 +4,7 @@ docker run -it mcr.microsoft.com/powershell:ubuntu-18.04
 ### https://docs.microsoft.com/en-us/powershell/module/exchange/connect-exchangeonline?view=exchange-ps
 Install-Module -Name ExchangeOnlineManagement -Force
 
-Connect-ExchangeOnline -Device    
+Connect-ExchangeOnline -Device
 
 * Go to https://microsoft.com/devicelogin and type in the code they give
 

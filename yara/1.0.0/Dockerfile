@@ -27,29 +27,29 @@ ENV YARA_PY_VERSION 4.0.2
 
 ### INSTALLING EVERYTHING REQUIRED
 RUN apk add openssl file jansson bison python3 tini su-exec wget
-RUN apk add -t .build-deps py3-setuptools openssl-dev jansson-dev 
-RUN apk add python3-dev build-base libc-dev file-dev automake 
+RUN apk add -t .build-deps py3-setuptools openssl-dev jansson-dev
+RUN apk add python3-dev build-base libc-dev file-dev automake
 RUN apk add autoconf libtool flex git
 
-### SETTING UP YARA 
-RUN set -x 
-RUN echo "Install Yara from source..." 
+### SETTING UP YARA
+RUN set -x
+RUN echo "Install Yara from source..."
 RUN git clone --recursive --branch v$YARA_VERSION https://github.com/VirusTotal/yara.git /tmp/yara
-RUN cd /tmp/yara 
+RUN cd /tmp/yara
 WORKDIR /tmp/yara
-RUN ./bootstrap.sh 
-RUN sync 
-RUN ./configure --with-crypto --enable-magic --enable-cuckoo --enable-dotnet 
-RUN make 
-RUN make install 
-RUN echo "Install yara-python..." 
+RUN ./bootstrap.sh
+RUN sync
+RUN ./configure --with-crypto --enable-magic --enable-cuckoo --enable-dotnet
+RUN make
+RUN make install
+RUN echo "Install yara-python..."
 
 ### SETTING UP YARA PYTHON
 RUN git clone --recursive --branch v$YARA_PY_VERSION https://github.com/VirusTotal/yara-python /tmp/yara-python
-RUN cd /tmp/yara-python 
+RUN cd /tmp/yara-python
 WORKDIR /tmp/yara-python
-RUN python3 setup.py build --dynamic-linking 
-RUN python3 setup.py install 
+RUN python3 setup.py build --dynamic-linking
+RUN python3 setup.py install
 RUN apk del --purge .build-deps
 
 ### SETTING UP YARA RULES

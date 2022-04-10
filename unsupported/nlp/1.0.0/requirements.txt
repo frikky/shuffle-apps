@@ -1,4 +1,4 @@
 cyberspacy==1.1.1
-tika==1.24
 requests==2.25.1
 spacy==2.3.5
+tika==1.24

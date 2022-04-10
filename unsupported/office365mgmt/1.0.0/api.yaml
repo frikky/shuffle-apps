@@ -41,7 +41,7 @@ actions:
     description: Run office365 audit poller for defined interval
     parameters:
       - name: json_data
-        description: The JSON to handle 
+        description: The JSON to handle
         required: false
         multiline: true
         example: 'No args for now, insert credentials and get returned data'
@@ -52,7 +52,7 @@ actions:
         required: true
         multiline: true
         example: '1'
-        options: 
+        options:
           - poll_10min
           - poll_23hours
         schema:

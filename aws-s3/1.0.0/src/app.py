@@ -1,17 +1,17 @@
-import socket
 import asyncio
-import time
-import random
 import json
+import random
+import socket
+import time
+
 import boto3
 import botocore
 from botocore.config import Config
-
 from walkoff_app_sdk.app_base import AppBase
 
 class AWSS3(AppBase):
     __version__ = "1.0.0"
-    app_name = "AWS S3"  
+    app_name = "AWS S3"
 
     def __init__(self, redis, logger, console_logger=None):
         """
@@ -33,8 +33,8 @@ class AWSS3(AppBase):
         )
 
         self.s3 = boto3.resource(
-            's3', 
-            config=my_config, 
+            's3',
+            config=my_config,
             aws_access_key_id=access_key,
             aws_secret_access_key=secret_key,
         )
@@ -62,7 +62,7 @@ class AWSS3(AppBase):
                 },
             )
 
-            return creation 
+            return creation
         except botocore.exceptions.ClientError as e:
             return "Error: %s" % e
 

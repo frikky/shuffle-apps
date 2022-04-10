@@ -40,4 +40,3 @@ RUN cat /etc/ssl/openssl.cnf
 # Finally, lets run our app!
 WORKDIR /app
 CMD python app.py --log-level DEBUG
-

@@ -1,12 +1,11 @@
-import json
-import ldap3
 import asyncio
-from ldap3 import (
-    Server,
-    Connection,
-    MODIFY_REPLACE,
-    ALL_ATTRIBUTES,
-)
+import json
+
+import ldap3
+from ldap3 import ALL_ATTRIBUTES
+from ldap3 import Connection
+from ldap3 import MODIFY_REPLACE
+from ldap3 import Server
 from walkoff_app_sdk.app_base import AppBase
 
 class ActiveDirectory(AppBase):

@@ -1,18 +1,18 @@
-import time
-import json
 import ast
+import asyncio
+import json
 import random
 import socket
-import uncurl
-import asyncio
-import requests
 import subprocess
+import time
 
+import requests
+import uncurl
 from walkoff_app_sdk.app_base import AppBase
 
 class HTTP(AppBase):
     __version__ = "1.3.0"
-    app_name = "http"  
+    app_name = "http"
 
     def __init__(self, redis, logger, console_logger=None):
         print("INIT")
@@ -36,15 +36,15 @@ class HTTP(AppBase):
         else:
             print("FAILED to run bash!")
             item = stdout[1]
-    
+
         try:
             ret = item.decode("utf-8")
-            return ret 
+            return ret
         except:
             return item
 
         return item
-        #try: 
+        #try:
         #    if not statement.startswith("curl "):
         #        statement = "curl %s" % statement
 
@@ -60,7 +60,7 @@ class HTTP(AppBase):
     def splitheaders(self, headers):
         parsed_headers = {}
         if headers:
-            split_headers = headers.split("\n") 
+            split_headers = headers.split("\n")
             self.logger.info(split_headers)
             for header in split_headers:
                 if ": " in header:
@@ -94,7 +94,7 @@ class HTTP(AppBase):
         elif not verify:
             return False
         else:
-            return True 
+            return True
 
     def checkbody(self, body):
         # Indicates json
@@ -130,7 +130,7 @@ class HTTP(AppBase):
         if "https:///" in url:
             url = url.replace("https:///", "https://", -1)
         if not "http://" in url and not "http" in url:
-            url = f"http://{url}" 
+            url = f"http://{url}"
 
         return url
 
@@ -144,7 +144,7 @@ class HTTP(AppBase):
             return {"success": True, "file_id": fileret[0]}
 
         return fileret
-            
+
     def prepare_response(self, request):
         try:
             parsedheaders = {}
@@ -156,7 +156,7 @@ class HTTP(AppBase):
                 for key, value in request.cookies.items():
                     cookies[key] = value
 
-            
+
             jsondata = request.text
             try:
                 jsondata = json.loads(jsondata)
@@ -182,9 +182,9 @@ class HTTP(AppBase):
         parsed_headers["User-Agent"] = "Shuffle Automation"
         verify = self.checkverify(verify)
         proxies = None
-        if http_proxy: 
+        if http_proxy:
             proxies["http"] = http_proxy
-        if https_proxy: 
+        if https_proxy:
             proxies["https"] = https_proxy
 
         auth=None
@@ -199,7 +199,7 @@ class HTTP(AppBase):
         if to_file == "true":
             to_file = True
         else:
-            to_file = False 
+            to_file = False
 
         request = requests.get(url, headers=parsed_headers, auth=auth, verify=verify, proxies=proxies, timeout=timeout)
         if not to_file:
@@ -215,9 +215,9 @@ class HTTP(AppBase):
         verify = self.checkverify(verify)
         body = self.checkbody(body)
         proxies = None
-        if http_proxy: 
+        if http_proxy:
             proxies["http"] = http_proxy
-        if https_proxy: 
+        if https_proxy:
             proxies["https"] = https_proxy
 
         auth=None
@@ -232,7 +232,7 @@ class HTTP(AppBase):
         if to_file == "true":
             to_file = True
         else:
-            to_file = False 
+            to_file = False
 
         request = requests.post(url, headers=parsed_headers, auth=auth, data=body, verify=verify, proxies=proxies, timeout=timeout)
         if not to_file:
@@ -249,9 +249,9 @@ class HTTP(AppBase):
         verify = self.checkverify(verify)
         body = self.checkbody(body)
         proxies = None
-        if http_proxy: 
+        if http_proxy:
             proxies["http"] = http_proxy
-        if https_proxy: 
+        if https_proxy:
             proxies["https"] = https_proxy
 
 
@@ -267,7 +267,7 @@ class HTTP(AppBase):
         if to_file == "true":
             to_file = True
         else:
-            to_file = False 
+            to_file = False
 
         request = requests.put(url, headers=parsed_headers, auth=auth, data=body, verify=verify, proxies=proxies, timeout=timeout)
         if not to_file:
@@ -283,9 +283,9 @@ class HTTP(AppBase):
         verify = self.checkverify(verify)
         body = self.checkbody(body)
         proxies = None
-        if http_proxy: 
+        if http_proxy:
             proxies["http"] = http_proxy
-        if https_proxy: 
+        if https_proxy:
             proxies["https"] = https_proxy
 
         auth=None
@@ -300,7 +300,7 @@ class HTTP(AppBase):
         if to_file == "true":
             to_file = True
         else:
-            to_file = False 
+            to_file = False
 
         request = requests.patch(url, headers=parsed_headers, data=body, auth=auth, verify=verify, proxies=proxies, timeout=timeout)
         if not to_file:
@@ -315,9 +315,9 @@ class HTTP(AppBase):
         parsed_headers["User-Agent"] = "Shuffle Automation"
         verify = self.checkverify(verify)
         proxies = None
-        if http_proxy: 
+        if http_proxy:
             proxies["http"] = http_proxy
-        if https_proxy: 
+        if https_proxy:
             proxies["https"] = https_proxy
 
         auth=None
@@ -332,7 +332,7 @@ class HTTP(AppBase):
         if to_file == "true":
             to_file = True
         else:
-            to_file = False 
+            to_file = False
 
         request = requests.delete(url, headers=parsed_headers, auth=auth, verify=verify, proxies=proxies, timeout=timeout)
         if not to_file:
@@ -348,9 +348,9 @@ class HTTP(AppBase):
         verify = self.checkverify(verify)
         body = self.checkbody(body)
         proxies = None
-        if http_proxy: 
+        if http_proxy:
             proxies["http"] = http_proxy
-        if https_proxy: 
+        if https_proxy:
             proxies["https"] = https_proxy
 
         auth=None
@@ -365,7 +365,7 @@ class HTTP(AppBase):
         if to_file == "true":
             to_file = True
         else:
-            to_file = False 
+            to_file = False
 
         request = requests.head(url, headers=parsed_headers, auth=auth, verify=verify, proxies=proxies, timeout=timeout)
         if not to_file:
@@ -381,9 +381,9 @@ class HTTP(AppBase):
         verify = self.checkverify(verify)
         body = self.checkbody(body)
         proxies = None
-        if http_proxy: 
+        if http_proxy:
             proxies["http"] = http_proxy
-        if https_proxy: 
+        if https_proxy:
             proxies["https"] = https_proxy
 
         auth=None
@@ -392,14 +392,14 @@ class HTTP(AppBase):
 
         if not timeout:
             timeout = 5
-        
+
         if timeout:
             timeout = int(timeout)
 
         if to_file == "true":
             to_file = True
         else:
-            to_file = False 
+            to_file = False
 
         request = requests.options(url, headers=parsed_headers, auth=auth, verify=verify, proxies=proxies, timeout=timeout)
         if not to_file:
@@ -411,15 +411,15 @@ class HTTP(AppBase):
 # Run the actual thing after we've checked params
 def run(request):
     print("Starting cloud!")
-    action = request.get_json() 
+    action = request.get_json()
     print(action)
     print(type(action))
     authorization_key = action.get("authorization")
     current_execution_id = action.get("execution_id")
-	
+
     if action and "name" in action and "app_name" in action:
         HTTP.run(action)
-        return f'Attempting to execute function {action["name"]} in app {action["app_name"]}' 
+        return f'Attempting to execute function {action["name"]} in app {action["app_name"]}'
     else:
         return f'Invalid action'
 

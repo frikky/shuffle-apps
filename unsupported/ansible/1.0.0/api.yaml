@@ -1,24 +1,24 @@
 app_version: 1.0.0
-name: Ansible 
+name: Ansible
 description: Ansible app
 contact_info:
   name: "@frikkylikeme"
   url: https://shuffler.io
   email: frikky@shuffler.io
 tags:
-  - Testing 
+  - Testing
 categories:
-  - Testing 
+  - Testing
 actions:
   - name: run_playbook
-    description: Runs an Ansible playbook defined in Files 
+    description: Runs an Ansible playbook defined in Files
     parameters:
-      - name: playbook 
-        description: The JSON to handle 
+      - name: playbook
+        description: The JSON to handle
         required: true
         example: ''
         schema:
-          type: file 
+          type: file
           name: ansible
     returns:
       schema:

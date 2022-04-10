@@ -31,7 +31,7 @@ actions:
     returns:
       schema:
         type: string
-  - name: check_cache_contains 
+  - name: check_cache_contains
     description: Checks Shuffle cache whether a user-provided key contains a value. Returns ALL the values previously appended.
     parameters:
       - name: key
@@ -41,19 +41,19 @@ actions:
         example: "alert_ids"
         schema:
           type: string
-      - name: value 
+      - name: value
         description: The value to check for and append if applicable
         required: true
         multiline: false
         example: "1208301599081"
         schema:
           type: string
-      - name: append 
+      - name: append
         description: Whether to auto-append the value if it doesn't exist in the cache
         required: true
         options:
           - true
-          - false 
+          - false
         multiline: false
         example: "timestamp"
         schema:
@@ -149,11 +149,11 @@ actions:
         required: true
         schema:
           type: string
-      - name: attachments 
-        description: The ID of files in Shuffle to add as attachments 
+      - name: attachments
+        description: The ID of files in Shuffle to add as attachments
         multiline: true
         example: "file_id1,file_id2,file_id3"
-        required: false 
+        required: false
         schema:
           type: string
     returns:
@@ -319,7 +319,6 @@ actions:
         schema:
           type: string
     returns:
-    returns:
       schema:
         type: string
   - name: replace_value_from_dictionary
@@ -410,30 +409,30 @@ actions:
       - name: filedata
         description: The files
         required: true
-        multiline: false 
+        multiline: false
         example: "a2f89576-a9ec-479e-8c83-da69f468c90a"
         schema:
-          type: string 
+          type: string
     returns:
       schema:
         type: string
-  - name: create_file 
-    description: Returns uploaded file data 
+  - name: create_file
+    description: Returns uploaded file data
     parameters:
-      - name: filename 
-        description:  
+      - name: filename
+        description:
         required: true
-        multiline: false 
+        multiline: false
         example: "test.csv"
         schema:
-          type: string 
-      - name: data 
-        description:  
+          type: string
+      - name: data
+        description:
         required: true
         multiline: true
         example: "EventID,username\n4137,frikky"
         schema:
-          type: string 
+          type: string
   - name: download_remote_file
     description: Downloads a file from a URL
     parameters:
@@ -444,9 +443,9 @@ actions:
         example: "https://secure.eicar.org/eicar.com.txt"
         schema:
           type: string
-      - name: custom_filename 
+      - name: custom_filename
         description:
-        required: false 
+        required: false
         multiline: false
         example: "newfile.txt"
         schema:
@@ -557,7 +556,7 @@ actions:
       - name: data
         description:
         required: true
-        multiline: true 
+        multiline: true
         example: 'xml data / json data'
         schema:
           type: string
@@ -596,7 +595,7 @@ actions:
     # yamllint disable-line rule:line-length
     description: Compares an input date to a relative date and returns a True/False result
     parameters:
-      - name: timestamp 
+      - name: timestamp
         description: The input data to use
         required: true
         multiline: true
@@ -765,14 +764,14 @@ actions:
         required: true
         schema:
           type: string
-      - name: key 
-        description: The object to add 
+      - name: key
+        description: The object to add
         multiline: false
         example: "recipients"
         required: true
         schema:
           type: string
-      - name: value 
+      - name: value
         description: The value to set it to in the JSON object
         multiline: true
         required: true
@@ -834,7 +833,7 @@ actions:
         description: The input data to use
         required: true
         multiline: true
-        example: '{"html": "<body>hello</body>"}' 
+        example: '{"html": "<body>hello</body>"}'
         schema:
           type: string
       - name: field_name
@@ -866,15 +865,15 @@ actions:
           - decode
         schema:
           type: string
-  - name: get_timestamp 
+  - name: get_timestamp
     description: Gets a timestamp for right now. Default returns an epoch timestamp
     parameters:
-      - name: time_format 
+      - name: time_format
         description: The format to use
         multiline: false
         required: True
         options:
-          - epoch 
+          - epoch
           - unix
         schema:
           type: string

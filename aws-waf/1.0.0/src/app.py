@@ -1,17 +1,17 @@
-import socket
 import asyncio
-import time
-import random
 import json
+import random
+import socket
+import time
+
 import boto3
 import botocore
 from botocore.config import Config
-
 from walkoff_app_sdk.app_base import AppBase
 
 class AWSEC2(AppBase):
     __version__ = "1.0.0"
-    app_name = "AWS WAF"  
+    app_name = "AWS WAF"
 
     def __init__(self, redis, logger, console_logger=None):
         """
@@ -92,7 +92,7 @@ class AWSEC2(AppBase):
             )
 
             arn = new_resp["IPSet"]["ARN"]
-            found = False 
+            found = False
             for address in  new_resp["IPSet"]["Addresses"]:
                 if address == ip:
                     found = True
@@ -109,7 +109,7 @@ class AWSEC2(AppBase):
                     Addresses = new_resp["IPSet"]["Addresses"],
                 )
 
-        # 2: Handle rule group creation 
+        # 2: Handle rule group creation
         #arn = "arn:aws:wafv2:ap-northeast-1:202262580068:regional/ipset/shuffle-test/f2a8df33-82cf-4a9e-8601-880023c617a6"
         updateRule = {
                 'Name': ipset_name,
@@ -125,7 +125,7 @@ class AWSEC2(AppBase):
                     },
                 },
                 "Action": {
-                    "Block": {},    
+                    "Block": {},
                 },
                 "VisibilityConfig": {
                     'SampledRequestsEnabled': False,
@@ -159,7 +159,7 @@ class AWSEC2(AppBase):
             for rule in get_groups["RuleGroups"]:
                 #print("Rule: %s" % rule)
                 if rule["Name"] == ipset_name:
-                    cur_rule = rule 
+                    cur_rule = rule
                     break
 
             try:

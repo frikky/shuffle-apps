@@ -1,57 +1,57 @@
 app_version: 1.0.0
-name: Shuffle Subflow 
+name: Shuffle Subflow
 description: The  Shuffle Subflow app
 tags:
-  - Trigger 
+  - Trigger
 categories:
-  - Trigger 
+  - Trigger
 contact_info:
   name: "@frikkylikeme"
   url: https://shuffler.io
   email: frikky@shuffler.io
 actions:
-  - name: run_subflow 
+  - name: run_subflow
     description: Executes a subflow
     parameters:
-      - name: user_apikey 
+      - name: user_apikey
         description: The apikey to use
         required: true
-        multiline: false 
+        multiline: false
         example: "REPEATING: Hello world"
         schema:
           type: string
       - name: workflow
         description: The Workflow to execute
         required: true
-        multiline: false 
+        multiline: false
         example: "REPEATING: Hello world"
         schema:
           type: string
-      - name: execution_argument 
+      - name: execution_argument
         description: The execution_argument
         required: true
         multiline: true
         example: "REPEATING: Hello world"
         schema:
           type: string
-      - name: startnode 
-        description: 
-        required: false 
-        multiline: false 
+      - name: startnode
+        description:
+        required: false
+        multiline: false
         example: ""
         schema:
           type: string
       - name: source_workflow
-        description: 
-        required: false 
-        multiline: false 
+        description:
+        required: false
+        multiline: false
         example: ""
         schema:
           type: string
-      - name: source_execution 
+      - name: source_execution
         description:
         required: false
-        multiline: false 
+        multiline: false
         example: ""
         schema:
           type: string

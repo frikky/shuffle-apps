@@ -1,13 +1,13 @@
-import socket
 import asyncio
-import time
-import random
 import json
-import uuid
+import random
+import socket
 import time
-import requests
-from openpyxl import Workbook, load_workbook
+import uuid
 
+import requests
+from openpyxl import load_workbook
+from openpyxl import Workbook
 from walkoff_app_sdk.app_base import AppBase
 
 class MSExcel(AppBase):
@@ -91,7 +91,7 @@ class MSExcel(AppBase):
             return "Action failed"
         else:
             return "Action successfully completed"
-        
+
     def insert_or_update_data(self, tenant_id, client_id, client_secret, user_id, file_id, sheet_name, address, value):
         graph_url = "https://graph.microsoft.com"
         session = self.authenticate(tenant_id, client_id, client_secret, graph_url)
@@ -122,23 +122,23 @@ class MSExcel(AppBase):
         filedata = self.get_file(file_id)
         if filedata["success"] != True:
             return filedata
-    
+
         basename = "file.xlsx"
         with open(basename, "wb") as tmp:
             tmp.write(filedata["data"])
-    
+
         if sheet == "":
             sheet = "Sheet1"
-    
+
         #wb = Workbook(basename)
         wb = load_workbook(basename)
         print("Sheets: %s" % wb.sheetnames)
-    
+
         # grab the active worksheet
         ws = wb.active
         for item in ws.iter_rows():
             print(item)
-    
+
         csvdata = ""
         for row in ws.values:
             for value in row:
@@ -149,10 +149,10 @@ class MSExcel(AppBase):
                     csvdata += value+","
                 else:
                     csvdata += str(value)+","
-    
+
             csvdata = csvdata[:-1]+"\n"
         csvdata = csvdata[:-1]
-    
+
         print()
         print("Data:\n%s\n" % csvdata)
 
@@ -161,14 +161,14 @@ class MSExcel(AppBase):
     def get_excel_file_data(self, file_id):
         filedata = self.get_file(file_id)
         if filedata["success"] != True:
-            print(f"Bad info from file: {filedata}") 
+            print(f"Bad info from file: {filedata}")
             return filedata
         #filedata = file_id
-    
+
         basename = "file.xlsx"
         with open(basename, "wb") as tmp:
             tmp.write(filedata["data"])
-    
+
         #wb = Workbook(basename)
         try:
             wb = load_workbook(basename)
@@ -180,11 +180,11 @@ class MSExcel(AppBase):
             }
 
         print("Sheets: %s" % wb.sheetnames)
-    
+
         output_data = []
         for ws in wb.worksheets:
             print(f"Title: {ws.title}")
-    
+
             # grab the active worksheet
             csvdata = ""
             for row in ws.values:
@@ -196,18 +196,18 @@ class MSExcel(AppBase):
                         csvdata += value+","
                     else:
                         csvdata += str(value)+","
-    
+
                 csvdata = csvdata[:-1]+"\n"
             csvdata = csvdata[:-1]
-    
+
             print()
             print("Data:\n%s\n" % csvdata)
             output_data.append({
                 "sheet": ws.title,
                 "data": csvdata,
             })
-    
+
         return output_data
-        
+
 if __name__ == "__main__":
     MSExcel.run()

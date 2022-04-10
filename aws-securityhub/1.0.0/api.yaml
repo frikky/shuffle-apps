@@ -1,50 +1,50 @@
 app_version: 1.0.0
-name: AWS SecurityHub 
+name: AWS SecurityHub
 description: An app to interact with Amazon EC2
 contact_info:
   name: "@frikkylikeme"
   url: https://shuffler.io
   email: frikky@shuffler.io
 tags:
-  - Ticketing 
-  - SIEM 
+  - Ticketing
+  - SIEM
 categories:
-  - Ticketing 
-  - SIEM 
+  - Ticketing
+  - SIEM
 authentication:
   required: true
   parameters:
-    - name: access_key 
+    - name: access_key
       description: The access key to use
       example: "*****"
       required: true
       schema:
         type: string
     - name: secret_key
-      description: The secret key to use 
+      description: The secret key to use
       example: "*****"
       required: true
       schema:
         type: string
-    - name: region 
+    - name: region
       description: The region to use
       example: "ap-south-1"
       required: true
       schema:
         type: string
 actions:
-  - name: enable_security_hub 
+  - name: enable_security_hub
     description: Enables securityhub
     returns:
       schema:
         type: string
-  - name: get_findings 
+  - name: get_findings
     description: Gets findings for a specific region
     parameters:
-      - name: filters 
+      - name: filters
         description: The filter to add
-        required: false 
-        multiline: true 
+        required: false
+        multiline: true
         example: "{'ProductArn': [
             {
                 'Value': 'string',
@@ -59,76 +59,76 @@ actions:
   - name: get_insights
     description: Gets insights for a specific ARN
     parameters:
-      - name: filters 
+      - name: filters
         description: The filter to add
-        required: false 
-        multiline: true 
+        required: false
+        multiline: true
         example: "arn:aws:securityhub:::insight/securityhub/default/1"
         schema:
           type: string
     returns:
       schema:
         type: string
-  - name: update_finding 
+  - name: update_finding
     description: Updates a finding
     parameters:
-      - name: id 
-        description: The id to use 
-        required: true 
-        multiline: false 
+      - name: id
+        description: The id to use
+        required: true
+        multiline: false
         example: "arn:aws:securityhub:ap-northeast-1:ID:subscription/aws-foundational-security-best-practices/v/1.0.0/Config.1/finding/3b5ca8f5-bc72-42fd-a956-d8c1bc775201"
         schema:
           type: string
-      - name: productArn 
-        description: The id to use 
-        required: true 
-        multiline: false 
+      - name: productArn
+        description: The id to use
+        required: true
+        multiline: false
         example: "arn:aws:securityhub:ap-northeast-1::product/aws/securityhub"
         schema:
           type: string
-      - name: status 
+      - name: status
         description: The new status to use
         options:
           - NEW
           - NOTIFIED
           - RESOLVED
           - SUPPRESSED
-        required: true 
-        multiline: false 
+        required: true
+        multiline: false
         example: "arn:aws:securityhub:ap-northeast-1::product/aws/securityhub"
         schema:
           type: string
     returns:
       schema:
         type: string
-  - name: create_finding 
+  - name: create_finding
     description: Creates findings in AWS Securityhub
     parameters:
-      - name: productArn 
+      - name: productArn
         description: The ARN to use
-        required: true 
-        multiline: false 
+        required: true
+        multiline: false
         example: "arn:aws:securityhub:us-east-1:ID:action/custom/shuffle"
         schema:
           type: string
-      - name: id 
+      - name: id
         description: The finding ID
-        required: true 
-        multiline: false 
+        required: true
+        multiline: false
         example: "12023158129"
         schema:
           type: string
-      - name: title 
+      - name: title
         description: The Title to use
-        required: true 
-        multiline: false 
+        required: true
+        multiline: false
         example: "Malware on host 1234"
         schema:
           type: string
-      - name: description 
+      - name: description
         description: The finding description
-        required: false 
-        multiline: true 
+        required: false
+        multiline: true
         example: "Descriptioooon"
         schema:
           type: string

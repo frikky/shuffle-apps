@@ -30,7 +30,7 @@ __Note__:
 ## Requirements
 
 1. AWS account
-2. Access key, Secret key and region of the user. 
+2. Access key, Secret key and region of the user.
 
 - __How to find access key & secret key ?__
 1. Open https://console.aws.amazon.com/
@@ -39,4 +39,3 @@ __Note__:
 4. To see the new access key, choose Show. Your credentials resemble the following:
    - Access key ID: AKIAIOSFODNN7EXAMPLE
    - Secret access key: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
- 

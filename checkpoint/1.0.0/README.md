@@ -29,9 +29,3 @@ Read more about setting up API server [here](https://sc1.checkpoint.com/document
 
 ### Note
 - Checkpoint API has limit of max 3 session per user per minute. If you're opening more than 3 sessions make sure to add delay among workflow nodes.
-
-
-
-
-
-

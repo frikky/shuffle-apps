@@ -1,12 +1,12 @@
 walkoff_version: 1.0.0
 app_version: 1.0.0
 name: Archive.today
-description: Archive.Today app 
+description: Archive.Today app
 environment: cloud
 tags:
-  - archive 
+  - archive
 categories:
-  - archive 
+  - archive
 contact_info:
   name: Peter Clemenko
   url: https://github.com/peter-clemenko

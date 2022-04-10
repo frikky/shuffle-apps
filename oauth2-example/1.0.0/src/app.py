@@ -1,17 +1,14 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
 import asyncio
-import time
-import random
 import json
-import requests
-import thehive4py
+import random
+import time
 
+import requests
+import thehive4py.models
 from thehive4py.api import TheHiveApi
 from thehive4py.query import *
-import thehive4py.models
-
 from walkoff_app_sdk.app_base import AppBase
 
 
@@ -56,6 +53,6 @@ class Oauth2Example(AppBase):
         response = session.get(url)
         print(response.status_code)
         return response.text
-    
+
 if __name__ == "__main__":
     Oauth2Example.run()

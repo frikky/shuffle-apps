@@ -14,7 +14,7 @@ access_key, secret_key and region are used for authentication.
 |5 | Create Ip Set | Create a new IPSet, which is called a trusted IP list in the console. | access_key, secret_key, region, **detectorId**, **name**, **fileformat**, **location**, **activate**
 |6 | Delete Ip Set | Deletes the IPSet. | access_key, secret_key, region, **detectorId**, **ipSetId**
 |7 | List Detectors | List Detector IDs | access_key, secret_key, region
-|8 | Update Ip Set | Updates the IPSet. | access_key, secret_key, region, **detectorId**, **ipSetId**, **name**, **location**, **activate** 
+|8 | Update Ip Set | Updates the IPSet. | access_key, secret_key, region, **detectorId**, **ipSetId**, **name**, **location**, **activate**
 |9 | Get Ip Set | Retrieves the IPSet. | access_key, secret_key, region, **detectorId**, **ipSetId**
 |10 | List Ip Sets | Lists the IpSets. | access_key, secret_key, region, **detectorId**
 |11 | Create Threat Intel Set | Create a new ThreatIntelSet. | access_key, secret_key, region, **detectorId**, **name**, **fileformat**, **location**, **activate**

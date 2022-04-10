@@ -1,17 +1,17 @@
-import socket
 import asyncio
-import time
-import random
 import json
+import random
+import socket
+import time
+
 import boto3
 import botocore
 from botocore.config import Config
-
 from walkoff_app_sdk.app_base import AppBase
 
 class AWSLambda(AppBase):
     __version__ = "1.0.0"
-    app_name = "AWS Lambda"  
+    app_name = "AWS Lambda"
 
     def __init__(self, redis, logger, console_logger=None):
         """
@@ -33,8 +33,8 @@ class AWSLambda(AppBase):
         )
 
         return boto3.client(
-            'lambda', 
-            config=my_config, 
+            'lambda',
+            config=my_config,
             aws_access_key_id=access_key,
             aws_secret_access_key=secret_key,
         )
@@ -66,7 +66,7 @@ class AWSLambda(AppBase):
             return client.list_aliases(**kwargs)
         except Exception as e:
             return f"Error: {e}"
-    
+
     def invoke(self, access_key, secret_key, region, function_name, invocation_type, logtype):
         client = self.auth_lambda(access_key, secret_key, region)
         kwargs = {

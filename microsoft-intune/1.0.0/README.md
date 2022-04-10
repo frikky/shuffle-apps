@@ -9,10 +9,10 @@ To authenticate this app, you'll need an app registered in the Azure Portal. Thi
 - client_id
 - client_secret
 
-### Permissions 
+### Permissions
 Permissions are meant to be granular according to your needs. Make sure to not give too many permissions. To make the whole app work, add the following permissions to your app. How to register an app farther down.
 
-**Application Permissions:** 
+**Application Permissions:**
 - Device.Read.All
 - Device.ReadWrite.All
 - Directory.Read.All
@@ -48,4 +48,3 @@ and once there go down to **App Registrations** a new window will pop up.
 - Each action may require different permission to run. To add permissions, Go to your application in azure portal &#8594; API permission &#8594; Add permission (some of the permissions will require admin consent).
 - After adding permission , Grant consent.
 - Be sure to use work / business account. Most of the actions are not supported on personal account.
-

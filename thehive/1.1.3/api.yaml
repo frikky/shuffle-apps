@@ -86,7 +86,7 @@ actions:
         required: false
         schema:
           type: string
-      - name: artifacts 
+      - name: artifacts
         description: The artifacts to add
         example: "ioc,incident,this is a tag,what"
         required: false
@@ -188,7 +188,7 @@ actions:
         description: The case template to be used
         example: "MyCase Template"
         required: false
-        multiline: false 
+        multiline: false
         schema:
           type: string
       - name: title
@@ -316,7 +316,7 @@ actions:
   - name: add_case_artifact
     description: Add an observable to TheHive
     parameters:
-      - name: case_id 
+      - name: case_id
         description: The case to add it to
         example: "~123456"
         required: true
@@ -368,7 +368,7 @@ actions:
         required: false
         multiline: false
         options:
-          - True 
+          - True
           - False
         schema:
           type: boolean
@@ -567,7 +567,7 @@ actions:
   - name: delete_alert_artifact
     description: Deletes and artifact from a TheHive alert
     parameters:
-      - name: artifact_id 
+      - name: artifact_id
         description: The artifact ID to delete
         example: "adf5e3d0fd85633be17004735a0a119e"
         required: true
@@ -623,7 +623,7 @@ actions:
           type: string
     returns:
       schema:
-        type: string     
+        type: string
   - name: get_case_artifacts
     description: Get all artifacts of a given case
     parameters:
@@ -634,7 +634,7 @@ actions:
         schema:
           type: string
       - name: dataType
-        description: Data Type 
+        description: Data Type
         example: "ip"
         required: false
         schema:
@@ -665,10 +665,10 @@ actions:
         ]
       schema:
         type: string
-  - name: close_case 
+  - name: close_case
     description: Closes a case in TheHive
     parameters:
-      - name: id 
+      - name: id
         description: The case id
         example: "~123456"
         required: true
@@ -678,7 +678,7 @@ actions:
       - name: resolution_status
         description: Resolution status to be used
         example: "FalsePositive"
-        required: true 
+        required: true
         multiline: false
         options:
           - ""
@@ -692,7 +692,7 @@ actions:
       - name: impact_status
         description: Case impact status to be used
         example: "NotApplicable"
-        required: true 
+        required: true
         multiline: false
         options:
           - ""
@@ -704,14 +704,14 @@ actions:
       - name: summary
         description: Case summary to be updated
         example: "MyCase summary"
-        required: true 
+        required: true
         multiline: true
         schema:
           type: string
   - name: update_case
     description: Update case in TheHive
     parameters:
-      - name: id 
+      - name: id
         description: The case id
         example: "~123456"
         required: true
@@ -795,7 +795,7 @@ actions:
       - name: status
         description: Case status to be used
         example: "Open"
-        required: true 
+        required: true
         multiline: false
         options:
           - ""
@@ -962,7 +962,7 @@ actions:
   - name: update_case_artifact
     description: Update case artifact in TheHive
     parameters:
-      - name: id 
+      - name: id
         description: The artifact id
         example: "~123456"
         required: true

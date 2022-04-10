@@ -6,17 +6,17 @@ contact_info:
   url: https://shuffler.io
   email: frikky@shuffler.io
 tags:
-  - Intel 
+  - Intel
 categories:
-  - Intel 
+  - Intel
 actions:
   - name: get_rss
     description: Gets the available fields
     parameters:
-      - name: url 
-        description: The JSON to handle 
+      - name: url
+        description: The JSON to handle
         required: true
-        multiline: false 
+        multiline: false
         example: 'https://timesofindia.indiatimes.com/rssfeedstopstories.cms'
         schema:
           type: string

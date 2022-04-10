@@ -1,5 +1,5 @@
 app_version: 1.0.0
-name: AWS Guardduty 
+name: AWS Guardduty
 description: An app to interact with Amazon web service GuardDuty
 contact_info:
   name: "@shalinbhavsar"
@@ -14,19 +14,19 @@ categories:
 authentication:
   required: true
   parameters:
-    - name: access_key 
+    - name: access_key
       description: The access key to use
       example: "*****"
       required: true
       schema:
         type: string
     - name: secret_key
-      description: The secret key to use 
+      description: The secret key to use
       example: "*****"
       required: true
       schema:
         type: string
-    - name: region 
+    - name: region
       description: The region to use
       example: "ap-south-1"
       required: true
@@ -95,11 +95,11 @@ actions:
         description: The format of the file that contains the IPSet.
         required: true
         options:
-        - TXT 
-        - STIX 
-        - OTX_CSV 
-        - ALIEN_VAULT 
-        - PROOF_POINT 
+        - TXT
+        - STIX
+        - OTX_CSV
+        - ALIEN_VAULT
+        - PROOF_POINT
         - FIRE_EYE
       - name: location
         description: The URI of the file that contains the IPSet.
@@ -114,7 +114,7 @@ actions:
     returns:
       schema:
         type: string
-  
+
   - name: delete_ip_set
     description: Deletes the IPSet specified by the ipsetID
     parameters:
@@ -129,7 +129,7 @@ actions:
         type: string
 
   - name: list_detectors
-    description: Lists detectorIds 
+    description: Lists detectorIds
     returns:
       schema:
         type: string
@@ -159,7 +159,7 @@ actions:
     returns:
       schema:
         type: string
-    
+
   - name: get_ip_set
     description: Retrieves the IPSet.
     parameters:
@@ -197,11 +197,11 @@ actions:
         description: The format of the file that contains the IPSet.
         required: true
         options:
-        - TXT 
-        - STIX 
-        - OTX_CSV 
-        - ALIEN_VAULT 
-        - PROOF_POINT 
+        - TXT
+        - STIX
+        - OTX_CSV
+        - ALIEN_VAULT
+        - PROOF_POINT
         - FIRE_EYE
       - name: location
         description: The URI of the file that contains the IPSet.
@@ -218,7 +218,7 @@ actions:
         type: string
 
   - name: delete_threat_intel_set
-    description: Deletes the ThreatIntelSet 
+    description: Deletes the ThreatIntelSet
     parameters:
       - name: detectorId
         description: The unique ID of the detector
@@ -231,7 +231,7 @@ actions:
         type: string
 
   - name: get_threat_intel_set
-    description: Retrieves the ThreatIntelSet 
+    description: Retrieves the ThreatIntelSet
     parameters:
       - name: detectorId
         description: The unique ID of the detector
@@ -302,7 +302,7 @@ actions:
     returns:
       schema:
         type: string
-    
+
   - name: create_sample_findings
     description: Generates example findings of types specified by the list of finding types.
     parameters:

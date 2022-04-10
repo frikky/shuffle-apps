@@ -1,5 +1,5 @@
 app_version: 1.0.0
-name: GitGuardian 
+name: GitGuardian
 description: An app to interact with GitGuardian
 contact_info:
   name: "@dhavaldave"
@@ -13,18 +13,18 @@ categories:
 authentication:
   required: true
   parameters:
-    - name: api_key 
+    - name: api_key
       description: The access key to use
       example: "*****"
       required: true
       schema:
-        type: string  
+        type: string
 actions:
   - name: content_scan
-    description: Scans provided content for policy breaks. 
+    description: Scans provided content for policy breaks.
     parameters:
       - name: content
-        description: Provide a content you want to scan  
+        description: Provide a content you want to scan
         required: false
         multiline: true
         example: "Your content here"
@@ -36,7 +36,7 @@ actions:
         multiline: false
         example: "file id"
         schema:
-          type: file    
+          type: file
     returns:
       schema:
         type: string

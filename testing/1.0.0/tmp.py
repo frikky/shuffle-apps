@@ -1,4 +1,4 @@
-import json    
+import json
 import re
 
 # This whole thing should be recursive.
@@ -8,7 +8,7 @@ basejson = [{'highlight_ranges': {}, 'message': {'Alert': 'Account  Manipulation
 #ACTUAL:  [('$Start_node.#.message', 'Start_node.', 'message')]
 input_data = "$Start_node.#4:max.message.Alert"
 
-    
+
 def recurse_loop(basejson, parsersplit):
     #parsersplit = input_data.split(".")
 
@@ -31,14 +31,14 @@ def recurse_loop(basejson, parsersplit):
                         print("INDEXERROR: ", parsersplit[outercnt])
                         #ret = innervalue
                         ret = recurse_loop(innervalue, parsersplit[outercnt:])
-                        
+
                     print(ret)
                     #exit()
                     newvalue.append(ret)
 
                 return newvalue
             elif len(actualitem) > 0:
-                # FIXME: This is absolutely not perfect. 
+                # FIXME: This is absolutely not perfect.
                 print("IN HERE: ", actualitem)
 
                 newvalue = []
@@ -48,9 +48,9 @@ def recurse_loop(basejson, parsersplit):
                     print("In first")
                     basejson = basejson[int(firstitem)]
                 else:
-                    if seconditem == "max": 
+                    if seconditem == "max":
                         seconditem = len(basejson)
-                    if seconditem == "min": 
+                    if seconditem == "min":
                         seconditem = 0
 
                     newvalue = []
@@ -65,7 +65,7 @@ def recurse_loop(basejson, parsersplit):
                             print("INDEXERROR: ", parsersplit[outercnt])
                             #ret = innervalue
                             ret = recurse_loop(innervalue, parsersplit[outercnt:])
-                            
+
                         print(ret)
                         #exit()
                         newvalue.append(ret)
@@ -77,7 +77,7 @@ def recurse_loop(basejson, parsersplit):
                     return basejson
 
                 if isinstance(basejson[value], str):
-                    print(f"LOADING STRING '%s' AS JSON" % basejson[value]) 
+                    print(f"LOADING STRING '%s' AS JSON" % basejson[value])
                     try:
                         basejson = json.loads(basejson[value])
                     except json.decoder.JSONDecodeError as e:

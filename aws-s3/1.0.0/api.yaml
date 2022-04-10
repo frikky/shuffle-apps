@@ -1,5 +1,5 @@
 app_version: 1.0.0
-name: AWS S3 
+name: AWS S3
 description: An app to interact with Amazon S3
 contact_info:
   name: "@frikkylikeme"
@@ -9,44 +9,44 @@ tags:
   - Storage
   - Assets
 categories:
-  - Storage 
+  - Storage
   - Assets
 authentication:
   required: true
   parameters:
-    - name: access_key 
+    - name: access_key
       description: The access key to use
       example: "*****"
       required: true
       schema:
         type: string
     - name: secret_key
-      description: The secret key to use 
+      description: The secret key to use
       example: "*****"
       required: true
       schema:
         type: string
-    - name: region 
+    - name: region
       description: The region to use
       example: "ap-south-1"
       required: true
       schema:
         type: string
 actions:
-  - name: create_bucket 
+  - name: create_bucket
     description: Creates a bucket with the specified name
     parameters:
-      - name: bucket_name 
+      - name: bucket_name
         description: The bucket name to use
         required: true
-        multiline: false 
+        multiline: false
         example: 'my-test-bucket-name'
         schema:
           type: string
       - name: access_type
         description: The ACL id to edit
         required: true
-        multiline: false 
+        multiline: false
         example: 'private'
         options:
           - private
@@ -56,94 +56,94 @@ actions:
     returns:
       schema:
         type: string
-  - name: block_ip_access 
+  - name: block_ip_access
     description: Blocks access from a specific IP to a bucket
     parameters:
-      - name: bucket_name 
+      - name: bucket_name
         description: The bucket name to use
         required: true
-        multiline: false 
+        multiline: false
         example: 'my-test-bucket-name'
         schema:
           type: string
-      - name: ip 
+      - name: ip
         description: The IP to block
         required: true
-        multiline: false 
+        multiline: false
         example: '1.2.3.5'
         schema:
           type: string
     returns:
       schema:
         type: string
-  - name: upload_file_to_bucket 
+  - name: upload_file_to_bucket
     description: Uploads a file to a bucket
     parameters:
-      - name: bucket_name 
+      - name: bucket_name
         description: The bucket to add the file to
         required: true
-        multiline: false 
+        multiline: false
         example: 'my bucket name'
         schema:
           type: string
-      - name: bucket_path 
+      - name: bucket_path
         description: The bucket path to upload to
         required: true
-        multiline: false 
+        multiline: false
         example: 'filename.txt'
         schema:
           type: string
       - name: file_id
         description: The file ID to upload
         required: true
-        multiline: false 
+        multiline: false
         example: 'filename.txt'
         schema:
           type: string
     returns:
       schema:
         type: string
-  - name: delete_file_from_bucket 
+  - name: delete_file_from_bucket
     description: Deletes a file from a bucket
     parameters:
-      - name: bucket_name 
+      - name: bucket_name
         description: The bucket  to get
         required: true
-        multiline: false 
+        multiline: false
         example: 'my bucket name'
         schema:
           type: string
-      - name: bucket_path 
+      - name: bucket_path
         description: The file to get
         required: true
-        multiline: false 
+        multiline: false
         example: '/path/filename.txt'
         schema:
           type: string
     returns:
       schema:
         type: string
-  - name: download_file_from_bucket 
+  - name: download_file_from_bucket
     description: Downloads a file from s3 and adds it to Shuffle
     parameters:
-      - name: bucket_name 
+      - name: bucket_name
         description: The bucket  to get
         required: true
-        multiline: false 
+        multiline: false
         example: 'my bucket name'
         schema:
           type: string
-      - name: filename 
+      - name: filename
         description: The file to get
         required: true
-        multiline: false 
+        multiline: false
         example: 'filename.txt'
         schema:
           type: string
     returns:
       schema:
         type: string
-  - name: list_buckets 
+  - name: list_buckets
     description: Lists all buckets
     returns:
       schema:
@@ -151,10 +151,10 @@ actions:
   - name: bucket_request_payment
     description: Get payment request configuration of a bucket.
     parameters:
-      - name: bucket_name 
+      - name: bucket_name
         description: The bucket name to use
         required: true
-        multiline: false 
+        multiline: false
         example: 'my-test-bucket-name'
         schema:
           type: string
@@ -164,10 +164,10 @@ actions:
   - name: bucket_replication
     description: Get replication configuration of a bucket.
     parameters:
-      - name: bucket_name 
+      - name: bucket_name
         description: The bucket name to use
         required: true
-        multiline: false 
+        multiline: false
         example: 'my-test-bucket-name'
         schema:
           type: string
@@ -177,10 +177,10 @@ actions:
   - name: bucket_policy_status
     description: Get policy status of the bucket
     parameters:
-      - name: bucket_name 
+      - name: bucket_name
         description: The bucket name to use
         required: true
-        multiline: false 
+        multiline: false
         example: 'my-test-bucket-name'
         schema:
           type: string
@@ -190,10 +190,10 @@ actions:
   - name: bucket_logging
     description: Get logging status of a bucket and the permissions users have to view and modify that status.
     parameters:
-      - name: bucket_name 
+      - name: bucket_name
         description: The bucket name to use
         required: true
-        multiline: false 
+        multiline: false
         example: 'my-test-bucket-name'
         schema:
           type: string

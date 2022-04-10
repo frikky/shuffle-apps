@@ -53,13 +53,13 @@ RUN chmod +x /opt/microsoft/powershell/7/pwsh
 # Create the symbolic link that points to pwsh
 RUN ln -s /opt/microsoft/powershell/7/pwsh /usr/bin/pwsh
 RUN pwsh -Command Install-Module -Name ExchangeOnlineManagement -Force
-RUN sh -c "yes | pwsh -Command 'Install-Module -Name PSWSMan'" 
+RUN sh -c "yes | pwsh -Command 'Install-Module -Name PSWSMan'"
 RUN pwsh -Command 'Install-WSMan'
 RUN pwsh -Command Import-Module 'Microsoft.PowerShell.Security' -Force
 
 # Adds a replacement file which will be used to run the powershell script from python
-COPY replacementfile.ps1 /app/replacementfile.ps1  
-#COPY password.ps1 password.ps1  
+COPY replacementfile.ps1 /app/replacementfile.ps1
+#COPY password.ps1 password.ps1
 #RUN pwsh -file password.ps1
 
 # Finally, lets run our app!

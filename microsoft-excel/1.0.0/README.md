@@ -6,18 +6,18 @@
 
 ## Actions
 - #### Get_user_id
-    - Retrieve a list of user objects.  
+    - Retrieve a list of user objects.
 - #### Get_files
     - Gives information about files present in onedrive. Return a collection of DriveItems in the children relationship of a DriveItem.
 - #### list_worksheets
-    - Retrieve the properties and relationships of worksheet object.    
+    - Retrieve the properties and relationships of worksheet object.
 - #### add_worksheets
-    - Adds a new worksheet to the workbook. The worksheet will be added at the end of existing worksheets. 
+    - Adds a new worksheet to the workbook. The worksheet will be added at the end of existing worksheets.
 - #### delete_worksheet
-    - Deletes the worksheet from the workbook. 
+    - Deletes the worksheet from the workbook.
 - #### insert_or_update_data
     - Insert or Update the cell values associated with the range.
-    - Parameter **address** will take input as follows: 
+    - Parameter **address** will take input as follows:
         - StartCell Address : LastCell Address
         -  Example: A1:A3 (3 cells row wise)
         -  Example: A1:B2 (4 cells A1,B1,A2 and B2)
@@ -61,6 +61,3 @@ and once there go down to **App Registrations** a new window will pop up.
 - To add permission, Go to your application &#8594; API permission &#8594; Add permission (some of the permissions will require admin consent)
 - For Excel app we need Files.ReadWrite.All, Sites.ReadWrite.All, User.ReadWrite.All permissions.
 - After adding permission , Grant consent.
-
-
-

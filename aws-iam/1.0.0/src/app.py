@@ -1,26 +1,26 @@
-import socket
 import asyncio
-import time
-import random
+import datetime
 import json
+import random
+import socket
+import time
+
 import boto3
 import botocore
 from botocore.config import Config
-import datetime
-
 from walkoff_app_sdk.app_base import AppBase
 
 def datetime_handler(x):
-    """ This function is used make datetime object json serilizable, 
+    """ This function is used make datetime object json serilizable,
     removing this function can cause error in some actions """
-    
+
     if isinstance(x, datetime.datetime):
         return x.isoformat()
     raise TypeError("Unknown type")
 
 class AWSIAM(AppBase):
     __version__ = "1.0.0"
-    app_name = "AWS IAM"  
+    app_name = "AWS IAM"
 
     def __init__(self, redis, logger, console_logger=None):
         """
@@ -42,8 +42,8 @@ class AWSIAM(AppBase):
         )
 
         self.iam = boto3.resource(
-            'iam', 
-            config=my_config, 
+            'iam',
+            config=my_config,
             aws_access_key_id=access_key,
             aws_secret_access_key=secret_key,
         )
@@ -91,12 +91,12 @@ class AWSIAM(AppBase):
                 response = client.list_access_keys(
                 UserName= str(username),
                 MaxItems = int(max_items)
-                ) 
+                )
             if marker and max_items:
                 response = client.list_access_keys(
                 UserName= str(username),
                 MaxItems = int(max_items),
-                Marker = str(marker) 
+                Marker = str(marker)
                 )
             return json.dumps(response, default=datetime_handler)
         except botocore.exceptions.ClientError as e:
@@ -119,17 +119,17 @@ class AWSIAM(AppBase):
                 response = client.list_ssh_public_keys(
                 UserName= str(username),
                 MaxItems = int(max_items)
-                ) 
+                )
             if marker and max_items:
                 response = client.list_ssh_public_keys(
                 UserName= str(username),
                 MaxItems = int(max_items),
-                Marker = str(marker) 
-                ) 
+                Marker = str(marker)
+                )
 
             return json.dumps(response, default=datetime_handler)
         except botocore.exceptions.ClientError as e:
-            return f'{e}'     
+            return f'{e}'
 
     def get_instance_profile(self, access_key, secret_key, region, instance_profile_name):
         self.iam = self.auth_iam(access_key, secret_key, region)
@@ -174,17 +174,17 @@ class AWSIAM(AppBase):
                 response = client.list_attached_user_policies(
                 UserName= str(user_name),
                 MaxItems = int(max_items)
-                ) 
+                )
             if marker and max_items:
                 response = client.list_attached_user_policies(
                 userName= str(user_name),
                 MaxItems = int(max_items),
-                Marker = str(marker) 
-                ) 
+                Marker = str(marker)
+                )
 
             return json.dumps(response, default=datetime_handler)
         except botocore.exceptions.ClientError as e:
-            return f'{e}' 
+            return f'{e}'
 
     def list_users(self, access_key, secret_key, region, path_prefix, marker, max_items):
         self.iam = self.auth_iam(access_key, secret_key, region)
@@ -203,17 +203,17 @@ class AWSIAM(AppBase):
                 response = client.list_users(
                 PathPrefix = path_prefix,
                 MaxItems = int(max_items)
-                ) 
+                )
             if marker and max_items:
                 response = client.list_users(
                 PathPrefix = path_prefix,
                 MaxItems = int(max_items),
-                Marker = str(marker) 
-                ) 
+                Marker = str(marker)
+                )
 
             return json.dumps(response, default=datetime_handler)
         except botocore.exceptions.ClientError as e:
-            return f'{e}'                
+            return f'{e}'
 
     def list_user_tags(self, access_key, secret_key, region, user_name, marker, max_items):
         self.iam = self.auth_iam(access_key, secret_key, region)
@@ -232,13 +232,13 @@ class AWSIAM(AppBase):
                 response = client.list_user_tags(
                 UserName = str(user_name),
                 MaxItems = int(max_items)
-                ) 
+                )
             if marker and max_items:
                 response = client.list_user_tags(
                 UserName = str(user_name),
                 MaxItems = int(max_items),
-                Marker = str(marker) 
-                ) 
+                Marker = str(marker)
+                )
 
             return json.dumps(response, default=datetime_handler)
         except botocore.exceptions.ClientError as e:

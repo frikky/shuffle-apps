@@ -3,11 +3,11 @@ app_version: 1.0.0
 name: lastline
 description: Lastline app interface
 tags:
-  - sandbox 
+  - sandbox
   - antivirus
   - email
 categories:
-  - sandbox 
+  - sandbox
   - antivirus
   - email
 contact_info:
@@ -15,10 +15,10 @@ contact_info:
   url: https://github.com/frikky
   email: "frikky@shuffler.io"
 actions:
-  - name: get_event 
+  - name: get_event
     description: Get an event
     parameters:
-      - name: url 
+      - name: url
         description: The url to use for the API
         multiline: false
         example: "https://user.lastline.com"
@@ -26,20 +26,20 @@ actions:
         schema:
           type: string
       - name: user
-        description: The user to use for the API 
+        description: The user to use for the API
         multiline: false
         example: "Username"
         required: true
         schema:
           type: string
-      - name: password 
-        description: The password to use for the API 
+      - name: password
+        description: The password to use for the API
         multiline: false
         example: "p@ssw0rd"
         required: true
         schema:
           type: string
-      - name: event_id 
+      - name: event_id
         description: The event ID to get
         multiline: false
         example: ""
@@ -49,45 +49,45 @@ actions:
     returns:
       schema:
         type: string
-  - name: get_mail_attachments 
+  - name: get_mail_attachments
     description: Get unique mail attachments
     parameters:
-      - name: url 
+      - name: url
         description: The url to use for the API
         multiline: false
         example: "https://user.lastline.com"
         required: true
         schema:
           type: string
-      - name: user 
-        description: The user to use for the API 
+      - name: user
+        description: The user to use for the API
         multiline: false
         example: "Username"
         required: true
         schema:
           type: string
-      - name: password 
-        description: The password to use for the API 
+      - name: password
+        description: The password to use for the API
         multiline: false
         example: "p@ssw0rd"
         required: true
         schema:
           type: string
-      - name: start_time 
+      - name: start_time
         description: The starttime to use
         multiline: false
         example: "2019-06-01"
         required: true
         schema:
           type: string
-      - name: end_time 
+      - name: end_time
         description: The endtime to use
         multiline: false
         example: "2019-06-02"
         required: true
         schema:
           type: string
-      - name: limit 
+      - name: limit
         description: Max events to get
         multiline: false
         example: "2019-06-02"
@@ -97,10 +97,10 @@ actions:
     returns:
       schema:
         type: string
-  - name: get_mail_urls 
+  - name: get_mail_urls
     description: Get unique url seen in mail
     parameters:
-      - name: url 
+      - name: url
         description: The url to use for the API
         multiline: false
         example: "https://user.lastline.com"
@@ -108,34 +108,34 @@ actions:
         schema:
           type: string
       - name: user
-        description: The user to use for the API 
+        description: The user to use for the API
         multiline: false
         example: "Username"
         required: true
         schema:
           type: string
-      - name: password 
-        description: The password to use for the API 
+      - name: password
+        description: The password to use for the API
         multiline: false
         example: "p@ssw0rd"
         required: true
         schema:
           type: string
-      - name: start_time 
+      - name: start_time
         description: The starttime to use
         multiline: false
         example: "2019-06-01"
         required: true
         schema:
           type: string
-      - name: end_time 
+      - name: end_time
         description: The endtime to use
         multiline: false
         example: "2019-06-02"
         required: true
         schema:
           type: string
-      - name: limit 
+      - name: limit
         description: Max events to get
         multiline: false
         example: "2019-06-02"
@@ -148,7 +148,7 @@ actions:
   - name: get_network_events
     description: Get network events
     parameters:
-      - name: url 
+      - name: url
         description: The url to use for the API
         multiline: false
         example: "https://user.lastline.com"
@@ -156,34 +156,34 @@ actions:
         schema:
           type: string
       - name: user
-        description: The user to use for the API 
+        description: The user to use for the API
         multiline: false
         example: "Username"
         required: true
         schema:
           type: string
-      - name: password 
-        description: The password to use for the API 
+      - name: password
+        description: The password to use for the API
         multiline: false
         example: "p@ssw0rd"
         required: true
         schema:
           type: string
-      - name: start_time 
+      - name: start_time
         description: The starttime to use
         multiline: false
         example: "2019-06-01"
         required: true
         schema:
           type: string
-      - name: end_time 
+      - name: end_time
         description: The endtime to use
         multiline: false
         example: "2019-06-02"
         required: true
         schema:
           type: string
-      - name: limit 
+      - name: limit
         description: Max events to get
         multiline: false
         example: "2019-06-02"
@@ -193,10 +193,10 @@ actions:
     returns:
       schema:
         type: string
-  - name: get_endpoint_events 
+  - name: get_endpoint_events
     description: Gets endpoint events
     parameters:
-      - name: url 
+      - name: url
         description: The url to use for the API
         multiline: false
         example: "https://user.lastline.com"
@@ -204,34 +204,34 @@ actions:
         schema:
           type: string
       - name: user
-        description: The user to use for the API 
+        description: The user to use for the API
         multiline: false
         example: "Username"
         required: true
         schema:
           type: string
-      - name: password 
-        description: The password to use for the API 
+      - name: password
+        description: The password to use for the API
         multiline: false
         example: "p@ssw0rd"
         required: true
         schema:
           type: string
-      - name: start_time 
+      - name: start_time
         description: The starttime to use
         multiline: false
         example: "2019-06-01"
         required: true
         schema:
           type: string
-      - name: end_time 
+      - name: end_time
         description: The endtime to use
         multiline: false
         example: "2019-06-02"
         required: true
         schema:
           type: string
-      - name: limit 
+      - name: limit
         description: Max events to get
         multiline: false
         example: "2019-06-02"
@@ -241,10 +241,10 @@ actions:
     returns:
       schema:
         type: string
-  - name: get_history 
+  - name: get_history
     description: Get submission history
     parameters:
-      - name: url 
+      - name: url
         description: The url to use for the API
         multiline: false
         example: "https://user.lastline.com"
@@ -252,20 +252,20 @@ actions:
         schema:
           type: string
       - name: user
-        description: The user to use for the API 
+        description: The user to use for the API
         multiline: false
         example: "Username"
         required: true
         schema:
           type: string
-      - name: password 
-        description: The password to use for the API 
+      - name: password
+        description: The password to use for the API
         multiline: false
         example: "p@ssw0rd"
         required: true
         schema:
           type: string
-      - name: limit 
+      - name: limit
         description: Max events to get
         multiline: false
         example: "2"
@@ -275,10 +275,10 @@ actions:
     returns:
       schema:
         type: string
-  - name: submit_url 
+  - name: submit_url
     description: Submit an url for analysis
     parameters:
-      - name: url 
+      - name: url
         description: The url to use for the API
         multiline: false
         example: "https://user.lastline.com"
@@ -286,20 +286,20 @@ actions:
         schema:
           type: string
       - name: user
-        description: The user to use for the API 
+        description: The user to use for the API
         multiline: false
         example: "Username"
         required: true
         schema:
           type: string
-      - name: password 
-        description: The password to use for the API 
+      - name: password
+        description: The password to use for the API
         multiline: false
         example: "p@ssw0rd"
         required: true
         schema:
           type: string
-      - name: url_to_submit 
+      - name: url_to_submit
         description: The url to submit
         multiline: false
         example: "https://malicious.com"

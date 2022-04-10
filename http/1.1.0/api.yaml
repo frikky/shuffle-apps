@@ -1,12 +1,12 @@
 walkoff_version: 1.1.0
 app_version: 1.1.0
 name: http
-description: HTTP app 
+description: HTTP app
 tags:
-  - Testing 
+  - Testing
   - HTTP
 categories:
-  - Testing 
+  - Testing
   - HTTP
 contact_info:
   name: "@frikkylikeme"
@@ -16,96 +16,96 @@ actions:
   - name: GET
     description: Runs a GET request towards the specified endpoint
     parameters:
-      - name: url 
+      - name: url
         description: The URL to get
         multiline: false
         example: "https://example.com"
         required: true
         schema:
           type: string
-      - name: headers 
-        description: Headers to use 
-        multiline: true 
-        required: false 
+      - name: headers
+        description: Headers to use
+        multiline: true
+        required: false
         example: "Authorization: Bearer asd\nContent-Type: application/json"
         schema:
           type: string
-      - name: username 
+      - name: username
         description: The username to use
-        multiline: false 
-        required: false 
+        multiline: false
+        required: false
         example: "Username"
         schema:
           type: string
-      - name: password 
+      - name: password
         description: The password to use
-        multiline: false 
-        required: false 
+        multiline: false
+        required: false
         example: "*****"
         schema:
           type: string
-      - name: verify 
+      - name: verify
         description: Check certificate
-        multiline: false 
+        multiline: false
         options:
-          - false 
+          - false
           - true
-        required: false 
+        required: false
         example: "false"
         schema:
-          type: bool 
+          type: bool
     returns:
       schema:
         type: string
       example: "404 NOT FOUND"
-  - name: POST 
+  - name: POST
     description: Runs a POST request towards the specified endpoint
     parameters:
-      - name: url 
+      - name: url
         description: The URL to post to
         multiline: false
         example: "https://example.com"
         required: true
         schema:
           type: string
-      - name: body 
-        description: The body to use 
-        multiline: true 
+      - name: body
+        description: The body to use
+        multiline: true
         example: "{\n\t'json': 'blob'\n}"
-        required: false 
+        required: false
         schema:
           type: string
-      - name: headers 
-        description: Headers to use 
-        multiline: true 
-        required: false 
+      - name: headers
+        description: Headers to use
+        multiline: true
+        required: false
         example: "Authorization: Bearer asd\nContent-Type: application/json"
         schema:
           type: string
-      - name: username 
+      - name: username
         description: The username to use
-        multiline: false 
-        required: false 
+        multiline: false
+        required: false
         example: "Username"
         schema:
           type: string
-      - name: password 
+      - name: password
         description: The password to use
-        multiline: false 
-        required: false 
+        multiline: false
+        required: false
         example: "*****"
         schema:
           type: string
-      - name: verify 
+      - name: verify
         description: Whether to check the certificate or not
-        multiline: false 
-        required: false 
+        multiline: false
+        required: false
         options:
-          - false 
+          - false
           - true
         example: "false"
         schema:
-          type: bool 
+          type: bool
     returns:
       schema:
         type: string
@@ -113,51 +113,51 @@ actions:
   - name: PATCH
     description: Runs a PATCHrequest towards the specified endpoint
     parameters:
-      - name: url 
+      - name: url
         description: The URL to post to
         multiline: false
         example: "https://example.com"
         required: true
         schema:
           type: string
-      - name: body 
-        description: The body to use 
-        multiline: true 
+      - name: body
+        description: The body to use
+        multiline: true
         example: "{\n\t'json': 'blob'\n}"
-        required: false 
+        required: false
         schema:
           type: string
-      - name: headers 
-        description: Headers to use 
-        multiline: true 
-        required: false 
+      - name: headers
+        description: Headers to use
+        multiline: true
+        required: false
         example: "Authorization: Bearer asd\nContent-Type: application/json"
         schema:
           type: string
-      - name: username 
+      - name: username
         description: The username to use
-        multiline: false 
-        required: false 
+        multiline: false
+        required: false
         example: "Username"
         schema:
           type: string
-      - name: password 
+      - name: password
         description: The password to use
-        multiline: false 
-        required: false 
+        multiline: false
+        required: false
         example: "*****"
         schema:
           type: string
-      - name: verify 
+      - name: verify
         description: Whether to check the certificate or not
-        multiline: false 
-        required: false 
+        multiline: false
+        required: false
         options:
-          - false 
+          - false
           - true
         example: "false"
         schema:
-          type: bool 
+          type: bool
     returns:
       schema:
         type: string
@@ -165,51 +165,51 @@ actions:
   - name: PUT
     description: Runs a PUT request towards the specified endpoint
     parameters:
-      - name: url 
+      - name: url
         description: The URL to PUT to
         multiline: false
         example: "https://example.com"
         required: true
         schema:
           type: string
-      - name: body 
-        description: The body to use 
-        multiline: true 
+      - name: body
+        description: The body to use
+        multiline: true
         example: "{\n\t'json': 'blob'\n}"
-        required: false 
+        required: false
         schema:
           type: string
-      - name: headers 
-        description: Headers to use 
-        multiline: true 
-        required: false 
+      - name: headers
+        description: Headers to use
+        multiline: true
+        required: false
         example: "Authorization: Bearer asd\nContent-Type: application/json"
         schema:
           type: string
-      - name: username 
+      - name: username
         description: The username to use
-        multiline: false 
-        required: false 
+        multiline: false
+        required: false
         example: "Username"
         schema:
           type: string
-      - name: password 
+      - name: password
         description: The password to use
-        multiline: false 
-        required: false 
+        multiline: false
+        required: false
         example: "*****"
         schema:
           type: string
-      - name: verify 
+      - name: verify
         description: Whether to check the certificate or not
-        multiline: false 
-        required: false 
+        multiline: false
+        required: false
         options:
-          - false 
+          - false
           - true
         example: "false"
         schema:
-          type: bool 
+          type: bool
     returns:
       schema:
         type: string
@@ -217,44 +217,44 @@ actions:
   - name: DELETE
     description: Runs a DELETE request towards the specified endpoint
     parameters:
-      - name: url 
+      - name: url
         description: The URL to post to
         multiline: false
         example: "https://example.com"
         required: true
         schema:
           type: string
-      - name: headers 
-        description: Headers to use 
-        multiline: true 
-        required: false 
+      - name: headers
+        description: Headers to use
+        multiline: true
+        required: false
         example: "Authorization: Bearer asd\nContent-Type: application/json"
         schema:
           type: string
-      - name: username 
+      - name: username
         description: The username to use
-        multiline: false 
-        required: false 
+        multiline: false
+        required: false
         example: "Username"
         schema:
           type: string
-      - name: password 
+      - name: password
         description: The password to use
-        multiline: false 
-        required: false 
+        multiline: false
+        required: false
         example: "*****"
         schema:
           type: string
-      - name: verify 
+      - name: verify
         description: Whether to check the certificate or not
-        multiline: false 
-        required: false 
+        multiline: false
+        required: false
         options:
           - true
-          - false 
+          - false
         example: "false"
         schema:
-          type: bool 
+          type: bool
     returns:
       schema:
         type: string
@@ -262,44 +262,44 @@ actions:
   - name: HEAD
     description: Runs a HEAD request towards the specified endpoint
     parameters:
-      - name: url 
+      - name: url
         description: The URL to HEAD to
         multiline: false
         example: "https://example.com"
         required: true
         schema:
           type: string
-      - name: headers 
-        description: Headers to use 
-        multiline: true 
-        required: false 
+      - name: headers
+        description: Headers to use
+        multiline: true
+        required: false
         example: "Authorization: Bearer asd\nContent-Type: application/json"
         schema:
           type: string
-      - name: username 
+      - name: username
         description: The username to use
-        multiline: false 
-        required: false 
+        multiline: false
+        required: false
         example: "Username"
         schema:
           type: string
-      - name: password 
+      - name: password
         description: The password to use
-        multiline: false 
-        required: false 
+        multiline: false
+        required: false
         example: "*****"
         schema:
           type: string
-      - name: verify 
+      - name: verify
         description: Whether to check the certificate or not
-        multiline: false 
-        required: false 
+        multiline: false
+        required: false
         options:
-          - false 
+          - false
           - true
         example: "false"
         schema:
-          type: bool 
+          type: bool
     returns:
       schema:
         type: string
@@ -307,52 +307,52 @@ actions:
   - name: OPTIONS
     description: Runs a OPTIONS request towards the specified endpoint
     parameters:
-      - name: url 
+      - name: url
         description: The URL to HEAD to
         multiline: false
         example: "https://example.com"
         required: true
         schema:
           type: string
-      - name: headers 
-        description: Headers to use 
-        multiline: true 
-        required: false 
+      - name: headers
+        description: Headers to use
+        multiline: true
+        required: false
         example: "Authorization: Bearer asd\nContent-Type: application/json"
         schema:
           type: string
-      - name: username 
+      - name: username
         description: The username to use
-        multiline: false 
-        required: false 
+        multiline: false
+        required: false
         example: "Username"
         schema:
           type: string
-      - name: password 
+      - name: password
         description: The password to use
-        multiline: false 
-        required: false 
+        multiline: false
+        required: false
         example: "*****"
         schema:
           type: string
-      - name: verify 
+      - name: verify
         description: Whether to check the certificate or not
-        multiline: false 
-        required: false 
+        multiline: false
+        required: false
         options:
-          - false 
+          - false
           - true
         example: "false"
         schema:
-          type: bool 
+          type: bool
     returns:
       schema:
         type: string
       example: "404 NOT FOUND"
-  - name: curl 
+  - name: curl
     description: Run a curl command
     parameters:
-      - name: statement 
+      - name: statement
         description: The curl command to run
         multiline: true
         example: "curl https://example.com"

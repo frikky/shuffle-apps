@@ -1,4 +1,3 @@
-
 #Office 365 Management API Event Poller
 
 __author__ = "Robert Evans"
@@ -28,11 +27,11 @@ def pollOffice(planType,tenantID,clientID,clientSecret,pollInterval):
     if "" in [planType,tenantID,clientID,clientSecret]:
         print("Issue with credentials, exiting")
         return "Credentials or variables missing"
-    
+
     if planType == "Enterprise":
         #Login and Base urls are unique per plan type
         loginURL = "https://login.windows.net"
-        mgmtEndpoint = "https://manage.office.com"       
+        mgmtEndpoint = "https://manage.office.com"
     elif planType == "GCC":
         #GCC Plan
         loginURL = "https://login.microsoftonline.com"
@@ -51,7 +50,7 @@ def pollOffice(planType,tenantID,clientID,clientSecret,pollInterval):
         exit(1)
 
     scope = mgmtEndpoint + '/.default'
-    
+
     #url-form-encoded data for auth
     payload = {'client_id': clientID,
                      'scope': scope,
@@ -95,7 +94,7 @@ def pollOffice(planType,tenantID,clientID,clientSecret,pollInterval):
             subscriptionStart(base_url,headers,content_type,tenantID)
             #If this content type was started, try to poll data
             #Note: It can take up to 12 hours from subscription start for data to be consumable
-            #Microsoft limitation       
+            #Microsoft limitation
     else:
         #Iterate existingSubscriptions and try to start any missing
         print("Existing subscriptions: ",existingSubscriptions)
@@ -142,7 +141,7 @@ def pollOffice(planType,tenantID,clientID,clientSecret,pollInterval):
     #Return data
     return json.dumps(json_data)
 
-    
+
 def subscriptionList(base_url,headers,tenantID):
     #Lists available O365 subscriptions, returns list of available subscriptions
     listURL = base_url + "/subscriptions/list"
@@ -221,7 +220,7 @@ def processContent(content_type,base_url,headers,tenantID,start_time,end_time):
                             json_data.update(processEvent(event))
                 else:
                     print("Some error occurred: ", resp.json())
-                
+
         else:
             print("Some error occurred: ",resp_json)
 

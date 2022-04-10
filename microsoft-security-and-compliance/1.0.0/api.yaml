@@ -1,40 +1,40 @@
 app_version: 1.0.0
 name: Microsoft Security and Compliance
-description: An app for the Microsoft 365 compliance center based on https://compliance.microsoft.com 
+description: An app for the Microsoft 365 compliance center based on https://compliance.microsoft.com
 contact_info:
   name: "dhavaldave"
   url: https://twitter.com/dhavaldave98
   email: dhavald@infopercept.com
 tags:
-  - Ticketing 
+  - Ticketing
 categories:
-  - Testing 
+  - Testing
 authentication:
   required: true
   parameters:
-    - name: tenant_id 
+    - name: tenant_id
       description: The tenant of the OAuth client
       example: "*****"
       required: true
       schema:
-        type: string  
+        type: string
     - name: client_id
       description: The client id to use
       example: "*****"
       multiline: false
       required: true
       schema:
-          type: string 
+          type: string
     - name: client_secret
       description: The secret key to use
       multiline: false
       example: "*****"
       required: true
       schema:
-        type: string         
+        type: string
 actions:
-  - name: get_alerts 
-    description: Returns all alerts 
+  - name: get_alerts
+    description: Returns all alerts
     parameters:
       - name: top
         description: Total number of alerts you want to recieve
@@ -42,9 +42,9 @@ actions:
         example: "10"
         required: false
         schema:
-          type: string 
-          
-  - name: get_alerts_by_severity 
+          type: string
+
+  - name: get_alerts_by_severity
     description: Returns alerts by severity
     parameters:
       - name: top
@@ -53,7 +53,7 @@ actions:
         example: "10"
         required: false
         schema:
-          type: string 
+          type: string
       - name: severity
         description: Alert severiy
         multiline: false
@@ -65,7 +65,7 @@ actions:
         required: true
         schema:
           type: string
-  - name: get_alerts_by_vendors 
+  - name: get_alerts_by_vendors
     description: Returns alerts by vendors
     parameters:
       - name: vendor
@@ -81,15 +81,15 @@ actions:
         example: "Azure Security Center"
         required: true
         schema:
-          type: string      
+          type: string
       - name: top
         description: Total number of alerts you want to recieve
         multiline: false
         example: "10"
         required: false
         schema:
-          type: string  
-  - name: get_alert_by_id 
+          type: string
+  - name: get_alert_by_id
     description: Returns an alert by id
     parameters:
       - name: id
@@ -98,8 +98,8 @@ actions:
         example: "1"
         required: true
         schema:
-          type: string 
-  - name: update_alert 
+          type: string
+  - name: update_alert
     description: update alert
     parameters:
       - name: alert_id
@@ -115,7 +115,7 @@ actions:
         example: "test@contoso.com"
         required: false
         schema:
-          type: string 
+          type: string
       - name: comments
         description: Analyst comments on the alert
         multiline: false
@@ -127,19 +127,19 @@ actions:
         schema:
           type: string
       - name: tags
-        description: User-definable labels that can be applied to an alert 
+        description: User-definable labels that can be applied to an alert
         multiline: false
         example: "HVA"
         required: false
         schema:
-          type: string 
+          type: string
       - name: vendor
         description: details about vendor
         multiline: false
         example: "Microsoft"
         required: true
         schema:
-          type: string      
+          type: string
       - name: feedback
         description: Analyst feedback on the alert
         multiline: false
@@ -153,7 +153,7 @@ actions:
         schema:
           type: string
       - name: status
-        description: Alert life cycle status 
+        description: Alert life cycle status
         multiline: false
         example: "unknown"
         required: false
@@ -163,7 +163,7 @@ actions:
           - inProgress
           - resolved
         schema:
-          type: string 
+          type: string
       - name: provider
         description: details about provider
         multiline: false
@@ -184,11 +184,11 @@ actions:
         example: "3.0"
         required: true
         schema:
-          type: string     
+          type: string
   - name: list_threat_assesment_requests
-    description: Returns all threat assesment requests 
+    description: Returns all threat assesment requests
 
-  - name: get_threat_assesment_request 
+  - name: get_threat_assesment_request
     description: Retrieve the properties and relationships of a specified threatAssessmentRequest object.
     parameters:
       - name: request_id
@@ -197,7 +197,7 @@ actions:
         example: "cf920392-0a7a-4ac7-d842-08d90fa57088"
         required: true
         schema:
-          type: string  
+          type: string
   - name: create_mail_threat_assessment
     description: Used to create a mail threat assessment
     parameters:
@@ -217,7 +217,7 @@ actions:
           - block
           - unblock
         schema:
-          type: string 
+          type: string
       - name: category
         description: The threat category
         multiline: false
@@ -230,7 +230,7 @@ actions:
         schema:
           type: string
       - name: message_uri
-        description: 
+        description:
         multiline: false
         example: "dhavald@xaybz.onmicrosoft.com"
         required: true
@@ -245,7 +245,7 @@ actions:
           - pending
           - completed
         schema:
-          type: string  
+          type: string
   - name: create_url_threat_assessment
     description: Used to create a URL threat assessment
     parameters:
@@ -265,7 +265,7 @@ actions:
           - block
           - unblock
         schema:
-          type: string 
+          type: string
       - name: category
         description: The threat category
         multiline: false
@@ -286,7 +286,7 @@ actions:
           - pending
           - completed
         schema:
-          type: string  
+          type: string
   - name: create_file_threat_assessment
     description: Used to create a file threat assessment
     parameters:
@@ -303,7 +303,7 @@ actions:
         example: "VGhpcyBpcyBhIHRlc3QgZmlsZQ=="
         required: true
         schema:
-          type: string    
+          type: string
       - name: expected_assessment
         description: The expected assessment from submitter
         multiline: false
@@ -313,7 +313,7 @@ actions:
           - block
           - unblock
         schema:
-          type: string 
+          type: string
       - name: category
         description: The threat category
         multiline: false
@@ -334,9 +334,9 @@ actions:
           - pending
           - completed
         schema:
-          type: string                                      
-  - name: list_secure_score 
-    description: Retrieve a list of secureScore objects 
+          type: string
+  - name: list_secure_score
+    description: Retrieve a list of secureScore objects
     parameters:
       - name: top
         description: Total number of alerts you want to recieve
@@ -344,11 +344,11 @@ actions:
         example: "10"
         required: false
         schema:
-          type: string  
-  - name: list_cases 
+          type: string
+  - name: list_cases
     description: Lists eDiscovery cases
-  - name: get_case 
-    description: Returns eDiscovery case by id 
+  - name: get_case
+    description: Returns eDiscovery case by id
     parameters:
       - name: case_id
         description: eDiscovery case id
@@ -357,8 +357,8 @@ actions:
         required: true
         schema:
           type: string
-  - name: create_case 
-    description: Creates an eDiscovery case 
+  - name: create_case
+    description: Creates an eDiscovery case
     parameters:
       - name: display_name
         description: The name of the eDiscovery case
@@ -367,8 +367,8 @@ actions:
         required: true
         schema:
           type: string
-  - name: update_case 
-    description: Update existing eDiscovery case 
+  - name: update_case
+    description: Update existing eDiscovery case
     parameters:
       - name: case_id
         description: eDiscovery case id
@@ -383,7 +383,7 @@ actions:
         example: "Sample eDiscovery case"
         required: true
         schema:
-          type: string  
+          type: string
       - name: description
         description: Updated description
         multiline: false
@@ -397,9 +397,9 @@ actions:
         example: "external id"
         required: true
         schema:
-          type: string 
-  - name: close_case 
-    description: close a case 
+          type: string
+  - name: close_case
+    description: close a case
     parameters:
       - name: case_id
         description: eDiscovery case id
@@ -407,8 +407,8 @@ actions:
         example: "id"
         required: true
         schema:
-          type: string 
-  - name: reopen_case 
+          type: string
+  - name: reopen_case
     description: Reopen case
     parameters:
       - name: case_id
@@ -417,7 +417,7 @@ actions:
         example: "id"
         required: true
         schema:
-          type: string                 
+          type: string
   - name: list_custodians
     description: Get the custodians that are applied to a case
     parameters:
@@ -429,7 +429,7 @@ actions:
         schema:
           type: string
   - name: get_custodian
-    description: Returns a custodian 
+    description: Returns a custodian
     parameters:
       - name: case_id
         description: eDiscovery case id
@@ -446,7 +446,7 @@ actions:
         schema:
           type: string
   - name: create_custodian
-    description: create a custodian 
+    description: create a custodian
     parameters:
       - name: case_id
         description: eDiscovery case id
@@ -471,9 +471,9 @@ actions:
           - true
           - false
         schema:
-          type: string 
+          type: string
   - name: update_custodian
-    description: update a custodian 
+    description: update a custodian
     parameters:
       - name: case_id
         description: eDiscovery case id
@@ -488,7 +488,7 @@ actions:
         example: "id"
         required: true
         schema:
-          type: string    
+          type: string
       - name: apply_hold_to_sources
         description: Indicates whether a hold is applied to the custodian's sources (such as mailboxes, sites, or Teams)
         multiline: false
@@ -498,9 +498,9 @@ actions:
           - true
           - false
         schema:
-          type: string 
+          type: string
   - name: activate_custodian
-    description: activate a custodian 
+    description: activate a custodian
     parameters:
       - name: case_id
         description: eDiscovery case id
@@ -515,9 +515,9 @@ actions:
         example: "id"
         required: true
         schema:
-          type: string  
+          type: string
   - name: release_custodian
-    description: release a custodian 
+    description: release a custodian
     parameters:
       - name: case_id
         description: eDiscovery case id
@@ -532,7 +532,7 @@ actions:
         example: "id"
         required: true
         schema:
-          type: string 
+          type: string
   - name: list_legalholds
     description: Get the legalHolds that are applied to a case
     parameters:
@@ -542,7 +542,7 @@ actions:
         example: "id"
         required: true
         schema:
-          type: string 
+          type: string
   - name: get_legalhold
     description: Read the properties and relationships of a legalHold object
     parameters:
@@ -576,14 +576,14 @@ actions:
         example: "sample legalhold"
         required: true
         schema:
-          type: string 
+          type: string
       - name: description
         description: legalhold description
         multiline: true
         example: "legalhold description"
         required: true
         schema:
-          type: string 
+          type: string
       - name: is_enabled
         description: legalhold name
         multiline: false
@@ -593,7 +593,7 @@ actions:
           - true
           - false
         schema:
-          type: string 
+          type: string
       - name: status
         description: The status of legalhold
         multiline: false
@@ -605,21 +605,21 @@ actions:
           - Success
           - UnknownFutureValue
         schema:
-          type: string 
+          type: string
       - name: content_query
         description: KQL query that specifies content to be held in the specified locations
         multiline: true
         example: ""
         required: false
         schema:
-          type: string   
+          type: string
       - name: errors
         description: Lists any errors that happened while placing the hold.
         multiline: false
         example: "Use ',' seperator for multiple errors"
         required: false
         schema:
-          type: string  
+          type: string
   - name: list_source_collections
     description: Get the list of sourceCollections from a case object
     parameters:
@@ -639,5 +639,5 @@ actions:
         example: "demo@xyz.onmicrosoft.com"
         required: true
         schema:
-          type: string                                                                                                                                
+          type: string
 large_image: data:image/png;base64,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

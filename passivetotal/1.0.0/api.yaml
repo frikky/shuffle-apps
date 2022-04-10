@@ -1,7 +1,7 @@
 walkoff_version: 1.0.0
 app_version: 1.0.0
-name: passivetotal 
-description: Passivetotal example app 
+name: passivetotal
+description: Passivetotal example app
 environment: cloud
 tags:
   - TI
@@ -29,117 +29,117 @@ authentication:
       example: "ee9618a507fce0b9abb8c6a57e250940qwec76ed0e3fbf304c98372ebbfa72ab"
       required: true
       schema:
-        type: string 
+        type: string
 
 actions:
-  - name: add_artifact 
-    description: Adds an artifact to a project 
+  - name: add_artifact
+    description: Adds an artifact to a project
     parameters:
       - name: project
         description: "The project's ID"
         multiline: false
         example: "59362b45-d69b-4ab1-bdb5-49c01fa7494d"
-        required: true 
+        required: true
         schema:
-          type: string 
-      - name: artifact 
+          type: string
+      - name: artifact
         description: "The item to use"
         multiline: false
         example: "google.com"
-        required: true 
+        required: true
         schema:
-          type: string 
-      - name: tags 
+          type: string
+      - name: tags
         description: "The "
         multiline: false
         example: "malware, ioc, Alexa top 1m"
-        required: false 
+        required: false
         schema:
-          type: string 
+          type: string
     returns:
       schema:
         type: string
-  - name: update_artifact 
+  - name: update_artifact
     description: Updates an artifact, e.g. the monitor
     parameters:
-      - name: artifact_id 
+      - name: artifact_id
         description: "The artifact to update"
         multiline: false
         example: "59362b45-d69b-4ab1-bdb5-49c01fa7494c"
-        required: true 
+        required: true
         schema:
-          type: string 
-      - name: monitor 
+          type: string
+      - name: monitor
         description: "To monitor or not"
         multiline: false
         example: "true"
-        required: false 
+        required: false
         schema:
-          type: string 
-      - name: tags 
+          type: string
+      - name: tags
         description: "The "
         multiline: false
         example: "malware, ioc, Alexa top 1m"
-        required: false 
+        required: false
         schema:
-          type: string 
+          type: string
     returns:
       schema:
         type: string
-  - name: get_artifact 
+  - name: get_artifact
     description: Gets an artifact saved to a project
     parameters:
-      - name: query 
+      - name: query
         description: "The artifact to update"
-        multiline: true 
+        multiline: true
         example: "google.com"
-        required: true 
+        required: true
         schema:
-          type: string 
-  - name: get_alerts 
+          type: string
+  - name: get_alerts
     description: Updates a project
     parameters:
-      - name: project_id 
+      - name: project_id
         description: The project ID to look for
         multiline: false
         example: "59362b45-d69b-4ab1-bdb5-49c01fa7494d"
-        required: true 
+        required: true
         schema:
-          type: string 
-      - name: artifact_id 
+          type: string
+      - name: artifact_id
         description: The artifact ID to look for
         multiline: false
         example: "59362b45-d69b-4ab1-bdb5-49c01fa7494c"
-        required: false 
+        required: false
         schema:
-          type: string 
-      - name: start 
+          type: string
+      - name: start
         description: "The start time to start searching"
         multiline: false
         example: "2017-04-01 00:00:00"
-        required: false 
+        required: false
         schema:
-          type: string 
-      - name: end 
+          type: string
+      - name: end
         description: The end time to search from
-        multiline: false 
+        multiline: false
         example: "2017-04-01 00:00:00"
-        required: false 
+        required: false
         schema:
-          type: string 
+          type: string
     returns:
       schema:
         type: string
-  - name: update_project 
+  - name: update_project
     description: Updates a project
     parameters:
-      - name: data 
+      - name: data
         description: The data to send
         multiline: true
         example: "{\n\t'project': '59362b45-d69b-4ab1-bdb5-49c01fa7494d'\n\t'name': 'Test project'\n}"
-        required: false 
+        required: false
         schema:
-          type: string 
+          type: string
     returns:
       schema:
         type: string

@@ -1,10 +1,10 @@
-import socket
 import asyncio
-import time
-import random
 import json
-import requests
+import random
+import socket
+import time
 
+import requests
 from walkoff_app_sdk.app_base import AppBase
 
 class HelloWorld(AppBase):
@@ -40,7 +40,7 @@ class HelloWorld(AppBase):
         return call
 
     def repeat_back_to_me_multi(self, call, call2, call3):
-        return {"call1": call, "call2": call2, "call3": call3} 
+        return {"call1": call, "call2": call2, "call3": call3}
 
     def return_plus_one(self, number):
         return int(number) + 1
@@ -53,12 +53,12 @@ class HelloWorld(AppBase):
         return "Type: %s" % type(value)
 
     def input_options_test(self, call):
-        return "Value: %s" % call 
+        return "Value: %s" % call
 
     def get_file_value(self, filedata):
         if filedata == None:
             return "File is empty?"
-        
+
         print("INSIDE APP DATA: %s" % filedata)
         return "%s" % filedata["data"].decode()
 
@@ -71,7 +71,7 @@ class HelloWorld(AppBase):
 
         fileret = self.set_files([filedata])
         value = {"success": True, "file_ids": fileret}
-        return value 
+        return value
         #print("Done with upload function")
 
         #return ("Successfully put your data in a file", filedata)
@@ -84,7 +84,7 @@ class HelloWorld(AppBase):
         }])
 
         value = {"success": True, "file_ids": fileret}
-        return value 
+        return value
 
         #return ("Successfully put your data in a file", filedata)
 

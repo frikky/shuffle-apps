@@ -1,5 +1,5 @@
 app_version: 1.0.0
-name: AD LDAP 
+name: AD LDAP
 description: A simple app to query Active Directory and LDAP
 contact_info:
   name: "@arnydo"
@@ -7,10 +7,10 @@ contact_info:
   email: arnydo@pm.me
 tags:
   - activedirectory
-  - ldap 
+  - ldap
 categories:
   - IAM
-  - assets 
+  - assets
 authentication:
   required: true
   parameters:
@@ -60,7 +60,7 @@ actions:
         description: Port to to BIND to
         required: true
         multiline: false
-        example: 3269 
+        example: 3269
         schema:
           type: string
       - name: use_ssl

@@ -1,29 +1,29 @@
-import socket
 import asyncio
-import time
-import random
-import json
-
-import sys
 import getopt
-import joblib
 import json
-from shutil import copyfile
-from colorama import init, Fore, Back, Style
+import random
+import socket
+import sys
+import time
 from operator import itemgetter
+from shutil import copyfile
 
-import classification_tools.preprocessing as prp
-import classification_tools.postprocessing as pop
-import classification_tools.save_results as sr
 import classification_tools as clt
-
+import classification_tools.postprocessing as pop
+import classification_tools.preprocessing as prp
+import classification_tools.save_results as sr
+import joblib
+from colorama import Back
+from colorama import Fore
+from colorama import init
+from colorama import Style
 from walkoff_app_sdk.app_base import AppBase
 
 # 1. Generate the api.yaml based on downloaded files
 # 2. Add a way to choose the rule and the target platform for it
 # 3. Add the possibility of translating rules back and forth
 
-# 4. Make it so you can start with Mitre Att&ck techniques 
+# 4. Make it so you can start with Mitre Att&ck techniques
 # and automatically get the right rules set up with your tools :O
 class rcATT(AppBase):
     __version__ = "1.0.0"
@@ -57,10 +57,10 @@ class rcATT(AppBase):
 
     def get_prediction(self, data):
         report_to_predict = prp.remove_u(data)
-	
+
         # load postprocessingand min-max confidence score for both tactics and techniques predictions
         parameters = joblib.load("classification_tools/data/configuration.joblib")
-        min_prob_tactics = parameters[2][0]	
+        min_prob_tactics = parameters[2][0]
         max_prob_tactics = parameters[2][1]
         min_prob_techniques = parameters[3][0]
         max_prob_techniques = parameters[3][1]

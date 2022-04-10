@@ -1,8 +1,8 @@
 ## AWS Cloudwatch logs
-AWS Cloudwatch app to interact with Amazon CLoudswatch from Shuffle. For more information check out [Cloudwatch logs documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html) 
+AWS Cloudwatch app to interact with Amazon CLoudswatch from Shuffle. For more information check out [Cloudwatch logs documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html)
 
 ## Actions
-Parameters written in **Bold** are required. <br /> 
+Parameters written in **Bold** are required. <br />
 access_key, secret_key and region are used for authentication.
 
 | No. | Action | Description | Parameters |
@@ -19,8 +19,8 @@ access_key, secret_key and region are used for authentication.
 ## Requirements
 
 1. AWS account.
-2. Make sure you have edequate permissions. Refer [this](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/permissions-reference-cwl.html) for more information on persmissions required. 
-3. Access key, Secret key and region of the user. 
+2. Make sure you have edequate permissions. Refer [this](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/permissions-reference-cwl.html) for more information on persmissions required.
+3. Access key, Secret key and region of the user.
 
 - __How to find access key & secret key ?__
 1. Open https://console.aws.amazon.com/
@@ -29,4 +29,3 @@ access_key, secret_key and region are used for authentication.
 4. To see the new access key, choose Show. Your credentials resemble the following:
    - Access key ID: AKIAIOSFODNN7EXAMPLE
    - Secret access key: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
- 

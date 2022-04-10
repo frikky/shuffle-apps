@@ -5,7 +5,7 @@ description: Email app
 tags:
   - email
 categories:
-  - communication 
+  - communication
 contact_info:
   name: "@frikkylikeme"
   url: https://github.com/frikky
@@ -97,17 +97,17 @@ actions:
         required: true
         schema:
           type: string
-      - name: attachments 
-        description: Send files from shuffle as part of the email 
+      - name: attachments
+        description: Send files from shuffle as part of the email
         multiline: false
         example: "file_id1,file_id2,file_id3"
         required: false
         schema:
           type: string
-      - name: ssl_verify 
+      - name: ssl_verify
         description: Whether to use TLS or not
         example: "true"
-        required: false 
+        required: false
         options:
           - true
           - false
@@ -206,10 +206,10 @@ actions:
         required: true
         schema:
           type: bool
-      - name: ssl_verify 
+      - name: ssl_verify
         description: Whether to use TLS or not
         example: "true"
-        required: false 
+        required: false
         options:
           - true
           - false
@@ -229,13 +229,13 @@ actions:
         description: Extension of file you want to convert
         required: true
         options:
-          - eml 
+          - eml
           - msg
         example: 'eml'
         schema:
           type: string
   - name: parse_email_headers
-    description: 
+    description:
     parameters:
       - name: email_headers
         description: Email headers
@@ -243,10 +243,7 @@ actions:
         multiline: true
         example: 'Email Headers'
         schema:
-          type: string            
-    returns:
-      schema:
-        type: string
+          type: string
     returns:
       schema:
         type: string

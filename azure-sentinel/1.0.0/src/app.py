@@ -1,10 +1,10 @@
-import socket
 import asyncio
-import time
 import json
+import socket
+import time
 import uuid
-import requests
 
+import requests
 from walkoff_app_sdk.app_base import AppBase
 
 
@@ -252,7 +252,7 @@ class AzureSentinel(AppBase):
             return {"error": auth["message"]}
 
         query_url = f"{self.azure_url}/subscriptions/{kwargs['subscription_id']}/resourceGroups/{kwargs['resource_group_name']}/providers/Microsoft.OperationalInsights/workspaces/{kwargs['workspace_name']}/savedSearches"
-        
+
         #providers/Microsoft.SecurityInsights/incidents/{kwargs['incident_id']}/comments"
 
         #PUT https://management.azure.com/subscriptions/{subscriptionId} _

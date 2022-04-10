@@ -1,5 +1,5 @@
 app_version: 1.0.0
-name: Cylance 
+name: Cylance
 description: "An app to handle Cylance: https://docs.blackberry.com/content/dam/docs-blackberry-com/release-pdfs/en/cylance-products/api-and-developer-guides/Cylance%20User%20API%20Guide%20v2.0%20rev24.pdf"
 contact_info:
   name: "@frikkylikeme"
@@ -12,7 +12,7 @@ categories:
 authentication:
   required: true
   parameters:
-    - name: app_id 
+    - name: app_id
       description: The app id to use
       example: "*****"
       required: true
@@ -24,179 +24,179 @@ authentication:
       required: true
       schema:
         type: string
-    - name: tenant_id 
+    - name: tenant_id
       description: The tenant ID to use
       example: "*****"
       required: true
       schema:
         type: string
 actions:
-  - name: list_detections 
+  - name: list_detections
     description: Returns all incidents
     parameters:
       - name: page
-        description: The page to use 
-        required: false 
+        description: The page to use
+        required: false
         multiline: false
         example: '1'
         schema:
-          type: string 
+          type: string
       - name: page_size
         description: The amount of items to get
-        required: false 
+        required: false
         multiline: false
         example: '30'
         schema:
-          type: string 
+          type: string
     returns:
       schema:
-        type: string      
+        type: string
   - name: list_threats
-    description: Returns all threats 
+    description: Returns all threats
     parameters:
       - name: page
-        description: The page to use 
-        required: false 
+        description: The page to use
+        required: false
         multiline: false
         example: '1'
         schema:
-          type: string 
+          type: string
       - name: page_size
         description: The amount of items to get
-        required: false 
+        required: false
         multiline: false
         example: '30'
         schema:
-          type: string 
+          type: string
     returns:
       schema:
-        type: string    
+        type: string
   - name: get_threat
     description: Returns a threat
     parameters:
-      - name: threat_id 
+      - name: threat_id
         description: The ID of the detection to get
-        required: true 
+        required: true
         multiline: false
         example: '30'
         schema:
-          type: string 
+          type: string
     returns:
       schema:
-        type: string      
-  - name: get_detection 
+        type: string
+  - name: get_detection
     description: Returns all incidents
     parameters:
-      - name: detection_id 
+      - name: detection_id
         description: The ID of the detection to get
-        required: true 
+        required: true
         multiline: false
         example: '30'
         schema:
-          type: string 
+          type: string
     returns:
       schema:
-        type: string      
-  - name: get_global_list 
-    description: Gets a list of data from a global list 
+        type: string
+  - name: get_global_list
+    description: Gets a list of data from a global list
     parameters:
-      - name: list_type 
+      - name: list_type
         description: The list type defined in Cylance
         options:
-          - GlobalQuarantine 
+          - GlobalQuarantine
           - GlobalSafe
-        required: true 
+        required: true
         multiline: false
         example: '30'
         schema:
-          type: string 
-      - name: page 
+          type: string
+      - name: page
         description: The page to get
         required: false
         multiline: false
         example: '1'
         schema:
-          type: string 
+          type: string
     returns:
       schema:
-        type: string   
-  - name: add_to_global_list 
+        type: string
+  - name: add_to_global_list
     description: Adds a sha256 to a global bad list
     parameters:
-      - name: list_type 
+      - name: list_type
         description: The list type defined in Cylance
         options:
-          - GlobalQuarantine 
+          - GlobalQuarantine
           - GlobalSafe
-        required: true 
+        required: true
         multiline: false
         example: '30'
         schema:
-          type: string 
-      - name: sha256 
+          type: string
+      - name: sha256
         description: The Value to block or allow
-        required: true 
-        multiline: false 
+        required: true
+        multiline: false
         example: '1'
         schema:
-          type: string 
+          type: string
     returns:
       schema:
-        type: string  
-  - name: delete_from_global_list 
+        type: string
+  - name: delete_from_global_list
     description: Deletes a value from a list
     parameters:
-      - name: list_type 
+      - name: list_type
         description: The list type defined in Cylance
         options:
-          - GlobalQuarantine 
+          - GlobalQuarantine
           - GlobalSafe
-        required: true 
+        required: true
         multiline: false
         example: '30'
         schema:
-          type: string 
-      - name: sha256 
+          type: string
+      - name: sha256
         description: The Value to block or allow
-        required: true 
-        multiline: false 
+        required: true
+        multiline: false
         example: 'BF17366EE3BB8068A9AD70FC9E68496E7E311A055BF4FFEEFF53CC5D29CCCE52'
         schema:
-          type: string 
+          type: string
     returns:
       schema:
-        type: string  
-  - name: get_searches 
+        type: string
+  - name: get_searches
     description: Gets all the searches
     parameters:
-      - name: page 
+      - name: page
         description: The Value to block or allow
         required: false
-        multiline: false 
-        example: '1'
-        schema:
-          type: string 
-  - name: create_search 
-    description: Creates a search
-    parameters:
-      - name: search 
-        description: The search to run as JSON
-        required: true
-        multiline: true 
+        multiline: false
         example: '1'
         schema:
           type: string
-  - name: get_search_result 
+  - name: create_search
+    description: Creates a search
+    parameters:
+      - name: search
+        description: The search to run as JSON
+        required: true
+        multiline: true
+        example: '1'
+        schema:
+          type: string
+  - name: get_search_result
     description: Gets the search results for a query
     parameters:
-      - name: search_id 
+      - name: search_id
         description: The ID of the search
         required: true
-        multiline: false 
+        multiline: false
         example: '1'
         schema:
           type: string
     returns:
       schema:
-        type: string  
+        type: string
 large_image: data:image/png;base64,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

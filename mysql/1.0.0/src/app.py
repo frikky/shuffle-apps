@@ -1,9 +1,10 @@
 import asyncio
 import json
-import mysql.connector
-from mysql.connector import errorcode
 
 from walkoff_app_sdk.app_base import AppBase
+
+import mysql.connector
+from mysql.connector import errorcode
 
 
 class MySQL(AppBase):

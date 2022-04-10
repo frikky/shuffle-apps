@@ -8,13 +8,13 @@ contact_info:
 tags:
   - Parser
 categories:
-  - Parser 
+  - Parser
 actions:
   - name: extract
     description: Runs nlp extract on input data
     parameters:
       - name: data
-        description: The text to handle 
+        description: The text to handle
         required: true
         multiline: true
         example: ''
@@ -25,7 +25,7 @@ actions:
         required: true
         multiline: true
         example: 'get_entities'
-        options: 
+        options:
           - get_ipv4s
           - get_urls
           - get_emails

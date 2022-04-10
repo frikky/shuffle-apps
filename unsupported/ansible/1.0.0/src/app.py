@@ -1,10 +1,10 @@
-import socket
 import asyncio
-import time
-import random
 import json
-import ansible.runner
+import random
+import socket
+import time
 
+import ansible.runner
 from walkoff_app_sdk.app_base import AppBase
 
 class Ansible(AppBase):

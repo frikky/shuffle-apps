@@ -1,17 +1,14 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
 import asyncio
-import time
-import random
 import json
-import requests
-import thehive4py
+import random
+import time
 
+import requests
+import thehive4py.models
 from thehive4py.api import TheHiveApi
 from thehive4py.query import *
-import thehive4py.models
-
 from walkoff_app_sdk.app_base import AppBase
 
 
@@ -240,12 +237,12 @@ class TheHive(AppBase):
                     print("ITEM: %s" % item)
                     try:
                         artifact = thehive4py.models.AlertArtifact(
-                            dataType=item["data_type"], 
+                            dataType=item["data_type"],
                             data=item["data"],
                         )
-                        
+
                         try:
-                            artifact["message"] = item["message"] 
+                            artifact["message"] = item["message"]
                         except:
                             pass
 

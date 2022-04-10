@@ -1,5 +1,5 @@
 app_version: 1.0.0
-name: Twitter 
+name: Twitter
 description: A twitter API integration
 contact_info:
   name: "@frikkylikeme"
@@ -7,15 +7,15 @@ contact_info:
   email: frikky@shuffler.io
 tags:
   - Intel
-  - Misc 
-  - Tweet 
-  - Comms 
+  - Misc
+  - Tweet
+  - Comms
 categories:
-  - Intel 
+  - Intel
 authentication:
   required: true
   parameters:
-    - name: consumer_key 
+    - name: consumer_key
       description: The  consumer key to use
       example: "*****"
       required: true
@@ -27,23 +27,23 @@ authentication:
       required: true
       schema:
         type: string
-    - name: access_token 
+    - name: access_token
       description: The  consumer key to use
       example: "*****"
       required: true
       schema:
         type: string
-    - name: access_token_secret 
+    - name: access_token_secret
       description: The access token secret to use
       example: "*****"
       required: true
       schema:
         type: string
 actions:
-  - name: send_tweet 
+  - name: send_tweet
     description: Send a tweet with Shuffle
     parameters:
-      - name: message 
+      - name: message
         description: The mssage to send. Max 280 characters
         required: true
         multiline: true
@@ -53,10 +53,10 @@ actions:
     returns:
       schema:
         type: string
-  - name: delete_tweet 
+  - name: delete_tweet
     description: Delete a tweet by ID with Shuffle
     parameters:
-      - name: tweet_id 
+      - name: tweet_id
         description: The mssage to send. Max 280 characters
         required: true
         multiline: true
