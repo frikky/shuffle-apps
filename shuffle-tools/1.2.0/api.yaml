@@ -822,28 +822,28 @@ actions:
         example: "{'key2': 'value2'}"
         schema:
           type: string
-  - name: set_json_key
+  - name: set_json_keys
     description: Adds a JSON key to an existing object
     parameters:
       - name: json_object
         description: The object to edit
         multiline: true
-        example: '{"sender": "me@test.com"}'
+        example: '{"user": {"name": "John", "age": 25, "city": "New York"}}'
         required: true
         schema:
           type: string
-      - name: key 
+      - name: keys_string 
         description: The object to add 
-        multiline: false
-        example: "recipients"
+        multiline: true
+        example: "user.address.city , user.name"
         required: true
         schema:
           type: string
-      - name: value 
-        description: The value to set it to in the JSON object
+      - name: values_string
+        description: The values to set it to in the JSON object
         multiline: true
         required: true
-        example: "colleague@test.com"
+        example: "value1 , value2"
         schema:
           type: string
   - name: delete_json_keys

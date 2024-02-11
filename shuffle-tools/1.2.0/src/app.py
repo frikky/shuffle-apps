@@ -302,8 +302,8 @@ class Tools(AppBase):
 
         return str(len(item))
 
-    def set_json_key(self, json_object, key, value):
-        self.logger.info(f"OBJ: {json_object}\nKEY: {key}\nVAL: {value}")
+    def set_json_keys(self, json_object, keys_string, values_string):
+        self.logger.info(f"OBJ: {json_object}\nKEY: {keys_string}\nVAL: {values_string}")
         if isinstance(json_object, str):
             try:
                 json_object = json.loads(json_object)
@@ -322,42 +322,28 @@ class Tools(AppBase):
                     "reason": "Item is valid JSON, but can't handle lists. Use .#"
                 }
 
-        #if not isinstance(json_object, object):
-        #    return {
-        #        "success": False,
-        #        "reason": "Item is not valid JSON (2)"
-        #    }
+        keys = keys_string.split(",")
+        values = values_string.split(",")
 
-        
-        if isinstance(value, str):
-            try:
-                value = json.loads(value)
-            except json.decoder.JSONDecodeError as e:
-                pass
+        for key, value in zip(keys, values):
+            key = key.strip()
+            value = value.strip()
 
-        # Handle JSON paths
-        if "." in key:
-            base_object = json.loads(json.dumps(json_object))
-            #base_object.output.recipients.notificationEndpointIds = ... 
+            key_list = key.split(".")
+            current = json_object
 
-            keys = key.split(".")
-            if len(keys) >= 1:
-                first_object = keys[0]
+            for subkey in key_list[:-1]:
+                current = current.setdefault(subkey, {})
 
-            # This is awful :)
-            buildstring = "base_object"
-            for subkey in keys:
-                buildstring += f"[\"{subkey}\"]" 
+            last_key = key_list[-1]
 
-            buildstring += f" = {value}"
-            self.logger.info("BUILD: %s" % buildstring)
+            if isinstance(value, str):
+                  try:
+                    value = json.loads(value)
+                  except json.decoder.JSONDecodeError as e:
+                      value = str(value)
 
-            #output = 
-            exec(buildstring)
-            json_object = base_object
-            #json_object[first_object] = base_object
-        else:
-            json_object[key] = value
+            current[last_key] = value
 
         return json_object
 
