@@ -832,14 +832,14 @@ actions:
         required: true
         schema:
           type: string
-      - name: keys_string 
+      - name: keys
         description: The object to add 
         multiline: true
         example: "user.address.city , user.name"
         required: true
         schema:
           type: string
-      - name: values_string
+      - name: values
         description: The values to set it to in the JSON object
         multiline: true
         required: true
