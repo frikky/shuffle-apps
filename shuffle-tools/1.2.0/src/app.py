@@ -302,8 +302,8 @@ class Tools(AppBase):
 
         return str(len(item))
 
-    def set_json_keys(self, json_object, keys_string, values_string):
-        self.logger.info(f"OBJ: {json_object}\nKEY: {keys_string}\nVAL: {values_string}")
+    def set_json_keys(self, json_object, keys, values):
+        self.logger.info(f"OBJ: {json_object}\nKEY: {keys}\nVAL: {values}")
         if isinstance(json_object, str):
             try:
                 json_object = json.loads(json_object)
@@ -322,8 +322,52 @@ class Tools(AppBase):
                     "reason": "Item is valid JSON, but can't handle lists. Use .#"
                 }
 
-        keys = keys_string.split(",")
-        values = values_string.split(",")
+        #if not isinstance(json_object, object):
+        #    return {
+        #        "success": False,
+        #        "reason": "Item is not valid JSON (2)"
+        #    }
+
+        # if isinstance(value, str):
+        #     try:
+        #         value = json.loads(value)
+        #     except json.decoder.JSONDecodeError as e:
+        #         pass
+
+        #  Handle JSON paths
+        # if "." in key:
+        #     base_object = json.loads(json.dumps(json_object))
+        #     base_object.output.recipients.notificationEndpointIds = ... 
+
+        #     keys = key.split(".")
+        #     if len(keys) >= 1:
+        #         first_object = keys[0]
+
+        #     This is awful :)
+        #     buildstring = "base_object"
+        #     for subkey in keys:
+        #         buildstring += f"[\"{subkey}\"]" 
+
+        #     buildstring += f" = {value}"
+        #     self.logger.info("BUILD: %s" % buildstring)
+
+        #     output = 
+        #     exec(buildstring)
+        #     json_object = base_object
+        #     json_object[first_object] = base_object
+        # else:
+        #     json_object[key] = value
+
+        # return json_object
+
+        if len(keys) != len(values):
+              return {
+                   "success": False,
+                   "reason": "Lengths of keys and values are different"
+              }
+
+        keys = keys.split(",")
+        values = values.split(",")
 
         for key, value in zip(keys, values):
             key = key.strip()
