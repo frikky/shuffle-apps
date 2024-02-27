@@ -2684,6 +2684,44 @@ class Tools(AppBase):
             return "Failed to parse IOC's: %s" % e
 
         return newarray
+
+    def list_cidr_ips(self, cidr):
+        defaultreturn = {
+            "success": False,
+            "reason": "Invalid CIDR address"
+        }
+
+        if not cidr:
+            return defaultreturn
+
+        if "/" not in cidr:
+            defaultreturn["reason"] = "CIDR address must contain / (e.g. /12)"
+            return defaultreturn
+
+        try:
+            cidrnumber = int(cidr.split("/")[1])
+        except ValueError as e:
+            defaultreturn["exception"] = str(e)
+            return defaultreturn
+
+        if cidrnumber < 12:
+            defaultreturn["reason"] = "CIDR address too large. Please stay above /12"
+            return defaultreturn
+
+        try:
+            net = ipaddress.ip_network(cidr)
+        except ValueError as e:
+            defaultreturn["exception"] = str(e)
+            return defaultreturn
+
+        ips = [str(ip) for ip in net]
+        returnvalue = {
+            "success": True,
+            "amount": len(ips),
+            "ips": ips
+        }
+
+        return returnvalue
     
 
 if __name__ == "__main__":

@@ -955,6 +955,19 @@ actions:
     returns:
       schema:
         type: string
+  - name: list_cidr_ips
+    description: Lists the IPs for a CIDR 
+    parameters:
+      - name: cidr 
+        description: IP CIDR to check
+        multiline: false
+        example: "1.1.1.0/24"
+        required: True
+        schema:
+          type: string
+    returns:
+      schema:
+        type: string
   - name: cidr_ip_match
     description: Check if an IP is contained in a CIDR defined network
     parameters:
