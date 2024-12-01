@@ -1,4 +1,4 @@
-cryptography==3.3.2
+cryptography==39.0.1
 exchangelib==3.3.2
 eml_parser==1.14.4
 glom==20.11.0
