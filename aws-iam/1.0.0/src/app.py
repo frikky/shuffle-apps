@@ -41,12 +41,18 @@ class AWSIAM(AppBase):
             },
         )
 
-        self.iam = boto3.resource(
-            'iam', 
-            config=my_config, 
-            aws_access_key_id=access_key,
-            aws_secret_access_key=secret_key,
-        )
+        if access_key!="":
+            self.iam = boto3.resource(
+                'iam', 
+                config=my_config, 
+                aws_access_key_id=access_key,
+                aws_secret_access_key=secret_key,
+            )
+        else:
+            self.iam = boto3.resource(
+                'iam', 
+                config=my_config,
+            )
 
         return self.iam
 

@@ -32,12 +32,18 @@ class AWSEC2(AppBase):
             },
         )
 
-        return boto3.client(
-            'securityhub', 
-            config=my_config,
-            aws_access_key_id=access_key,
-            aws_secret_access_key=secret_key,
-        )
+        if access_key!="":
+            return boto3.client(
+                'securityhub', 
+                config=my_config, 
+                aws_access_key_id=access_key,
+                aws_secret_access_key=secret_key,
+            )
+        else:
+            return boto3.client(
+                'securityhub', 
+                config=my_config, 
+            )
 
     # Write your data inside this function
     def enable_security_hub(self, access_key, secret_key, region):

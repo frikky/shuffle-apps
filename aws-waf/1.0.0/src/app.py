@@ -32,8 +32,11 @@ class AWSEC2(AppBase):
                 'mode': 'standard'
             },
         )
+        if access_key!="":
+           return boto3.client('wafv2', config=my_config, aws_access_key_id=access_key, aws_secret_access_key=secret_key)
+        else:
+            return boto3.client('wafv2', config=my_config)
 
-        return boto3.client('wafv2', config=my_config, aws_access_key_id=access_key, aws_secret_access_key=secret_key)
 
     # Write your data inside this function
     def block_ip_waf(self, access_key, secret_key, region, ipset_name, ip):

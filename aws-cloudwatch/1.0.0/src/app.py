@@ -49,12 +49,18 @@ class CloudWatch(AppBase):
             },
         )
 
-        self.cloudwatch = boto3.client(
-            'logs', 
-            config = my_config, 
-            aws_access_key_id = access_key,
-            aws_secret_access_key = secret_key,
-        )
+        if access_key!="":
+            self.cloudwatch = boto3.resource(
+                'logs', 
+                config=my_config, 
+                aws_access_key_id=access_key,
+                aws_secret_access_key=secret_key,
+            )
+        else:
+            self.cloudwatch = boto3.resource(
+                'logs', 
+                config=my_config,
+            )
         print(self.cloudwatch)
         return self.cloudwatch
 

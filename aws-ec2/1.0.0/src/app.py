@@ -41,12 +41,18 @@ class AWSEC2(AppBase):
             },
         )
 
-        self.ec2 = boto3.resource(
-            'ec2', 
-            config = my_config, 
-            aws_access_key_id = access_key,
-            aws_secret_access_key = secret_key,
-        )
+        if access_key!="":
+            self.ec2 = boto3.resource(
+                'ec2', 
+                config=my_config, 
+                aws_access_key_id=access_key,
+                aws_secret_access_key=secret_key,
+            )
+        else:
+            self.ec2 = boto3.resource(
+                'ec2', 
+                config=my_config,
+            )
 
         return self.ec2
 

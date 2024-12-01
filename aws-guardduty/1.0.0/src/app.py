@@ -32,14 +32,19 @@ class AWSGuardduty(AppBase):
             },
         )
 
-        return boto3.client(
-            'guardduty', 
-            config=my_config, 
-            aws_access_key_id=access_key,
-            aws_secret_access_key=secret_key,
-        )
-
-
+        if access_key!="":
+            return boto3.client(
+                'guardduty', 
+                config=my_config, 
+                aws_access_key_id=access_key,
+                aws_secret_access_key=secret_key,
+            )
+        else:
+            return boto3.client(
+                'guardduty', 
+                config=my_config, 
+            )
+        
     def create_detector(self, access_key, secret_key, region, enable):
         client = self.auth_guardduty(access_key, secret_key, region)
         try:

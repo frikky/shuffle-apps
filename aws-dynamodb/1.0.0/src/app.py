@@ -32,12 +32,18 @@ class AWSDynamoDB(AppBase):
             },
         )
 
-        self.dynamodb = boto3.resource(
-            'dynamodb', 
-            config=my_config, 
-            aws_access_key_id=access_key,
-            aws_secret_access_key=secret_key,
-        )
+        if access_key!="":
+            self.dynamodb = boto3.resource(
+                'dynamodb', 
+                config=my_config, 
+                aws_access_key_id=access_key,
+                aws_secret_access_key=secret_key,
+            )
+        else:
+            self.dynamodb = boto3.resource(
+                'dynamodb', 
+                config=my_config,
+            )
 
         return self.dynamodb
 

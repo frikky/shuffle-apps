@@ -16,13 +16,13 @@ authentication:
     - name: access_key 
       description: The access key to use
       example: "*****"
-      required: true
+      required: false
       schema:
         type: string
     - name: secret_key
       description: The secret key to use 
       example: "*****"
-      required: true
+      required: false
       schema:
         type: string
     - name: region 

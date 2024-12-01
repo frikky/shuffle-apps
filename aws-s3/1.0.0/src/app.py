@@ -32,12 +32,18 @@ class AWSS3(AppBase):
             },
         )
 
-        self.s3 = boto3.resource(
-            's3', 
-            config=my_config, 
-            aws_access_key_id=access_key,
-            aws_secret_access_key=secret_key,
-        )
+        if access_key!="":
+            self.s3 = boto3.resource(
+                's3', 
+                config=my_config, 
+                aws_access_key_id=access_key,
+                aws_secret_access_key=secret_key,
+            )
+        else:
+            self.s3 = boto3.resource(
+                's3', 
+                config=my_config,
+            )
 
         return self.s3
 

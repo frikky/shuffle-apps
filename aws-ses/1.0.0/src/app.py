@@ -32,12 +32,18 @@ class AWSSES(AppBase):
             },
         )
 
-        self.ses = boto3.client(
-            'ses',
-            config = my_config,
-            aws_access_key_id = access_key,
-            aws_secret_access_key = secret_key,
-        )
+        if access_key!="":
+            self.dynamodb = boto3.resource(
+                'ses', 
+                config=my_config, 
+                aws_access_key_id=access_key,
+                aws_secret_access_key=secret_key,
+            )
+        else:
+            self.dynamodb = boto3.resource(
+                'ses', 
+                config=my_config,
+            )
 
         return self.ses
 

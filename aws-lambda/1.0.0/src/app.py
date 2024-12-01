@@ -31,13 +31,19 @@ class AWSLambda(AppBase):
                 'mode': 'standard'
             },
         )
-
-        return boto3.client(
-            'lambda', 
-            config=my_config, 
-            aws_access_key_id=access_key,
-            aws_secret_access_key=secret_key,
-        )
+        
+        if access_key!="":
+            return boto3.client(
+                'lambda', 
+                config=my_config, 
+                aws_access_key_id=access_key,
+                aws_secret_access_key=secret_key,
+            )
+        else:
+            return boto3.client(
+                'lambda', 
+                config=my_config, 
+            )
 
 
     def list_functions(self, access_key, secret_key, region):
