@@ -1589,7 +1589,7 @@ class Tools(AppBase):
             if isinstance(list_one, dict) and isinstance(list_two, dict):
                 for key, value in list_two.items():
                     list_one[key] = value
-            
+
                 return list_one
 
             return {"success": False, "message": "Both input lists need to be valid JSON lists."}
@@ -1626,11 +1626,15 @@ class Tools(AppBase):
                         set_field = set_field.replace(" ", "_", -1)
                         list_one[i][set_field] = list_two[i]
         except Exception as e:
-            return {
-                "success": False,
-                "reason": "An error occurred while merging the lists. PS: List one can NOT be a list of integers. If this persists, contact us at support@shuffler.io",
-                "exception": f"{e}",
-            }
+            try:
+                # if nothing works lets try to add both list
+                list_one = list_one + list_two
+            except Exception as e:
+                return {
+                    "success": False,
+                    "reason": "An error occurred while merging the lists. If this persists, contact us at support@shuffler.io",
+                    "exception": f"{e}",
+                }
 
         return list_one
 
